@@ -25,7 +25,7 @@ T.I.N.T. is a micro-blogging platform in the vein of Tumblr where users can make
  0. Backend setup and Front End User Authentication (2 days)
   - objective: Functioning auth pattern, front and backend, with operational database and initial views.
  0. Post submission forms(2-3 days)
-  - objective: Forms and submission support for various kinds of posts: text, image, video, quote, etc.
+  - objective: Forms and submission support for various kinds of posts: text, image, video, etc.
  0. Content feed (2 days)
   - objective: smooth running feed of posts sorted by creation date.
  0. Follows (1 day)
