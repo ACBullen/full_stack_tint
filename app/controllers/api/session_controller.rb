@@ -14,6 +14,8 @@ class Api::SessionController < ApplicationController
   end
 
   def destroy
-
+    current_user.reset_session_token
+    sesssion[:session_token] = nil
+    render json: {}
   end
 end
