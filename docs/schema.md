@@ -1,4 +1,4 @@
-Database Schema
+# Database Schema
 
 ## users
 column name     | data type | details
