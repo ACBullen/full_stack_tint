@@ -71,6 +71,7 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 audio           | string    | not null
+title           | string    | not null
 desc            | text      |
 
 ##Image Posts
