@@ -1,6 +1,6 @@
 Database Schema
 
-##users
+## users
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -8,7 +8,7 @@ username        | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
-##Postings
+## Postings
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -16,21 +16,21 @@ user_id         | integer   | not null, foreign id, indexed
 type            | string    | not_null
 post_id         | integer   | not null, foreign id, indexed
 
-##Followings
+## Followings
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 follower_id     | integer   | not null, foreign id, indexed
 followee_id     | integer   | not null, foreign id, indexed
 
-##Likings
+## Likings
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 post_id         | integer   | not null, foreign id, indexed
 user_id         | integer   | not null, foreign id, indexed
 
-##Text Posts
+## Text Posts
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -45,7 +45,7 @@ text_post_id    | integer   | not null, foreign id, indexed
 type            | string    | not_null
 media_post_id   | integer   | not null, foreign id, indexed
 
-##Quote Posts
+## Quote Posts
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -59,7 +59,7 @@ id              | integer   | not null, primary key
 link            | string    | not null
 description     | text      |
 
-##Video Posts
+## Video Posts
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -74,7 +74,7 @@ audio           | string    | not null
 title           | string    | not null
 desc            | text      |
 
-##Image Posts
+## Image Posts
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key

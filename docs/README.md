@@ -1,6 +1,6 @@
-#T.I.N.T. (This Is Not Tumblr)
+# T.I.N.T. (This Is Not Tumblr)
 
-[T.I.N.T live version][http://this_isnt_online_yet.com]
+[T.I.N.T live version](http://this_isnt_online_yet.com)
 
 ## Minimum Viable Project
 
@@ -15,11 +15,11 @@ T.I.N.T. is a micro-blogging platform in the vein of Tumblr where users can make
    - Production README
 
 ### Design Docs
-  * [View Wireframes][docs/wireframes]
-  * [Component Hierarchy][docs/component-hierarchy.md]
-  * [API endpoints][docs/api-endpoints.md]
-  * [DB schema][docs/schema.md]
-  * [Sample State][docs/sample-state.md]
+  * [View Wireframes](docs/wireframes)
+  * [Component Hierarchy](docs/component-hierarchy.md)
+  * [API endpoints](docs/api-endpoints.md)
+  * [DB schema](docs/schema.md)
+  * [Sample State](docs/sample-state.md)
 
 ## Implementation Timeline
  0. Backend setup and Front End User Authentication (2 days)
