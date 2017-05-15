@@ -3,7 +3,7 @@
   currentUser: {
     id:1,
     username: "Alex",
-    profile_pic: http://imgur.com/face-pic.jpg
+    profile_pic: http://imgur.com/face-pic.jpg,
     following: [2, 3, 4]
   },
   users: {
@@ -19,9 +19,8 @@
     }
   },
   errors: {
-    signUp: {errors: []},
-    logIn: {errors: []},
-    postErrors: {errors: ["Must include image"]}
+    sessionErrors: [],
+    postErrors: ["Must include image"]
   },
   posts: {
 
