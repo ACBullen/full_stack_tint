@@ -1,6 +1,10 @@
-<div id="root">
-  <%if current_user%>
-  <h2><%=current_user%></h2>
+<script type="text/javascript">
+<%if current_user%>
+window.currentUser = <%= render(
+  "api/users/user.json.jbuilder",
+  user: current_user).html_safe %>
   <% end %>
+  </script>
+<div id="root">
   <h1>React is not running.</h1>
 <div>
