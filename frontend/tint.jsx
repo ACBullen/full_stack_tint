@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import configureStore from './store/store';
+import App from './App'
 
 // files brought in for testing purposes only. Remove when unneeded
 import * as APIUtilS from './util/session_api_util';
@@ -15,5 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.store = store;
   window.APIUtilS = APIUtilS;
-  ReactDOM.render(<h1>Tint Test</h1>, root)
+  ReactDOM.render(<App store={store} />, root)
 });
