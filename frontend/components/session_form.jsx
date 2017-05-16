@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
           <lable>Password:
             <input type="password" value={this.state.password} onChange={this.handlePasswordInput}/>
             <ul id='authErrors'>
-              {this.props.errors ? this.props.errors.map((err, idx)=> <li key={idx}>{err}</li>) : ''}
+              {this.props.errors && this.props.errors.responseJSON ? this.props.errors.responseJSON.map((err, idx)=> <li key={idx}>{err}</li>) : ''}
             </ul>
           </lable>
           <div id="SignIn-Up-demo-buttons">

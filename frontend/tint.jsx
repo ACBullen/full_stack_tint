@@ -5,7 +5,7 @@ import configureStore from './store/store';
 import App from './App'
 
 // files brought in for testing purposes only. Remove when unneeded
-import * as APIUtilS from './util/session_api_util';
+// import * as APIUtilS from './util/session_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.store = store;
-  window.APIUtilS = APIUtilS;
+  // window.store = store;
+  // window.APIUtilS = APIUtilS;
   ReactDOM.render(<App store={store} />, root)
 });

@@ -15,8 +15,10 @@ export const receiveSessionErrors = (errors) =>({
 
 export const logIn = (user) => dispatch =>{
   return APIUtilS.logIn(user).then(
-    (res)=>(dispatch(receiveCurrentUser(res))),
-    (err) => (dispatch(receiveSessionErrors(err)))
+    (res)=> {
+      dispatch(receiveSessionErrors({}))
+      return dispatch(receiveCurrentUser(res))},
+    (err) => dispatch(receiveSessionErrors(err))
   );
 };
 
@@ -29,7 +31,9 @@ export const logOut = () => dispatch => {
 
 export const signUp = user => dispatch =>{
   return APIUtilS.signUp(user).then(
-    (res) => (dispatch(receiveCurrentUser(user))),
+    (res) => {
+      dispatch(receiveSessionErrors({}))
+      return dispatch(receiveCurrentUser(res))},
     (err) => (dispatch(receiveSessionErrors(err)))
   );
 };
