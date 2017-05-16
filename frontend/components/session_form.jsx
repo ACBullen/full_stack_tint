@@ -7,6 +7,31 @@ class SessionForm extends React.Component {
       username: '',
       password: ''
     }
+
+    this.handleUsernameInput = this.handleUsernameInput.bind(this);
+    this.handlePasswordInput = this.handlePasswordInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
+  }
+
+  handleUsernameInput (e) {
+    e.preventDefault();
+    this.setState({ username: e.currentTarget.value });
+  }
+
+  handlePasswordInput (e) {
+    e.preventDefault();
+    this.setState({ password: e.currentTarget.value})
+  }
+
+  handleSubmit (e) {
+    e.preventDefault();
+    this.props.processForm(this.state);
+  }
+
+  handleDemo (e) {
+    e.preventDefault();
+    this.props.demoSignIn();
   }
 
   render() {
@@ -15,13 +40,13 @@ class SessionForm extends React.Component {
       <div id='SessionForm'>
         <h2>{((type === '/login') ? "Sign In" : "Sign Up")}</h2>
         <lable> Username:
-        <input type="text" />
+        <input type="text" value={this.state.username} onChange={this.handleUsernameInput}/>
         </lable>
         <lable>Password:
-          <input type="password" />
+          <input type="password" value={this.state.password} onChange={this.handlePasswordInput}/>
         </lable>
         <div id="SignIn/Up/demo buttons">
-          <button type='button'>{(type === '/login') ? `Sign In` : `Sign Up` }</button>
+          <button onClick={handleSubmit} type='button'>{(type === '/login') ? `Sign In` : `Sign Up` }</button>
           <button type="button">Demo Sign-In</button>
         </div>
     </div>
