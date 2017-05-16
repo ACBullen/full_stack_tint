@@ -30,7 +30,7 @@ class SessionForm extends React.Component {
   }
 
   handleDemo (e) {
-    console.log('demo');
+
     e.preventDefault();
     this.props.demoSignIn();
   }

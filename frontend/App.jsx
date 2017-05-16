@@ -6,7 +6,6 @@ import Main from './components/main';
 
 
 const App = ({store}) => {
-  console.log("App rendering");
 return(
   <div>
     <Provider store={store}>
