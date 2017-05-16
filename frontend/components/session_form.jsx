@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -12,6 +13,12 @@ class SessionForm extends React.Component {
     this.handlePasswordInput = this.handlePasswordInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(newProps.loggedIn){
+      this.props.history.push('/');
+    }
   }
 
   handleUsernameInput (e) {
@@ -49,6 +56,10 @@ class SessionForm extends React.Component {
         <div id="SignIn/Up/demo buttons">
           <button onClick={this.handleSubmit} type='button'>{(type === '/login') ? `Sign In` : `Sign Up` }</button>
           <button onClick={this.handleDemo} type="button">Demo Sign-In</button>
+        </div>
+        <div id="SF Footer">
+          { type === '/login' ? (<Link to="/signup">Already have an account? Sign In!</Link>) : (
+            <Link to='/login'>Need an account? Sign Up!</Link>) }
         </div>
     </div>
     )
