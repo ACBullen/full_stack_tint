@@ -9,6 +9,7 @@ const Main = ({store}) => (
     <header>
       <h1>T.I.N.T.</h1>
     </header>
+    
     <Route path= "/" component={SessionFormContainer} />
   </div>
 )
