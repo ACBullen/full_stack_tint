@@ -8,7 +8,7 @@ class SessionForm extends React.Component {
       username: '',
       password: ''
     }
-
+    console.log(props);
     this.handleUsernameInput = this.handleUsernameInput.bind(this);
     this.handlePasswordInput = this.handlePasswordInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,7 +17,7 @@ class SessionForm extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if(newProps.loggedIn){
-      this.props.history.push('/');
+      this.props.history.push('/home');
     }
   }
 
@@ -44,24 +44,28 @@ class SessionForm extends React.Component {
 
   render() {
     let type = this.props.formType;
+
     return (
       <div id='SessionForm'>
-        <h2>{((type === '/login') ? "Sign In" : "Sign Up")}</h2>
+        <div id="SFHeader">
+          <h2>{((type === '/login') ? "Sign In" : "Sign Up")}</h2>
+        </div>
         <lable> Username:
         <input type="text" value={this.state.username} onChange={this.handleUsernameInput}/>
         </lable>
         <lable>Password:
           <input type="password" value={this.state.password} onChange={this.handlePasswordInput}/>
         </lable>
-        <div id="SignIn/Up/demo buttons">
+        <div id="SignIn-Up-demo-buttons">
           <button onClick={this.handleSubmit} type='button'>{(type === '/login') ? `Sign In` : `Sign Up` }</button>
           <button onClick={this.handleDemo} type="button">Demo Sign-In</button>
         </div>
-        <div id="SF Footer">
-          { type === '/login' ? (<Link to="/signup">Already have an account? Sign In!</Link>) : (
-            <Link to='/login'>Need an account? Sign Up!</Link>) }
+        <div id="SFFooter">
+          { type === '/login' ? (<Link to='/signup'>Need an account? Sign Up!</Link>) : (
+            <Link to="/login">Already have an account? Sign In!</Link>
+          )}
         </div>
-    </div>
+      </div>
     )
   }
 }

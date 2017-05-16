@@ -3,17 +3,13 @@ import { Route } from 'react-router-dom';
 import SessionFormContainer from './session_form_container';
 import NavContainer from './nav_container';
 import { AuthRoute } from '../util/auth_util';
-//Separate h1 into a nav bar component with the related info in later
-//refactoring.
+
 
 class Main extends React.Component {
   constructor(props){
     super(props);
-  }
+    this.state = {render: 0}
 
-  componentWillReceiveProps(newProps){
-    console.log(newProps);
-    this.forceUpdate()
   }
 
   render () {
@@ -23,8 +19,10 @@ class Main extends React.Component {
           <NavContainer />
         </header>
         <div id="MainBody">
-          <AuthRoute exact path= "/login" component={SessionFormContainer} />
-          <AuthRoute exact path= "/signup" component={SessionFormContainer} />
+          <switch>
+          <AuthRoute path= "/login" component={SessionFormContainer} />
+          <AuthRoute path= "/signup" component={SessionFormContainer} />
+          </switch>
         </div>
       </div>
     )
