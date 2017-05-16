@@ -11,7 +11,8 @@ const Main = ({store}) => (
       <NavContainer />
     </header>
     <div id="MainBody">
-      <Route path= "/" component={SessionFormContainer} />
+      <Route exact path= "/login" component={SessionFormContainer} />
+      <Route path= "/signup" component={SessionFormContainer} />
     </div>
   </div>
 )
