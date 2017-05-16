@@ -10,8 +10,9 @@ const Main = ({store}) => (
     <header>
       <NavContainer />
     </header>
-
-    <Route path= "/" component={SessionFormContainer} />
+    <div id="MainBody">
+      <Route path= "/" component={SessionFormContainer} />
+    </div>
   </div>
 )
 
