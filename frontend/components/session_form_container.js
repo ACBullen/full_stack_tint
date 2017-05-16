@@ -12,9 +12,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   processForm: (user) => (ownProps.location.pathname === '/login' ?
-     store.dispatch(logIn(user)) :  store.dispatch(signUp(user))
+     dispatch(logIn(user)) :  dispatch(signUp(user))
   ),
-  demoSignIn: () => (store.dispatch(logIn({username: 'Demo', password: 'password'})))
+  demoSignIn: () => (dispatch(logIn({username: 'Demo', password: 'password'})))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionForm));
