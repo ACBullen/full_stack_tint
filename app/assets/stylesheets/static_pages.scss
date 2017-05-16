@@ -1,6 +1,15 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body header p div h1 {
+  margin: 0;
+  padding: 0;
+  display: inherit;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
 body {
   background-color: #0000b3;
   color: black;
@@ -11,14 +20,43 @@ body {
     1px 1px 0 #ffffff;
 }
 
+#MainBody {
+  display: flex;
+  justify-content: center;
+}
+
 #SessionForm {
   background-color: white;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid black;
-  padding: 3px;
-  border-radius: 3px;
+  padding: 5px;
+  width: 400px;
+  margin: 40px;
+  border-radius: 5px;
+
 }
 
 #SessionForm input {
+  margin: 0 auto;
   display: block;
+}
+#SessionForm h2 {
+  margin: 10 auto;
+  display: inline-block;
+  width: 410px;
+  border-bottom: 1px solid black;
+
+}
+
+#NavBar {
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+}
+
+#NavBar {
+
 }
