@@ -1,9 +1,8 @@
 # Component Hierarchy
 
-### AuthFormContainer
-  - AuthFormContainer
-
 ### MainPageContainer
+  - AuthFormContainer
+    - AuthForm
   - NavBar
   - FeedIndexContainer
     - FeedIndex
