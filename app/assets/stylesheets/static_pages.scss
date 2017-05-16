@@ -35,25 +35,69 @@ body {
   padding: 5px;
   width: 400px;
   margin: 40px;
+  margin-top: 100px;
   border-radius: 5px;
 
 }
 
+
+
 #SessionForm input {
-  margin: 0 auto;
+  margin: 10px auto;
   display: block;
+  width: 160px;
 }
-#SessionForm h2 {
-  margin: 10 auto;
-  display: inline-block;
+
+#SessionForm lable {
+  margin: 10px auto;
+  font-size: 18px;
+}
+
+#SFHeader {
   width: 410px;
   border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
 
+#SFHeader h2 {
+  margin: 5 auto;
+  display: inline-block;
+
+}
+
+#SignIn-Up-demo-buttons{
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+  margin-bottom: 50px;
+}
+
+#SFFooter {
+  border-top: 1px solid black;
+  display: flex;
+  width: 410px;
+  justify-content: center;
+}
+#SFFooter a {
+  margin: 10px;
 }
 
 #NavBar {
   border-bottom: 1px solid white;
+  background-color: #0000b3;
   display: flex;
+  width: 100%;
   justify-content: space-between;
   font-family: fantasy;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+#NavBar div {
+  padding: 2px;
+  display: flex;
 }

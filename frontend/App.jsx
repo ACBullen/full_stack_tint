@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 
 import Main from './components/main';
 
@@ -10,7 +10,7 @@ return(
   <div>
     <Provider store={store}>
       <HashRouter>
-        <Main />
+        <Route path="/" component={Main} />
       </HashRouter>
     </Provider>
   </div>
