@@ -7,7 +7,7 @@ const ErrorsReducer = (state={}, action) => {
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
       let newState = merge({}, state);
-      newState.session_errors = action.errors.responseJSON
+      newState.session_errors = action.errors
       return newState
     default:
       return state;
