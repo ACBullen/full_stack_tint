@@ -19,7 +19,7 @@ class Nav extends React.Component {
         <h1>T.I.N.T.</h1>
         <div>
           { this.props.currentUser.username ?(
-            <div>
+            <div id="currentUserInfo">
         <img width="20px" height="20px" src={`${this.props.currentUser.profile_pic}`}/>
             <h3>{`${this.props.currentUser.username}`}</h3>
           </div>)
