@@ -10,8 +10,10 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let type = this.props.formType;
     return (
       <div id='SessionForm'>
+        <h2>{((type === '/login') ? "Sign In" : "Sign Up")}</h2>
         <lable> Username:
         <input type="text" />
         </lable>
@@ -19,7 +21,7 @@ class SessionForm extends React.Component {
           <input type="password" />
         </lable>
         <div id="SignIn/Up/demo buttons">
-          <button type='button'>SignIn/Up</button>
+          <button type='button'>{(type === '/login') ? `Sign In` : `Sign Up` }</button>
           <button type="button">Demo Sign-In</button>
         </div>
     </div>
