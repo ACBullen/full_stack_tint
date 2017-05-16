@@ -30,6 +30,7 @@ class SessionForm extends React.Component {
   }
 
   handleDemo (e) {
+    console.log('demo');
     e.preventDefault();
     this.props.demoSignIn();
   }
@@ -46,8 +47,8 @@ class SessionForm extends React.Component {
           <input type="password" value={this.state.password} onChange={this.handlePasswordInput}/>
         </lable>
         <div id="SignIn/Up/demo buttons">
-          <button onClick={handleSubmit} type='button'>{(type === '/login') ? `Sign In` : `Sign Up` }</button>
-          <button type="button">Demo Sign-In</button>
+          <button onClick={this.handleSubmit} type='button'>{(type === '/login') ? `Sign In` : `Sign Up` }</button>
+          <button onClick={this.handleDemo} type="button">Demo Sign-In</button>
         </div>
     </div>
     )
