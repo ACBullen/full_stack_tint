@@ -1,5 +1,6 @@
 import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'redux';
+import React from 'react';
+import { connect } from 'react-redux';
 
 const Auth = ({component: Component, path, loggedIn}) => (
   <Route path={path} render={(props)=>(
@@ -7,7 +8,7 @@ const Auth = ({component: Component, path, loggedIn}) => (
     )} />
 );
 
-mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
   loggedIn: Boolean(state.currentUser.username)
 });
 
