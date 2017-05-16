@@ -10,7 +10,7 @@ return(
   <div>
     <Provider store={store}>
       <HashRouter>
-        <Route path="/" component={Main} />
+        <Main />
       </HashRouter>
     </Provider>
   </div>
