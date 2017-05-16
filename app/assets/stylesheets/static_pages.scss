@@ -10,3 +10,15 @@ body {
     -1px 1px 0 #ffffff,
     1px 1px 0 #ffffff;
 }
+
+#SessionForm {
+  background-color: white;
+  display: inline-block;
+  border: 1px solid black;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+#SessionForm input {
+  display: block;
+}

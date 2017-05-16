@@ -18,8 +18,11 @@ class SessionForm extends React.Component {
         <lable>Password:
           <input type="password" />
         </lable>
-        <button type='button' />
-      </div>
+        <div id="SignIn/Up/demo buttons">
+          <button type='button'>SignIn/Up</button>
+          <button type="button">Demo Sign-In</button>
+        </div>
+    </div>
     )
   }
 }
