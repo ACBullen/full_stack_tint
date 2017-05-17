@@ -1,7 +1,7 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body header p div h1 h2 h3 ul li {
+body header p div h1 h2 h3 ul li lable {
   margin: 0;
   padding: 0;
   display: inherit;
@@ -11,13 +11,16 @@ body header p div h1 h2 h3 ul li {
 }
 
 body {
-  background-color: #0000b3;
+  background-color: #426caf;
   color: black;
     text-shadow:
     -1px -1px 0 #ffffff,
     1px -1px 0 #ffffff,
     -1px 1px 0 #ffffff,
     1px 1px 0 #ffffff;
+}
+button:hover {
+  cursor: pointer;
 }
 
 #MainBody {
@@ -30,7 +33,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 360px;
-  border: 1px solid #0000b3;
+  border: 1px solid #426caf;
 }
 
 #greeting {
@@ -51,9 +54,9 @@ body {
   border: 1px solid black;
   padding: 5px;
   width: 400px;
-  margin: 40px;
+  margin: 25px;
 
-  border-radius: 5px;
+  border-radius: 10px;
 
 }
 
@@ -108,7 +111,7 @@ body {
 
 #NavBar {
   border-bottom: 1px solid white;
-  background-color: #0000b3;
+  background-color: #426caf;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -129,12 +132,29 @@ body {
 #currentUserInfo{
   display: flex;
   align-content: center;
-  width: 100px;
+  width: 136px;
 }
 #currentUserInfo img {
   margin: 18px 10px;
 }
 
+#currentUserInfo button {
+  margin-top: 16%;
+  margin-left: 3px;
+}
+
 #NavBar button {
   height: 20px;
+}
+#TextPostForm {
+  z-index: 9999;
+  top: 252px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background-color: #ffffff;
+  width: 40%;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 3px 4px 6px 1px rgba(0, 0, 0, 0.4);
 }
