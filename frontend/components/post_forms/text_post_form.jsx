@@ -89,7 +89,7 @@ class TextPostForm extends React.Component {
     let videoInput= document.getElementById("additionalVid");
 
     if (videoInput.style.display === ""){
-  
+
       imageInput.style.display = '';
       videoInput.style.display = 'flex';
 
@@ -102,13 +102,16 @@ class TextPostForm extends React.Component {
   render() {
     return(
       <div id="TextPostForm" className='baseLozenge'>
-        <lable>Title:
-        <input onChange={this.handleTitleInput} type='text' placeholder="Your title here!" value={this.state.title}/>
-        <i className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput.bind(this)}></i>
-        <i className="fa fa-video-camera" aria-hidden="true"onClick={this.showVideoInput.bind(this)}></i>
-        <i className="fa fa-camera" aria-hidden="true"onClick={this.showImageInput.bind(this)}></i>
-        </lable>
 
+        <div id="topLine">
+        <input onChange={this.handleTitleInput} type='text' placeholder="Your title here!" value={this.state.title}/>
+          <div id="additionalContentLinks">
+            <i className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput.bind(this)}></i>
+            <i className="fa fa-video-camera" aria-hidden="true"onClick={this.showVideoInput.bind(this)}></i>
+            <i className="fa fa-camera" aria-hidden="true"onClick={this.showImageInput.bind(this)}></i>
+          </div>
+        </div>
+        <div id="additionalContent">
         <lable id="additionalLink"><i className="fa fa-link" aria-hidden="true"></i>
         <input type="text" value={this.state.media_link} placeholder="Input link here!" onChange={this.handleMediaInput.bind(this)}/>
         </lable>
@@ -120,10 +123,11 @@ class TextPostForm extends React.Component {
         <lable id="additionalVid"><i className="fa fa-video-camera" aria-hidden="true"></i>
         <input type="text" value={this.state.media_link} placeholder="Input video link here!" onChange={this.handleMediaInput.bind(this)}/>
         </lable>
+        </div>
 
-        <lable>Body:
-          <textarea onChange={this.handleBodyInput} placeholder="Your text here!" value={this.state.body}></textarea>
-        </lable>
+
+        <textarea onChange={this.handleBodyInput} placeholder="Post Body" value={this.state.body}></textarea>
+
 
         <button onClick={this.handleSubmit} type="button">Post</button>
       </div>
