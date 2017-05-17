@@ -1,7 +1,7 @@
 import { merge } from 'lodash';
 import { RECEIVE_POSTS, RECEIVE_POST } from '../actions/post_actions';
 
-const PostReducer = (state = {}, action) {
+const PostReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
   switch (action.type) {
@@ -14,6 +14,6 @@ const PostReducer = (state = {}, action) {
     default:
       return state
   }
-}
+};
 
 export default PostReducer;
