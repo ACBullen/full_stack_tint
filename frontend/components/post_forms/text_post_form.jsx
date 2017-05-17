@@ -5,14 +5,12 @@ class TextPostForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
       title: '',
       body: '',
       link_url: '',
       media_link: '',
       post_type: 'text',
       user_id: this.props.userId
-
     };
 
     this.handleTitleInput = this.handleTitleInput.bind(this);
@@ -42,7 +40,7 @@ class TextPostForm extends React.Component {
     if (this.state.title.length < 3) {
       alert("Must have  a title of at least 3 characters");
     } else {
-      this.props.createPost(this.state.post).then(()=> (
+      this.props.createPost(this.state).then(()=> (
         this.setState({
           title: '',
           body: '',

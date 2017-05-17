@@ -23,7 +23,6 @@ export const receivePostErrors = (errors) => ({
 export const createPost = post => dispatch => {
   return APIUtilP.newPost(post).then(
     (res) => {
-      console.log(res);
       dispatch(receivePostErrors({}));
       return dispatch(receivePost(res));
     },

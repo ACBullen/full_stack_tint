@@ -17,11 +17,16 @@
   display: inline-block;
 }
 
+#additionalContentLinks:hover {
+  cursor: pointer;
+}
+
 #additionalContent {
   display: flex;
   justify-content: flex-start;
-  width: 85%;
+  width: 93%;
 }
+
 #additionalContent input {
   margin: 0 3px;
 }
