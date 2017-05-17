@@ -1,14 +1,15 @@
-export const createPost = (post) => {
+
+export const newPost = (post) => {
   return $.ajax({
-    method: "POST",
+    method: 'POST',
     url: '/api/posts',
-    data:  {post}
+    data: {post}
   })
-};
+}
 
 export const fetchPosts = () => {
   return $.ajax({
-    method: "GET",
-    url: '/api.posts'
+    method: 'GET',
+    url: '/api/posts'
   })
-};
+}
