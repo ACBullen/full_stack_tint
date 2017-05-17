@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logIn, signUp } from '../actions/session_actions';
+import { logIn, signUp, receiveSessionErrors } from '../actions/session_actions';
 import { withRouter } from 'react-router-dom';
 
 import SessionForm from './session_form'
@@ -14,7 +14,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   processForm: (user) => (ownProps.location.pathname === '/login' ?
      dispatch(logIn(user)) :  dispatch(signUp(user))
   ),
-  demoSignIn: () => (dispatch(logIn({username: 'Demo', password: 'password'})))
+  demoSignIn: () => (dispatch(logIn({username: 'Demo', password: 'password'}))),
+  clearErrors: () => dispatch(receiveSessionErrors({}))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionForm));
