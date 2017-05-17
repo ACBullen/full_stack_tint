@@ -1,7 +1,7 @@
 class Api::PostsController < ApplicationController
 
   def index
-    @posts = Post.all.order(:created_at).include(:user)
+    @posts = Post.all.includes(:user).order(:created_at) 
     render :index
   end
 
