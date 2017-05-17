@@ -12,6 +12,7 @@ const ErrorsReducer = (state={}, action) => {
       return newState
     case RECEIVE_POST_ERRORS:
       newState.post_errors = action.errors
+      return newState;
     default:
       return state;
   }
