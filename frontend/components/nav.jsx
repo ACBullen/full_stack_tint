@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
 
 class Nav extends React.Component {
   constructor(props){
@@ -16,6 +16,13 @@ class Nav extends React.Component {
 
     return (
       <div id="NavBar">
+        <Route exact path="/" render={()=>{
+            return (this.props.currentUser.username) ? (<Redirect to="/home" />) :(
+              <Redirect to="/signup" />
+            )
+          }
+        } />
+
         <h1>T.I.N.T.</h1>
         <div>
           { this.props.currentUser.username ?(
