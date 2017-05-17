@@ -12,18 +12,41 @@ class TextPostForm extends React.Component {
       post_type: 'text',
       user_id: this.props.userId
     };
+
+    this.handleTitleInput = this.handleTitleInput.bind(this);
+    this.handleBodyInput = this.handleBodyInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleTitleInput(e) {
+    e.preventDefault();
+    this.setState({title: e.currentTarget.value});
+  }
+
+  handleBodyInput(e) {
+    e.preventDefault();
+    this.setState({body: e.currentTarget.value});
+  }
+
+  handleSubmit (e){
+    e.preventDefault();
+    if (this.state.title.length < 3) {
+      alert("Must have  a title of at least 3 characters");
+    } else {
+      this.props.createPost(this.state);
+    }
   }
 
   render() {
     return(
       <div id="TextPostForm">
         <lable>Title:
-        <input type='text' value={this.state.title}/>
+        <input onChange={this.handleTitleInput} type='text' value={this.state.title}/>
         </lable>
         <lable>Body:
-          <textarea value={this.state.body}></textarea>
+          <textarea onChange={this.handleBodyInput} value={this.state.body}></textarea>
         </lable>
-        <button type="button">Post</button>
+        <button onClick={this.handleSubmit} type="button">Post</button>
       </div>
     )
   }
