@@ -5,16 +5,19 @@ class TextPostForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      title: '',
-      body: '',
-      link_url: undefined,
-      media_link: undefined,
-      post_type: 'text',
-      user_id: this.props.userId
+      post:{
+        title: '',
+        body: '',
+        link_url: undefined,
+        media_link: undefined,
+        post_type: 'text',
+        user_id: this.props.userId
+      }
     };
 
     this.handleTitleInput = this.handleTitleInput.bind(this);
     this.handleBodyInput = this.handleBodyInput.bind(this);
+    this.showLinkInput = this.showLinkInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -33,8 +36,30 @@ class TextPostForm extends React.Component {
     if (this.state.title.length < 3) {
       alert("Must have  a title of at least 3 characters");
     } else {
-      this.props.createPost(this.state);
+      this.props.createPost(this.state.post).then(()=> (
+        this.setState({
+          post:{
+            title: '',
+            body: '',
+            link_url: undefined,
+            media_link: undefined,
+            post_type: 'text',
+            user_id: this.props.userId
+          }
+        })
+      ));
     }
+  }
+
+  showLinkInput(e){
+    let linkInput = document.getElementById("additionalLink");
+
+    if (linkInput.style.display === ""){
+      linkInput.style.display = 'flex';
+    } else {
+      linkInput.style.display = '';
+    }
+
   }
 
   render() {
@@ -42,8 +67,9 @@ class TextPostForm extends React.Component {
       <div id="TextPostForm" className='baseLozenge'>
         <lable>Title:
         <input onChange={this.handleTitleInput} type='text' placeholder="Your title here!" value={this.state.title}/>
+        <i className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput}></i>
         </lable>
-        <lable><i class="fa fa-link" aria-hidden="true"></i>
+        <lable id="additionalLink"><i className="fa fa-link" aria-hidden="true"></i>
         <input type="text" placeholder="Input link here!" />
         </lable>
         <lable>Body:
