@@ -13,22 +13,12 @@
   - PostShow
     - PostLikes
 
-### NewTextFormContainer
+### PostFormContainer
   - NewTextForm
-
-### NewQuoteFormContainer
   - NewQuoteForm
-
-### NewImageFormContainer
   - NewImageForm
-
-### NewAudioFormContainer
   - NewAudioForm
-
-### NewVideoFormContainer
   - NewVideoForm
-
-### NewLinkFormContainer
   - NewLinkForm
 
 ## Routes
