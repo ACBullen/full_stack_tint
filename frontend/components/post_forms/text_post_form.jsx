@@ -39,7 +39,7 @@ class TextPostForm extends React.Component {
 
   render() {
     return(
-      <div id="TextPostForm">
+      <div id="TextPostForm" className='baseLozenge'>
         <lable>Title:
         <input onChange={this.handleTitleInput} type='text' value={this.state.title}/>
         </lable>
