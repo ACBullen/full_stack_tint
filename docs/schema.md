@@ -32,4 +32,4 @@ title           | string    |
 body            | text      |
 link_url        | string    |
 media_link      | string    |
-user_id         | string    | not null, foreign id, indexed
+user_id         | integer   | not null, foreign id, indexed
