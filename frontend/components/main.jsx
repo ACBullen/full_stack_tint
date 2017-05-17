@@ -19,6 +19,7 @@ class Main extends React.Component {
           <NavContainer />
         </header>
         <div id="MainBody">
+          
           <switch>
           <AuthRoute path= "/login" component={SessionFormContainer} />
           <AuthRoute path= "/signup" component={SessionFormContainer} />
