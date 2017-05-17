@@ -41,10 +41,13 @@ class TextPostForm extends React.Component {
     return(
       <div id="TextPostForm" className='baseLozenge'>
         <lable>Title:
-        <input onChange={this.handleTitleInput} type='text' value={this.state.title}/>
+        <input onChange={this.handleTitleInput} type='text' placeholder="Your title here!" value={this.state.title}/>
+        </lable>
+        <lable><i class="fa fa-link" aria-hidden="true"></i>
+        <input type="text" placeholder="Input link here!" />
         </lable>
         <lable>Body:
-          <textarea onChange={this.handleBodyInput} value={this.state.body}></textarea>
+          <textarea onChange={this.handleBodyInput} placeholder="Your text here!" value={this.state.body}></textarea>
         </lable>
         <button onClick={this.handleSubmit} type="button">Post</button>
       </div>
