@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import SessionFormContainer from './session_form_container';
 import NavContainer from './nav_container';
 import { AuthRoute } from '../util/auth_util';
+import TextPostForm from './post_forms/text_post_form';
 
 
 class Main extends React.Component {
@@ -19,6 +20,7 @@ class Main extends React.Component {
           <NavContainer />
         </header>
         <div id="MainBody">
+          <TextPostForm />
           <switch>
           <AuthRoute path= "/login" component={SessionFormContainer} />
           <AuthRoute path= "/signup" component={SessionFormContainer} />
