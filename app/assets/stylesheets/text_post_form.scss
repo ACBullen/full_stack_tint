@@ -8,6 +8,30 @@
   justify-content: space-around;
 }
 
+#TextPostForm textarea {
+  width: 93%;
+  height: 74px;
+}
+
+#additionalContentLinks {
+  display: inline-block;
+}
+
+#additionalContent {
+  display: flex;
+  justify-content: flex-start;
+  width: 85%;
+}
+#additionalContent input {
+  margin: 0 3px;
+}
+
+#topLine {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+}
+
 #additionalLink {
   display: none;
 }
