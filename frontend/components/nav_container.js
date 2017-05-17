@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));
