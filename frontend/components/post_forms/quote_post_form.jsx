@@ -10,7 +10,7 @@ class QuotePostForm extends React.Component {
       body: '',
       link_url: '',
       media_link: '',
-      post_type: 'text',
+      post_type: 'quote',
       user_id: this.props.userId
     };
 
@@ -35,8 +35,7 @@ class QuotePostForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createPost;
-    this.closeForm(e);
+    this.props.createPost(this.state).then(()=>this.closeForm(e));
   }
 
 
