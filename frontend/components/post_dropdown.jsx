@@ -1,47 +1,15 @@
 import React from 'react';
 import { closeForm } from '../util/post_form_util';
+import { Link } from 'react-router-dom';
 
 class PostDropdown extends React.Component {
-  constructor(props){
-    super(props)
-    this.closeText = closeForm.bind(this)("TextPostForm");
-    this.closeQuote = closeForm.bind(this)("QuotePostForm");
-    this.closeImage = closeForm.bind(this)("ImagePostForm");
-
-    this.showText = this.showPostForm.bind(this)("TextPostForm");
-    this.showQuote = this.showPostForm.bind(this)("QuotePostForm");
-    this.showImage = this.showPostForm.bind(this)("ImagePostForm");
-  }
-
-  showPostForm (name) {
-    let that = this;
-    return (e) =>{
-      e.preventDefault();
-
-      let postForm = document.getElementById(name);
-
-      if (postForm.style.display === "none" || postForm.style.display === ''){
-        this.closeText(e);
-        this.closeQuote(e);
-        this.closeImage(e);
-        postForm.style.display = 'flex';
-      } else {
-        closeForm.bind(this)(name)(e);
-      }
-
-      let dropdown = document.getElementById("PostDropdown");
-
-    }
-  }
-
-
 
   render() {
-    return(
+    return (
     <div id="PostDropdown">
-      <button onClick={this.showText}>Text Post</button>
-      <button onClick={this.showQuote}>Quote Post</button>
-      <button onClick={this.showImage}>Image Post</button>
+      <Link to="/post/text"><button type="button">Text Post</button></Link>
+      <Link to="/post/quote"><button type="button">Quote Post</button></Link>
+      <Link to="/post/image"><button type="button">Image Post</button></Link>
     </div>
   )}
 }
