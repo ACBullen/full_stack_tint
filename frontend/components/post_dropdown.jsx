@@ -3,6 +3,13 @@ import { closeForm } from '../util/post_form_util';
 import { Link } from 'react-router-dom';
 
 class PostDropdown extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  componentWillReceiveProps(newProps){
+    document.getElementById('PostDropdown').style.display = 'none';
+  }
 
   render() {
     return (

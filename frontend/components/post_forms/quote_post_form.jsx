@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util.js';
 
@@ -47,7 +48,7 @@ class QuotePostForm extends React.Component {
         <input onChange={this.handleAuthorInput} placeholder="Quote Author" value={this.state.title}/>
         </lable>
         <div id="controlButtons">
-          <button onClick={this.closeForm}>Close</button>
+          <Link to='/'><button type="button">Close</button></Link>
         <button onClick={this.handleSubmit}>Post Quote</button>
         </div>
       </form>

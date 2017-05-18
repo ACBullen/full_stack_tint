@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util';
 
@@ -126,7 +127,7 @@ class TextPostForm extends React.Component {
         <textarea onChange={this.handleBodyInput} placeholder="Post Body" value={this.state.body}></textarea>
 
         <div id="controlButtons">
-          <button onClick={this.closeForm}>Close</button>
+          <Link to='/'><button type="button">Close</button></Link>
           <button onClick={this.handleSubmit} type="button">Post</button>
         </div>
       </form>

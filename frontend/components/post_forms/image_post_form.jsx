@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util';
 import UploadButton from './upload_button';
@@ -49,7 +50,7 @@ class ImagePostForm extends React.Component {
       <UploadButton getImgUrl={this.getImgUrl.bind(this)} /></div>) : <img src={this.state.media_link} />}
         <input type="text" placeholder="Add a description(optional)" onChange={this.handleDesc} value={this.state.title} />
           <div id="controlButtons">
-            <button onClick={this.closeForm}>Close</button>
+            <Link to='/'><button type="button">Close</button></Link>
           <button onClick={this.handleSubmit}>Post Image</button>
           </div>
       </form>
