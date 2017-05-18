@@ -1,0 +1,22 @@
+#ImagePostForm {
+  z-index: 6;
+  position: fixed;
+  margin: 0 auto;
+  top: 20%;
+  justify-content: space-between;
+  height: 150px;
+}
+
+#ImagePostForm input {
+  border: none;
+  width: 90%;
+  font-size: inherit;
+
+}
+#ImagePostForm input:first-of-type {
+  height: 40px;
+}
+
+#ImagePostForm input:last-of-type {
+  font-size: 13px;
+}
