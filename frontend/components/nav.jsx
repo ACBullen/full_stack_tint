@@ -13,7 +13,17 @@ class Nav extends React.Component {
 
   logMeOut(e){
     e.preventDefault();
-    this.props.logOut();
+    this.props.logOut().then(() =>(
+      this.props.history.push('/')
+    ));
+  }
+
+  componentWillUnmount(){
+    console.log("unmounting");
+  }
+
+  componentWillReceivesProps(newProps){
+    console.log("hit receive new props");
   }
 
   showPostOptions(e){
