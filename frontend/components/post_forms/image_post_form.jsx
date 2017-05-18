@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util';
-import UploadButton from './upload_button';
+import UploadImgButton from './upload_img_button';
 
 class ImagePostForm extends React.Component {
   constructor(props){
@@ -25,6 +25,10 @@ class ImagePostForm extends React.Component {
     this.handleDesc = this.handleDesc.bind(this);
   }
 
+  componentWillMount() {
+    this.props.requestCloudinaryKeys();
+  }
+
   handleSubmit(e){
 
     if (this.state.link_url.length < 4 && this.state.media_link.length < 1){
@@ -39,7 +43,7 @@ class ImagePostForm extends React.Component {
     this.setState({title: e.target.value});
   }
 
-  getImgUrl(url) {
+  getMediaUrl(url) {
     this.setState({media_link: url});
   }
 
@@ -47,7 +51,7 @@ class ImagePostForm extends React.Component {
     return (
       <form id={this.formName} className="baseLozenge">
         {this.state.media_link === '' ? (<div id="imgInputs"> <input type="text" placeholder="Your image link here" /> <h5> Or upload: </h5>
-      <UploadButton getImgUrl={this.getImgUrl.bind(this)} /></div>) : <img src={this.state.media_link} />}
+      <UploadImgButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></div>) : <img src={this.state.media_link} />}
         <input type="text" placeholder="Add a description(optional)" onChange={this.handleDesc} value={this.state.title} />
           <div id="controlButtons">
             <Link to='/'><button type="button">Close</button></Link>

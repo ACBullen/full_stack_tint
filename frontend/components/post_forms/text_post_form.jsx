@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util';
+import UploadImgButton from './upload_img_button';
+import UploadVidButton from './upload_vid_button';
 
 class TextPostForm extends React.Component {
   constructor(props){
@@ -24,6 +26,10 @@ class TextPostForm extends React.Component {
     this.showLinkInput = this.showLinkInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.closeForm = closeForm.bind(this)(this.formName);
+  }
+
+  componentWillMount() {
+    this.props.requestCloudinaryKeys();
   }
 
   handleTitleInput(e) {
@@ -62,7 +68,7 @@ class TextPostForm extends React.Component {
     }
   }
 
-  showImageInput(e){
+  showImageInput(){
 
     let imageInput= document.getElementById("additionalImage");
     let videoInput= document.getElementById("additionalVid");
@@ -78,6 +84,12 @@ class TextPostForm extends React.Component {
       this.setState({media_type: ''});
     }
     this.setState({media_link: ''});
+  }
+
+  getMediaUrl(url) {
+    document.getElementById("additionalImage").style.display = 'none';
+    document.getElementById("additionalVid").style.display= 'none';
+    this.setState({media_link: url});
   }
 
   showVideoInput(e){
@@ -103,11 +115,11 @@ class TextPostForm extends React.Component {
 
         <div id="topLine">
         <input onChange={this.handleTitleInput} type='text' placeholder="Your title here!" value={this.state.title}/>
-          <div id="additionalContentLinks">
+          {this.state.media_link === '' ? (<div id="additionalContentLinks">
             <i className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput.bind(this)}></i>
             <i className="fa fa-video-camera" aria-hidden="true"onClick={this.showVideoInput.bind(this)}></i>
             <i className="fa fa-camera" aria-hidden="true"onClick={this.showImageInput.bind(this)}></i>
-          </div>
+          </div>) : <h4>Content Uploaded!</h4>}
         </div>
         <div id="additionalContent">
         <lable id="additionalLink"><i className="fa fa-link" aria-hidden="true"></i>
@@ -116,10 +128,12 @@ class TextPostForm extends React.Component {
 
         <lable id="additionalImage"><i className="fa fa-camera" aria-hidden="true"></i>
         <input type="text" value={this.state.media_link} placeholder="Input image link here!" onChange={this.handleMediaInput.bind(this)}/>
+        <lable> or upload: <UploadImgButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></lable>
         </lable>
 
         <lable id="additionalVid"><i className="fa fa-video-camera" aria-hidden="true"></i>
         <input type="text" value={this.state.media_link} placeholder="Input video link here!" onChange={this.handleMediaInput.bind(this)}/>
+        <lable> or upload: <UploadVidButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></lable>
         </lable>
         </div>
 
