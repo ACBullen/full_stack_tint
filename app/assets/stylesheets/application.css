@@ -16,4 +16,5 @@
  *= require body
  *= require nav
  *= require text_post_form
+ *= require quote_post_form
  */
