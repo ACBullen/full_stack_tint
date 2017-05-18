@@ -6,7 +6,7 @@ export const closeForm = function (formName) {
 
   let form = document.getElementById(formName);
   form.style.display = 'none';
-  
+
   that.setState({
     title: '',
     body: '',
