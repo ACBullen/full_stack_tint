@@ -1,12 +1,31 @@
 #QuotePostForm {
   z-index: 9999;
+  padding-top: 5px;
+  justify-content: space-around;
+  display: none;
+  height: 160px;
+  position: fixed;
+  margin: 0 auto;
+  top: 20%;
 }
 
 #QuotePostForm textarea {
   width: 93%;
   min-height: 60px;
+  font-size: 40px;
+  border: none;
 }
 
-#QuotePostForm textarea {
-  font-size: 30px;
+#QuotePostForm input {
+  border: none;
+}
+
+#QuotePostForm lable {
+  margin-right: 60%;
+}
+
+#controlButtons{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
 }

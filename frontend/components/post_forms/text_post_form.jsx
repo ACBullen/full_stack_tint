@@ -1,5 +1,6 @@
 import React from 'react';
 import PFContainer from './post_form_container';
+import { closeForm } from '../../util/post_form_util';
 
 class TextPostForm extends React.Component {
   constructor(props){
@@ -13,11 +14,14 @@ class TextPostForm extends React.Component {
       user_id: this.props.userId
     };
 
+    this.formName = "TextPostForm";
+
     this.handleTitleInput = this.handleTitleInput.bind(this);
     this.handleMediaInput = this.handleMediaInput.bind(this);
     this.handleBodyInput = this.handleBodyInput.bind(this);
     this.showLinkInput = this.showLinkInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.closeForm = closeForm.bind(this)(this.formName);
   }
 
   handleTitleInput(e) {
@@ -99,7 +103,7 @@ class TextPostForm extends React.Component {
 
   render() {
     return(
-      <div id="TextPostForm" className='baseLozenge'>
+      <form id={this.formName} className='baseLozenge'>
 
         <div id="topLine">
         <input onChange={this.handleTitleInput} type='text' placeholder="Your title here!" value={this.state.title}/>
@@ -126,9 +130,11 @@ class TextPostForm extends React.Component {
 
         <textarea onChange={this.handleBodyInput} placeholder="Post Body" value={this.state.body}></textarea>
 
-
-        <button onClick={this.handleSubmit} type="button">Post</button>
-      </div>
+        <div id="controlButtons">
+          <button onClick={this.closeForm}>Close</button>
+          <button onClick={this.handleSubmit} type="button">Post</button>
+        </div>
+      </form>
     )
   }
 
