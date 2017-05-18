@@ -8,6 +8,7 @@ import App from './App'
 import * as APIUtilS from './util/session_api_util';
 import * as APIUtilP from './util/post_api_util';
 import { getPosts } from './actions/post_actions';
+import { requestCloudinaryKeys } from './actions/api_key_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -21,5 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.APIUtilS = APIUtilS;
   window.APIUtilP = APIUtilP;
   window.getPosts = getPosts;
+  window.requestCloudinaryKeys = requestCloudinaryKeys;
   ReactDOM.render(<App store={store} />, root)
 });
