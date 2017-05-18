@@ -11,6 +11,7 @@ class TextPostForm extends React.Component {
       link_url: '',
       media_link: '',
       post_type: 'text',
+      media_type: '',
       user_id: this.props.userId
     };
 
@@ -69,9 +70,11 @@ class TextPostForm extends React.Component {
 
       imageInput.style.display = 'flex';
       videoInput.style.display = '';
+      this.setState({media_type: 'image'});
 
     } else {
       imageInput.style.display = '';
+      this.setState({media_type: ''});
     }
     this.setState({media_link: ''});
   }
@@ -85,9 +88,10 @@ class TextPostForm extends React.Component {
 
       imageInput.style.display = '';
       videoInput.style.display = 'flex';
-
+      this.setState({media_type: 'video'});
     } else {
       videoInput.style.display = '';
+      this.setState({media_type: ''});
     }
     this.setState({media_link: ''});
   }
