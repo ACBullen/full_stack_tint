@@ -1,4 +1,5 @@
 import React from 'react';
+import Quote from './quote_post';
 
 class PostBase extends React.Component {
   constructor(props){
@@ -6,11 +7,17 @@ class PostBase extends React.Component {
   }
 
   render(){
-    return(
-      <div className="baseLozenge feed-item">
-        <p>{this.props.post.id}{this.props.post.body} <br/> {this.props.post.title} {this.props.post.post_type}</p>
-      </div>
-    )
+    switch (this.props.post.post_type) {
+      case "quote":
+        return <Quote post={this.props.post} />
+  
+      default:
+      return(
+        <div className="baseLozenge feed-item">
+          <p>{this.props.post.id}{this.props.post.body} <br/> {this.props.post.title} {this.props.post.post_type}</p>
+        </div>
+      )
+    }
   }
 }
 
