@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/auth_util';
 import TextPostForm from './post_forms/text_post_form';
 import QuotePostForm from './post_forms/quote_post_form';
 import ImagePostForm from './post_forms/image_post_form';
+import AudioPostForm from './post_forms/audio_post_form';
 
 
 
@@ -26,7 +27,8 @@ class Main extends React.Component {
 
           <ProtectedRoute exact path="/post/text" component={TextPostForm} />
           <ProtectedRoute exact path="/post/quote" component={QuotePostForm} />
-          <ProtectedRoute exact path="/post/image" component ={ImagePostForm} />
+          <ProtectedRoute exact path="/post/image" component={ImagePostForm} />
+          <ProtectedRoute exact path='/post/audio' component={AudioPostForm} />
 
           <AuthRoute path= "/login" component={SessionFormContainer} />
           <AuthRoute path= "/signup" component={SessionFormContainer} />
