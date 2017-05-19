@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
+import PostBase from './post_base';
 
 
-const mapStateToProps = state => ({
-  currentUser: state.currentUser
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.currentUser,
+  post: ownProps.post
 });
 
-const mapDispatchToProps = dispatch => ({
-
-})
+export default connect(mapStateToProps)(PostBase);

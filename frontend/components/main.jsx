@@ -10,6 +10,7 @@ import ImagePostForm from './post_forms/image_post_form';
 import AudioPostForm from './post_forms/audio_post_form';
 import VideoPostForm from './post_forms/video_post_form';
 import LinkPostForm from './post_forms/link_post_form';
+import FeedContainer from './feed_container';
 
 
 class Main extends React.Component {
@@ -34,6 +35,7 @@ class Main extends React.Component {
           <ProtectedRoute exact path='/post/audio' component={AudioPostForm} />
           <ProtectedRoute exact path='/post/video' component={VideoPostForm} />
           <ProtectedRoute exact path='/post/link' component={LinkPostForm} />
+          <Route path='/home' component={FeedContainer} />
 
 
           <AuthRoute path= "/login" component={SessionFormContainer} />
