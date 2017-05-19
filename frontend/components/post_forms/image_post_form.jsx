@@ -23,6 +23,7 @@ class ImagePostForm extends React.Component {
 
     this.closeForm = closeForm.bind(this)(this.formName);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLinkInput = this.handleLinkInput.bind(this);
     this.handleDesc = this.handleDesc.bind(this);
   }
 
@@ -41,7 +42,10 @@ class ImagePostForm extends React.Component {
 
   handleDesc (e){
     e.preventDefault();
-    this.setState({title: e.target.value});
+    this.setState({body: e.target.value});
+  }
+  handleLinkInput(e){
+    this.setState({link_url: e.target.value})
   }
 
   getMediaUrl(url) {
@@ -51,9 +55,9 @@ class ImagePostForm extends React.Component {
   render(){
     return (
       <form id={this.formName} className="baseLozenge">
-        {this.state.media_link === '' ? (<div id="imgInputs"> <input type="text" placeholder="Your image link here" /> <h5> Or upload: </h5>
+        {this.state.media_link === '' ? (<div id="imgInputs"> <input type="text" onChange={this.handleLinkInput} placeholder="Your image link here" value={this.state.link_url}/> <h5> Or upload: </h5>
       <UploadImgButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></div>) : <img src={this.state.media_link} />}
-        <input type="text" placeholder="Add a description(optional)" onChange={this.handleDesc} value={this.state.title} />
+        <input type="text" placeholder="Add a description(optional)" onChange={this.handleDesc} value={this.state.body} />
           <div id="controlButtons">
             <Link to='/'><button type="button">Close</button></Link>
           <button onClick={this.handleSubmit}>Post</button>

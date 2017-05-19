@@ -1,7 +1,8 @@
 import React from 'react';
-import PostContainer from './post_bases/post_container';
 import Masonry from 'masonry-layout'
+import imagesLoaded from 'imagesloaded';
 import {values} from 'lodash';
+import PostContainer from './post_bases/post_container';
 
 class Feed extends React.Component {
   constructor(props){
@@ -24,6 +25,7 @@ class Feed extends React.Component {
     itemSelector: '.feed-item',
     horizontalOrder: true
     })
+    imagesLoaded(feed, ()=>msnry.layout());
     console.log(msnry);
   }
 
