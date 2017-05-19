@@ -6,15 +6,38 @@ class TextPost extends React.Component {
     super(props);
   }
 
+  mediaSwitcher(){
+    switch (this.props.post.media_type) {
+      case "image":
+
+        return (
+          <img src={this.props.post.media_link} />
+        )
+      case "video":
+        return (
+          <iframe src={this.props.post.media_link} />
+        )
+      case "audio":
+        return (
+          <audio controls src={this.props.post.media_link} type="audio/mpeg" />
+        )
+      default:
+      return "";
+    }
+  }
+
   render (){
-    console.log(this.props.media_type);
+    console.log(this.props.post.media_type);
     return(
       <div className="baseLozenge feed-item">
         <PostHeader user={this.props.user} />
         <h2>{this.props.post.title}</h2>
-        {
-          <a href={this.props.post.link_url}>{this.props.post.link_url}</a>
+        {this.props.post.link_url ?(
+          <a href={this.props.post.link_url}>{this.props.post.link_url}</a>) : (
+            ""
+          )
         }
+        {this.mediaSwitcher()}
         <article>
           <p>{this.props.post.body}</p>
         </article>
