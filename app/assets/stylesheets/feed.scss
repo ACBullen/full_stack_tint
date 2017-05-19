@@ -4,3 +4,31 @@
   margin-top: 80px;
 }
 .feed-item { width: 360px; float: left; margin:0px; }
+
+#PostHeader img {
+  border-top: 1px solid grey;
+  border-left: 1px solid grey;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-right: 3px;
+}
+#PostHeader {
+  font-size: 18px;
+}
+
+.feed-item a {
+  width: 97%;
+  padding: 3%;
+  background: #a2a8b2;
+  color: blue;
+  text-shadow: none;
+}
+.feed-item p {
+  margin: 10 auto;
+}
+.feed-item video {
+  width: 100%;
+}
+.feed-item iframe{
+  width: 100%;
+}
