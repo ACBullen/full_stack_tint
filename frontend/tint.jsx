@@ -18,10 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.store = store;
-  window.APIUtilS = APIUtilS;
-  window.APIUtilP = APIUtilP;
-  window.getPosts = getPosts;
-  window.requestCloudinaryKeys = requestCloudinaryKeys;
+
   ReactDOM.render(<App store={store} />, root)
 });
