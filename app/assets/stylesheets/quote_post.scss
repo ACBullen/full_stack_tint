@@ -1,0 +1,17 @@
+#Quote article {
+  width: 90%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#Quote p {
+  display: inline-block;
+  width: 60%;
+  font-size: 14px;
+}
+
+#Quote p:before {
+  content: "—";
+  text-align: justify;
+  margin: 0 auto;
+}

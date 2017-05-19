@@ -39,7 +39,7 @@ class QuotePostForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    if (this.title.length < 3 || this.body.length < 3 ){
+    if (this.state.title.length < 3 || this.state.body.length < 3 ){
       alert("Please fill out both the quote and the author")
     } else{
       this.props.createPost(this.state).then(this.props.history.push('/'));
