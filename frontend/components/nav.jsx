@@ -3,7 +3,6 @@ import { Link, Route, Redirect } from 'react-router-dom';
 
 import PostDropdown from './post_dropdown';
 
-
 class Nav extends React.Component {
   constructor(props){
     super(props);
@@ -18,23 +17,19 @@ class Nav extends React.Component {
     ));
   }
 
-  componentWillUnmount(){
-    console.log("unmounting");
-  }
 
-  componentWillReceivesProps(newProps){
-    console.log("hit receive new props");
-  }
 
   showPostOptions(e){
     e.preventDefault();
 
     let postForm = document.getElementById('PostDropdown');
 
-    if (postForm.style.display === ""){
+
+    if (postForm.style.display === "none" || postForm.style.display === ''){
       postForm.style.display = 'inline-block';
     } else {
-      postForm.style.display = '';
+      postForm.style.display = 'none';
+
     }
   }
 

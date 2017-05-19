@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   ),
   demoSignIn: () => (dispatch(logIn({username: 'Demo', password: 'password'}))),
   clearErrors: () => dispatch(receiveSessionErrors({}))
+
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionForm));

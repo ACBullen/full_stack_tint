@@ -1,11 +1,16 @@
 #TextPostForm {
-  z-index: 9999;
-  top: 252px;
-  display: none;
+
+  z-index: 9;
+  top: 160px;
+  display: flex;
+
   position: fixed;
   margin-left: 0px;
   min-height: 20%;
   justify-content: space-around;
+
+  height: 200px;
+
 }
 
 #TextPostForm textarea {

@@ -19,9 +19,11 @@ class SessionForm extends React.Component {
       this.props.history.push('/home');
     }
   }
+
   componentWillUnmount(){
     this.props.clearErrors();
   }
+
 
   handleUsernameInput (e) {
     e.preventDefault();
