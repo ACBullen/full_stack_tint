@@ -17,6 +17,9 @@ class PostDropdown extends React.Component {
       <Link to="/post/text"><button type="button">Text Post</button></Link>
       <Link to="/post/quote"><button type="button">Quote Post</button></Link>
       <Link to="/post/image"><button type="button">Image Post</button></Link>
+      <Link to="/post/video"><button type='button'>Video Post</button></Link>
+      <Link to="/post/audio"><button type='button'>Audio Post</button></Link>
+      <Link to="/post/link"><button type='button'>Link Post</button></Link>
     </div>
   )}
 }

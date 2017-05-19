@@ -1,0 +1,27 @@
+#LinkPostForm {
+  position: fixed;
+  top: 160px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 200px;
+}
+
+#LinkPostInputs {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 80%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#LinkPostInputs input {
+  width: 90%;
+  height: 30px;
+  border: none;
+}
+
+#LinkPostInputs input:first-child {
+  font-size: 20px;
+}

@@ -20,6 +20,7 @@ class ImagePostForm extends React.Component {
 
     this.formName = "ImagePostForm";
 
+
     this.closeForm = closeForm.bind(this)(this.formName);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDesc = this.handleDesc.bind(this);

@@ -15,25 +15,60 @@ class AudioPostForm extends React.Component {
       media_type: 'audio',
       user_id: this.props.userId
     }
+
+
+    this.handleTrackInput = this.handleTrackInput.bind(this);
+    this.handleDescInput = this.handleDescInput.bind(this);
+    this.handleLinkInput = this.handleLinkInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
     this.props.requestCloudinaryKeys();
   }
 
-  handle
+  handleLinkInput (e){
+    this.setState({link_url: e.target.value})
+  }
+
+  handleTrackInput(e){
+    this.setState({title: e.target.value})
+  }
+
+  handleDescInput (e){
+    this.setState({body: e.target.value})
+  }
 
   getMediaUrl(url) {
     this.setState({media_link: url});
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    if(this.state.link_url.length < 4 && this.state.media_link.length < 1){
+      alert("please submit a valid url or upload an audio file")
+    } else {
+      this.props.createPost(this.state).then(()=> {
+        this.setState({
+          title: '',
+          body: '',
+          link_url: '',
+          media_link: '',
+          post_type: 'audio',
+          media_type: 'audio',
+          user_id: this.props.userId
+        });
+      })
+    }
+  }
+
   render() {
     return (
-      <div id="AudioPostForm" className="baseLozenge">
+      <div id="PostForm" className="baseLozenge">
         {this.state.media_link === '' ? (
-          <form id="audioInputs">
+          <form id="PostInputs">
 
-        <input type="text" placeholder="Link your audio file here (mp3 only)" /> <div><p>or upload:</p>
+        <input onChange={this.handleLinkInput} type="text" placeholder="Link your audio file here (mp3 only)" value={this.state.link_url}/> <div><p>or upload:</p>
         <UploadAudioButton cloudinaryOptions={this.props.apiKeys.cloudinary_options}
           getMediaUrl={this.getMediaUrl.bind(this)} /></div>
 
@@ -46,11 +81,11 @@ class AudioPostForm extends React.Component {
             </audio>
           </div>)
           }
-          <input type="text" placeholder="Track name here!" />
-          <textarea id="descAud" placeholder="Leave a description if you like"></textarea>
+          <input onChange={this.handleTrackInput} type="text" placeholder="Track name here!" value={this.state.title}/>
+          <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>
           <div id="controlButtons">
             <button type="button">close</button>
-            <button type="button">post</button>
+            <button onClick={this.handleSubmit} type="button">post</button>
           </div>
       </div>
     )

@@ -123,7 +123,7 @@ class TextPostForm extends React.Component {
         </div>
         <div id="additionalContent">
         <lable id="additionalLink"><i className="fa fa-link" aria-hidden="true"></i>
-        <input type="text" value={this.state.media_link} placeholder="Input link here!" onChange={this.handleMediaInput.bind(this)}/>
+        <input type="text" value={this.state.link_url} placeholder="Input link here!" onChange={this.handleMediaInput.bind(this)}/>
         </lable>
 
         <lable id="additionalImage"><i className="fa fa-camera" aria-hidden="true"></i>
