@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util.js';
 
@@ -39,7 +39,11 @@ class QuotePostForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createPost(this.state).then(()=>this.closeForm(e));
+    if (this.title.length < 3 || this.body.length < 3 ){
+      alert("Please fill out both the quote and the author")
+    } else{
+      this.props.createPost(this.state).then(this.props.history.push('/'));
+    }
   }
 
 
@@ -52,7 +56,7 @@ class QuotePostForm extends React.Component {
         </lable>
         <div id="controlButtons">
           <Link to='/'><button type="button">Close</button></Link>
-        <button onClick={this.handleSubmit}>Post Quote</button>
+        <button onClick={this.handleSubmit}>Post</button>
         </div>
       </form>
 
@@ -62,4 +66,4 @@ class QuotePostForm extends React.Component {
 
 
 
-export default PFContainer(QuotePostForm);
+export default withRouter(PFContainer(QuotePostForm));

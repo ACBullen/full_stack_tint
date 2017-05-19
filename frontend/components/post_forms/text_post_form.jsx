@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util';
 import UploadImgButton from './upload_img_button';
@@ -56,7 +56,7 @@ class TextPostForm extends React.Component {
     if (this.state.title.length < 3) {
       alert("Must have  a title of at least 3 characters");
     } else {
-      this.props.createPost(this.state).then(()=>this.closeForm(e));
+      this.props.createPost(this.state).then(this.props.history.push('/'));
 
     }
   }
@@ -170,4 +170,4 @@ class TextPostForm extends React.Component {
 
 }
 
-export default PFContainer(TextPostForm);
+export default withRouter(PFContainer(TextPostForm));

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import PostFormContainer from './post_form_container';
 import UploadVideoButton from './upload_vid_button';
 
@@ -16,6 +17,7 @@ class VideoPostForm extends React.Component {
     }
     this.handleLinkInput = this.handleLinkInput.bind(this);
     this.handleDescInput = this.handleDescInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -33,6 +35,15 @@ class VideoPostForm extends React.Component {
 
   getMediaUrl(url) {
     this.setState({media_link: url});
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if(this.state.link_url.length < 5 && this.state.media_link < 1){
+      alert("Please fill in a valid link or upload a video file");
+    } else {
+      this.props.createPost(this.state).then(this.props.history.push('/'));
+    }
   }
 
   render() {
@@ -56,12 +67,12 @@ class VideoPostForm extends React.Component {
           }
           <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>
           <div id="controlButtons">
-            <button type="button">close</button>
-            <button type="button">post</button>
+            <Link to='/'><button type="button">close</button></Link>
+            <button onClick={this.handleSubmit} type="button">post</button>
           </div>
       </div>
     )
   }
 }
 
-export default PostFormContainer(VideoPostForm);
+export default withRouter(PostFormContainer(VideoPostForm));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PostFormContainer from './post_form_container';
 import UploadAudioButton from './upload_audio_button';
 
@@ -48,17 +48,7 @@ class AudioPostForm extends React.Component {
     if(this.state.link_url.length < 4 && this.state.media_link.length < 1){
       alert("please submit a valid url or upload an audio file")
     } else {
-      this.props.createPost(this.state).then(()=> {
-        this.setState({
-          title: '',
-          body: '',
-          link_url: '',
-          media_link: '',
-          post_type: 'audio',
-          media_type: 'audio',
-          user_id: this.props.userId
-        });
-      })
+      this.props.createPost(this.state).then(this.props.history.push('/'));
     }
   }
 
@@ -85,11 +75,11 @@ class AudioPostForm extends React.Component {
           <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>
           <div id="controlButtons">
             <button type="button">close</button>
-            <button onClick={this.handleSubmit} type="button">post</button>
+            <button onClick={this.handleSubmit} type="button">Post</button>
           </div>
       </div>
     )
   }
 }
 
-export default PostFormContainer(AudioPostForm);
+export default withRouter(PostFormContainer(AudioPostForm));

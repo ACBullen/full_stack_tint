@@ -35,7 +35,7 @@ class ImagePostForm extends React.Component {
     if (this.state.link_url.length < 4 && this.state.media_link.length < 1){
       alert("please submit a valid link or upload an image");
     } else {
-      this.props.createPost(this.state).then(()=>this.closeForm(e));
+      this.props.createPost(this.state).then(this.props.history.push('/'));
     }
   }
 
@@ -56,7 +56,7 @@ class ImagePostForm extends React.Component {
         <input type="text" placeholder="Add a description(optional)" onChange={this.handleDesc} value={this.state.title} />
           <div id="controlButtons">
             <Link to='/'><button type="button">Close</button></Link>
-          <button onClick={this.handleSubmit}>Post Image</button>
+          <button onClick={this.handleSubmit}>Post</button>
           </div>
       </form>
     )
