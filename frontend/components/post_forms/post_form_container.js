@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   createPost: (post) => dispatch(createPost(post)),
   requestCloudinaryKeys: () => dispatch(requestCloudinaryKeys())
-git 
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps);

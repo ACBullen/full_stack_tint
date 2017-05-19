@@ -21,7 +21,7 @@ class TextPostForm extends React.Component {
 
     this.formName = "TextPostForm";
 
->>>>>>> PostForms
+
     this.handleTitleInput = this.handleTitleInput.bind(this);
     this.handleMediaInput = this.handleMediaInput.bind(this);
     this.handleBodyInput = this.handleBodyInput.bind(this);

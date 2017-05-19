@@ -1,11 +1,9 @@
 import React from 'react';
-<<<<<<< HEAD
-import PFContainer from './post_form_container';
-=======
+
 import { Link } from 'react-router-dom';
 import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util.js';
->>>>>>> PostForms
+
 
 class QuotePostForm extends React.Component {
   constructor(props) {
@@ -57,7 +55,7 @@ class QuotePostForm extends React.Component {
         <button onClick={this.handleSubmit}>Post Quote</button>
         </div>
       </form>
-git a
+
     )
   }
 }
