@@ -1,0 +1,57 @@
+#PostForm {
+  display: flex;
+  z-index: 1;
+  position: fixed;
+  margin: 0 auto;
+  top: 20%;
+  justify-content: space-between;
+  height: 200px;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+#PostForm input{
+  border: none;
+  width: 60%
+}
+#desc {
+  min-width: 60%;
+  min-height: 40px;
+  border: none;
+}
+#PostInputs {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#PostInputs input{
+  width: 350px;
+  height: 60px;
+  border: none;
+  font-size: 20px;
+}
+
+#PostInputs div {
+  width: auto;
+  height: 30px;
+  justify-content: space-between;
+  align-items: center;
+  display: inline-block;
+}
+#PostInputs p {
+  margin: 0;
+  display: inline-block;
+}
+#PostInputs .uploader {
+  width: auto;
+  margin-left: 20px;
+}
+
+#preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 63%;
+  text-align: center;
+}

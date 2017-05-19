@@ -22,6 +22,11 @@
     sessionErrors: [],
     postErrors: ["Must include image"]
   },
+
+  apiKeys: {
+    cloudinary_options: {secret: XXXXXX, other_secret: XXXXXX}
+  }
+
   posts: {
 
     1: {
