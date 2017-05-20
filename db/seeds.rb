@@ -15,8 +15,9 @@ l1 = User.create({username: "Lorem1", password:'password'})
 l2 = User.create({username: "Lorem2", password:'password'})
 l3 = User.create({username: "Lorem3", password:'password'})
 l4 = User.create({username: "Lorem4", password:'password'})
-l5 = User.create({username: "Lorem5", password:'password'})
-
+dr = User.create({username: "DragRacer", password:'password'})
+lcf = User.create ({username: "LovecraftFan", password: "password"})
+ev = User.create ({username: "Exalted Void", password_digest: "$2a$10$BjZZo5rhwTkik4M8seppEev/ZYVLywE7sDtlGYNmNFOo/wkAewX/S"})
 Post.destroy_all
 
 p1 = Post.create({
@@ -64,10 +65,76 @@ p2 = Post.create({
     user_id: l4.id
     })
 
-    p7 = Post.create ({
-      post_type: "image",
-      body: "cute doggos",
-      media_type: "image",
-      link_url: "http://i.imgur.com/IsetA24.gif",
-      user_id: me.id
-      })
+  p7 = Post.create ({
+    post_type: "image",
+    body: "cute doggos",
+    media_type: "image",
+    link_url: "http://i.imgur.com/IsetA24.gif",
+    user_id: me.id
+    })
+
+  p8 = Post.create ({
+    post_type: "video",
+    body: "Must-see! Those moves...",
+    link_url: "https://www.youtube.com/embed/iqH2ffyNJsk",
+    user_id: l2.id
+    })
+
+  p9 = Post.create ({
+    post_type: "text",
+    title: "A video and a link!",
+    body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    link_url: "http://memory-alpha.wikia.com/wiki/USS_Enterprise_(NCC-1701-D)",
+    media_link: "https://www.youtube.com/embed/ZPoqNeR3_UA",
+    media_type: "video",
+    user_id: l4.id
+    })
+
+  p9 = Post.create ({
+    post_type: "text",
+    title: "Gives me life!",
+    body: "Herp derpsum sherpus serp merp der ler berp derpus mer. Serp dee ter derperker derp, ner ler. Mer sherper dee le nerpy derpler terpus me. Herpy ner, derpus mer berp herp. Le berp derps herpy der herpsum! Pee derpsum ner sherp perp merpus. Serp sherp merp berps perper me berp. Herp derp dee ler. Derpus sherpus mer terpus. Nerpy sherper herp ner pee dee berps derpy le. Mer merpus, le dee herderder terp ler. Dee ner herpderpsmer derpy me. Herpem derperker pee tee ter merp. Sherp tee perp terp ner me, berp derperker. Sherp me herpsum le ner, terp derpus derpler. Ler herpler derpler herderder derps der herpem herpy nerpy derpy. Derp perp sherper derpus merp le mer pee. Pee derpler tee ner terpus derp, perper ler.
+
+          Derpsum herp tee dee herpsum terp herpem. Der sherper le, nerpy merpus. Herpsum terp derperker perp mer berps sherp serp herpderpsmer der! Merp merpus berp ner! Derpy herp derp pee nerpy? Der herpem sherpus sherp sherper, dee ter. Serp herpsum dee sherpus terp nerpy herpy derpus derps. Sherper berp der, dee me serp herp! Tee herderder derperker herpler. Dee perper terpus herp. Der derp, tee le me perp. Terp herpsum der derps herpy. Mer nerpy pee berps. Terpus derps nerpy derpus derp herpy perper berp ner?",
+    media_link: "https://68.media.tumblr.com/e3b305d5d03e00c14e2497075719014e/tumblr_o582kb4Ces1v41hiso1_400.gif",
+    media_type: "image",
+    link_url: "https://www.tumblr.com/search/drag%20race%20reaction%20gifs",
+    user_id: dr.id
+    })
+
+  p10 = Post.create ({
+    post_type: "audio",
+    media_type: "audio",
+    media_link: "http://hwcdn.libsyn.com/p/5/6/f/56f72a0761e63408/Bonus20Episode20320-20_The20Librarian_20Horoscopes.mp3?c_id=12976566&destination_id=149717&expiration=1495296479&hwt=48c963f4a4cf23fe99bd8ca361ad89f8",
+    title: "WTNV: The Librarian- Horoscopes",
+    body: "The stars were right for this",
+    user_id: l4.id
+    })
+
+  p11 = Post.create ({
+    post_type: "quote",
+    body: "I am writing this under an appreciable mental strain, since by tonight I shall be no more. Penniless, and at the end of my supply of the drug which alone makes life endurable, I can bear the torture no longer; and shall cast myself from this garret window into the squalid street below.",
+    title: "H.P. Lovecraft- 'Dagon'",
+    user_id: lcf.id
+    })
+
+  p12 = Post.create ({
+    post_type: "text",
+    title: "Single Origin Twinkie",
+    body: "Wolf narwhal godard, photo booth mustache aesthetic authentic. Williamsburg church-key helvetica ramps intelligentsia. Before they sold out asymmetrical fingerstache dreamcatcher, ugh sapiente laborum pop-up photo booth. Readymade keytar pork belly placeat, +1 kogi trust fund gastropub asymmetrical 90's lomo listicle assumenda yuccie. Craft beer trust fund gastropub in you probably haven't heard of them 90's. Shoreditch tattooed live-edge, tousled before they sold out laborum twee incididunt fugiat. Shabby chic chia officia blog enamel pin, kombucha ex.",
+    user_id: l1.id
+    })
+
+  p13= Post.create ({
+    post_type: "quote",
+    body: "The most merciful thing in the world, I think, is the inability of the human mind to correlate all its contents. Cuz, like who has time to remember everything?",
+    title: "Lovecraft? Like, probably?",
+    user_id: lcf.id
+    })
+
+  p14 = Post.create ({
+    post_type: "image",
+    media_type: "image",
+    media_link: "http://res.cloudinary.com/dadyuehpo/image/upload/v1495261287/1478814894790_lkjcwe.jpg",
+    user_id: ev.id
+    })
