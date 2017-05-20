@@ -21,45 +21,53 @@ Post.destroy_all
 
 p1 = Post.create({
   post_type: "text",
-  title: "I can't believe it!",
+  title: "Delicious!",
   body: "Butter instead of oil in brownies, who knew?",
-  link_url: "http://fakebrownierecipe.com",
+  link_url: "http://allrecipes.com/recipe/10549/best-brownies/",
   user_id: l1.id
   })
 
 p2 = Post.create({
   post_type: "image",
   media_type: "image",
-  media_link: "http://www.imgur.com/stand-in.png",
-  body: "Hilarious!!!",
+  media_link: "http://i.imgur.com/ZlbBeAe.gif",
+  body: "Amazing escape!",
   user_id: l2.id
   })
 
   p3 = Post.create({
     post_type: "link",
-    link_url: "http://www.npr.org/story/how-to-pair-a-wine-to-your-prius",
-    body: "Seafoam should clearly be paired with a Chablis. Otherwise insightful and accurate.",
+    link_url: "http://www.npr.org/templates/story/story.php?storyId=35",
+    body: "Best comedy you can find on npr. (It's a compliment I swear)",
     user_id: demo.id
   })
 
   p4= Post.create({
     post_type: "video",
-    body: "must-see!",
-    link_url: "http://www.youtube.com/rickroll",
+    body: "Must-see! Those moves...",
+    link_url: "https://www.youtube.com/embed/IOhu26-Yirw",
     user_id: me.id
     })
 
   p5= Post.create ({
     post_type: "quote",
-    title: "someone for whom things are going to go wrong, probably.",
-    body: "Nothing could possibly go wrong.",
+    title: "Happy hour?",
+    body: "Ranelle Reyes.",
     user_id: l3.id
     })
 
   p6 = Post.create ({
     post_type: "audio",
-    title: "Track1",
-    body: "It's been stuck in my head all day. Listen with care",
-    media_link: "http://www.soundcloud.com/something-cool.mp3",
+    title: "The Woman From Italy (WTNV)",
+    body: "Love this stuff, you can find more at http://www.welcometonightvale.com/ !",
+    media_link: "https://secure-hwcdn.libsyn.com/p/5/b/3/5b35a29dbac9d612/3920-20The20Woman20from20Italy2028R29.mp3?c_id=13734447&expiration=1495254674&hwt=1f6dc8382503d3b8bcfd18d7da11ca64",
     user_id: l4.id
     })
+
+    p7 = Post.create ({
+      post_type: "image",
+      body: "cute doggos",
+      media_type: "image",
+      link_url: "http://i.imgur.com/IsetA24.gif",
+      user_id: me.id
+      })
