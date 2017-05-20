@@ -53,7 +53,7 @@ class SessionForm extends React.Component {
       <div id="FormConcerns">
         <div id="greeting">
         {type === '/signup' ? (
-          <p> Welcome to T.I.N.T., the micro-blogging app of the modern day! Looking to share an interesting thought, an insightful quite, an amazing video, or hilarious imate? We've got you covered! Sign up or select Demo Sign-In for a taste of the platform</p>
+          <p> Welcome to T.I.N.T., the micro-blogging app of the modern day! Looking to share an interesting thought, an insightful quite, an amazing video, or hilarious image? We've got you covered! Sign up or select Demo Sign-In for a taste of the platform</p>
         ) : ""}</div>
       <div id='SessionForm' className="baseLozenge">
           <div id="SFHeader">
