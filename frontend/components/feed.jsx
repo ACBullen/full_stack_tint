@@ -30,7 +30,7 @@ class Feed extends React.Component {
   }
 
   render(){
-    let currentFeed = this.state.posts;
+    let currentFeed = this.state.posts.sort((a,b)=> b.id - a.id)
     return (
       <div id="FeedFootprint">
         {currentFeed.map((post, idx)=> (
