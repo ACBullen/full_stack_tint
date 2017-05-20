@@ -14,15 +14,23 @@
 }
 #PostHeader {
   font-size: 18px;
+
+  display: flex;
+  align-content: center;
+
   border-bottom: 1px solid black;
   width: 100%;
   padding: 5px;
   margin-bottom: 3px;
 }
+#PostHeader h5 {
+  display: inline-block;
+ margin: 0
+}
 
 .feed-item a {
   width: 97%;
-  padding: 3%;
+  padding: 2.7%;
   background: #a2a8b2;
   color: blue;
   text-shadow: none;
@@ -35,6 +43,9 @@
 }
 .feed-item iframe{
   width: 100%;
+}
+.feed-item audio {
+  width: 100%
 }
 
 #VideoPost {
