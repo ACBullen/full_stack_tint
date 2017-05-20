@@ -6,7 +6,7 @@ const ImagePost = ({post, user}) => {
   return (
     <div id="ImagePost" className="baseLozenge feed-item">
       <PostHeader user={user} />
-      <img src={post.media_link ? post.media_link : post.link_url } />
+      <img id="media" src={post.media_link ? post.media_link : post.link_url } />
       <p>{post.body}</p>
     </div>
   )
