@@ -16,6 +16,11 @@
 #TextPostForm textarea {
   width: 93%;
   height: 74px;
+  border: none;
+}
+
+#TextPostForm input {
+  border: none
 }
 
 #additionalContentLinks {
@@ -34,6 +39,7 @@
 
 #additionalContent input {
   margin: 0 3px;
+  border: none;
 }
 
 #topLine {
