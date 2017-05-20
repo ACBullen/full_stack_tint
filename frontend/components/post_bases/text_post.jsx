@@ -12,15 +12,15 @@ class TextPost extends React.Component {
       case "image":
 
         return (
-          <img src={this.props.post.media_link} />
+          <img id="media" src={this.props.post.media_link} />
         )
       case "video":
         return (
-          <iframe src={this.props.post.media_link} />
+          <iframe id="media" src={this.props.post.media_link} />
         )
       case "audio":
         return (
-          <audio controls src={this.props.post.media_link} type="audio/mpeg" />
+          <audio  controls src={this.props.post.media_link} type="audio/mpeg" />
         )
       default:
       return "";
