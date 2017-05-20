@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.APIUtilP = APIUtilP
-  window.store = store;
+
   ReactDOM.render(<App store={store} />, root)
 });
