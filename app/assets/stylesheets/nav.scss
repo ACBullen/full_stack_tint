@@ -39,29 +39,31 @@
 #PostDropdown  {
   display: none;
   position: fixed;
-  padding: 5px;
+
   top: 8%;
   right: 6%;
   border: 1px solid gray;
   background-color: white;
   border-radius: 2px;
-  width: 15%;
+  width: 90px;
   z-index: 999;
 
 }
 
-#PostDropdown button {
+#PostDropdown div {
   border: none;
   background-color: transparent;
-  width: 106%;
-  padding: 3px;
+  width: 100%;
+
   box-shadow: none;
   text-align: left;
   border-bottom: 1px solid black;
+  text-align: center;
   color: black;
-  border-radius: 0;
+
 
 }
+
 #NavBar a{
   text-decoration: none;
   color: inherit;
