@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PostHeader from './post_header';
 
 const LinkPost = ({post, user}) => {

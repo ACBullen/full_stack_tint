@@ -3,7 +3,7 @@
   width: 100%;
   margin-top: 80px;
 }
-.feed-item { width: 360px; float: left; margin:0px; }
+.feed-item { width: 400px; float: left; margin:0px; }
 
 #PostHeader img {
   border-top: 1px solid grey;
@@ -35,4 +35,12 @@
 }
 .feed-item iframe{
   width: 100%;
+}
+
+#VideoPost {
+  min-height: 200px;
+}
+iframe {
+  width: 400px;
+  height: 220px;
 }

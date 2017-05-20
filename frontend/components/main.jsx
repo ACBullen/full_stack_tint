@@ -29,12 +29,12 @@ class Main extends React.Component {
         <div id="MainBody">
 
 
-          <ProtectedRoute exact path="/post/text" component={TextPostForm} />
-          <ProtectedRoute exact path="/post/quote" component={QuotePostForm} />
-          <ProtectedRoute exact path="/post/image" component={ImagePostForm} />
-          <ProtectedRoute exact path='/post/audio' component={AudioPostForm} />
-          <ProtectedRoute exact path='/post/video' component={VideoPostForm} />
-          <ProtectedRoute exact path='/post/link' component={LinkPostForm} />
+          <ProtectedRoute exact path="/:base/post/text" component={TextPostForm} />
+          <ProtectedRoute exact path="/:base/post/quote" component={QuotePostForm} />
+          <ProtectedRoute exact path="/:base/post/image" component={ImagePostForm} />
+          <ProtectedRoute exact path='/:base/post/audio' component={AudioPostForm} />
+          <ProtectedRoute exact path='/:base/post/video' component={VideoPostForm} />
+          <ProtectedRoute exact path='/:base/post/link' component={LinkPostForm} />
           <Route path='/home' component={FeedContainer} />
 
 
