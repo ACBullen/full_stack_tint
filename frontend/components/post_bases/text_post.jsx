@@ -27,7 +27,6 @@ class TextPost extends React.Component {
   }
 
   render (){
-    console.log(this.props.post.media_type);
     return(
       <div className="baseLozenge feed-item">
         <PostHeader user={this.props.user} />

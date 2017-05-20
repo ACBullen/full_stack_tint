@@ -26,7 +26,7 @@ class Feed extends React.Component {
     horizontalOrder: true
     })
     imagesLoaded(feed, ()=>msnry.layout());
-    console.log(msnry);
+
   }
 
   render(){
