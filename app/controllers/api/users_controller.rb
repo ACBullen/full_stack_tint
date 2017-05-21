@@ -7,7 +7,16 @@ class Api::UsersController < ApplicationController
       log_in(@user)
       render :show
     else
-      p @user.errors.full_messages
+      render json: @user.errors.full_messages, status: 422
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(follows: params[:user][:follows])
+      render :show
+    else
       render json: @user.errors.full_messages, status: 422
     end
   end

@@ -54,4 +54,23 @@ class User < ApplicationRecord
   end
 
   has_many :posts
+
+  has_many :follows,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
+  has_many :followings,
+    primary_key: :id,
+    foreign_key: :followee_id,
+    class_name: :Follow
+
+
+  has_many :followed_users,
+    through: :follows,
+    source: :followee
+
+    has_many :followers,
+      through: :followings,
+      source: :follower
 end
