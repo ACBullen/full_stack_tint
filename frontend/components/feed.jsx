@@ -34,7 +34,7 @@ class Feed extends React.Component {
     return (
       <div id="FeedFootprint">
         {currentFeed.map((post, idx)=> (
-          <PostContainer post={post} key={idx} />
+          <PostContainer post={post} key={idx} fi=true />
         ))}
       </div>
     )

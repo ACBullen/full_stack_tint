@@ -4,6 +4,8 @@ export const RECEIVE_USERS = "RECEIVE_USERS";
 export const FOLLOW_USER = "FOLLOW_USER";
 export const UNFOLLOW_USER = "UNFOLLOW_USER";
 export const RECEIVE_FOLLOW_ERRORS = "RECEIVE_FOLLOW_ERRORS";
+export const ADD_USERS = "ADD_USERS"
+
 
 
 export const receiveUsers = (users) => ({
@@ -25,6 +27,11 @@ export const followErrors = (errors) => ({
   type: RECEIVE_FOLLOW_ERRORS,
   errors
 });
+
+export const addUsers = (users) => ({
+  type: ADD_USERS,
+  users
+})
 
 
 export const createFollow = (followee_id) => dispatch => {

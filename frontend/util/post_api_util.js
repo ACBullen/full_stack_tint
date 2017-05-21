@@ -13,3 +13,10 @@ export const fetchPosts = () => {
     url: '/api/posts'
   })
 }
+
+export const fetchMyPosts = () => {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/users/0/followed_posts"
+  })
+}

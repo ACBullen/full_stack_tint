@@ -1,5 +1,5 @@
 import * as APIUtilP from '../util/post_api_util';
-import { receiveUsers } from './user_actions';
+import { receiveUsers, addUsers } from './user_actions';
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
@@ -36,6 +36,15 @@ export const getPosts = () => dispatch => {
       dispatch(receiveUsers(res.users))
       return dispatch(receivePosts(res.posts))
       },
+    (err) => dispatch(receivePostErrors(err))
+  )
+};
+
+export const getMyPosts = () => dispatch => {
+  return APIUtilP.fetchMyPosts().then((res) =>{
+      dispatch(addUsers(res.users))
+      return (res) => dispatch(receivePosts(res.posts))
+    },
     (err) => dispatch(receivePostErrors(err))
   )
 };

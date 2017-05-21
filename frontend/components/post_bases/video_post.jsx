@@ -1,10 +1,10 @@
 import React from 'react';
 import PostHeader from './post_header';
 
-const VideoPost = ({post, user}) => {
+const VideoPost = ({post, user, fi}) => {
 
   return (
-    <div id="VideoPost" className="baseLozenge feed-item">
+    <div id="VideoPost" className={ fi ? "baseLozenge feed-item" : "baseLozenge"}>
       <PostHeader user={user} />
       {post.media_link ?(
         <iframe id="media" src={post.media_link} allowFullScreen></iframe>

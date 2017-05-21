@@ -5,6 +5,7 @@ class Api::PostsController < ApplicationController
     render :index
   end
 
+  
   def create
     @post = Post.new(post_params)
 
