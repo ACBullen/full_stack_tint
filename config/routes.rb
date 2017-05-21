@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :posts, only: [:create, :index]
     resources :keys, only: [:index]
-
+    resource :follows, only: [:create, :destroy]
   end
 end

@@ -7,7 +7,6 @@ class TextPost extends React.Component {
   }
 
   mediaSwitcher(){
-    console.log(this.props.post);
     switch (this.props.post.media_type) {
       case "image":
 
