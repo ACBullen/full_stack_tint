@@ -74,7 +74,7 @@ class AudioPostForm extends React.Component {
           <input onChange={this.handleTrackInput} type="text" placeholder="Track name here!" value={this.state.title}/>
           <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>
           <div id="controlButtons">
-            <button type="button">close</button>
+            <Link to="/home"><button type="button">close</button></Link>
             <button onClick={this.handleSubmit} type="button">Post</button>
           </div>
       </div>

@@ -1,10 +1,10 @@
 .baseLozenge {
-  background-color: white;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px solid grey;
   padding: 5px;
   width: 540px;
   margin: 25px;
@@ -23,7 +23,15 @@
   flex-direction: column;
   align-items: center;
   width: 360px;
-  border: 1px solid #426caf;
+  border: 1px solid #2B3856;
+}
+
+#FormConcerns p {
+  background-color: black;
+  padding: 10px;
+  color: white;
+  text-shadow: none;
+  border-radius: 3px;
 }
 
 #greeting {

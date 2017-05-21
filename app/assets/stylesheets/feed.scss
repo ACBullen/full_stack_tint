@@ -3,7 +3,8 @@
   width: 100%;
   margin-top: 80px;
 }
-.feed-item { width: 400px; float: left; margin:0px; }
+
+.feed-item { width: 250px; float: left; margin:5px; }
 
 #PostHeader img {
   border-top: 1px solid grey;
@@ -12,17 +13,17 @@
   border-bottom: 1px solid black;
   margin-right: 3px;
 }
+
 #PostHeader {
   font-size: 18px;
-
   display: flex;
   align-content: center;
-
   border-bottom: 1px solid black;
   width: 100%;
   padding: 5px;
   margin-bottom: 3px;
 }
+
 #PostHeader h5 {
   display: inline-block;
  margin: 0
@@ -32,8 +33,9 @@
   width: 97%;
   padding: 2.7%;
   background: #a2a8b2;
-  color: blue;
+  color: black;
   text-shadow: none;
+  font-size: 18px;
 }
 .feed-item p {
   margin: 10 auto;
