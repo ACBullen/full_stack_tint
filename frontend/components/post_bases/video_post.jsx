@@ -4,7 +4,7 @@ import PostHeader from './post_header';
 const VideoPost = ({post, user, fi}) => {
 
   return (
-    <div id="VideoPost" className={ fi ? "baseLozenge feed-item" : "baseLozenge"}>
+    <div id="VideoPost" className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
       <PostHeader user={user} />
       {post.media_link ?(
         <iframe id="media" src={post.media_link} allowFullScreen></iframe>
