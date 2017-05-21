@@ -75,7 +75,7 @@ p2 = Post.create({
 
   p8 = Post.create ({
     post_type: "video",
-    body: "Must-see! Those moves...",
+    body: "Adorable!",
     link_url: "https://www.youtube.com/embed/iqH2ffyNJsk",
     user_id: l2.id
     })
