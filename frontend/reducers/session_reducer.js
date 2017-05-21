@@ -4,7 +4,7 @@ import { FOLLOW_USER, UNFOLLOW_USER } from '../actions/user_actions';
 
 const SessionReducer = (state = {}, action) =>{
   Object.freeze(state);
-  let newState = merge({}, state)
+  let newState = Object.assign({}, state)
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return action.currentUser;;

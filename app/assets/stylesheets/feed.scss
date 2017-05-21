@@ -29,23 +29,24 @@
  margin: 0
 }
 
-.feed-item a {
+.baseLozenge a {
   width: 97%;
   padding: 2.7%;
   background: #a2a8b2;
   color: black;
   text-shadow: none;
   font-size: 18px;
+  margin-bottom: 5px
 }
-.feed-item p {
+.baseLozenge p {
   margin: 10 auto;
 }
-.feed-item #media {
-  width: 103%;
+.baseLozenge #media {
+  max-width: 103%;
   border: none;
 }
-.feed-item audio {
-  width: 100%;
+.baseLozenge audio {
+  max-width: 100%;
 }
 
 
@@ -56,4 +57,8 @@
 iframe {
   width: 400px;
   height: 220px;
+}
+
+.UserFeed {
+  margin-top: 60px;
 }

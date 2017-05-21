@@ -4,6 +4,7 @@ import SessionFormContainer from './session_form_container';
 import NavContainer from './nav_container';
 
 import { AuthRoute, ProtectedRoute } from '../util/auth_util';
+import UserFeedContainer from './user_feed_container';
 import TextPostForm from './post_forms/text_post_form';
 import QuotePostForm from './post_forms/quote_post_form';
 import ImagePostForm from './post_forms/image_post_form';
@@ -35,6 +36,7 @@ class Main extends React.Component {
           <ProtectedRoute exact path='/:base/post/audio' component={AudioPostForm} />
           <ProtectedRoute exact path='/:base/post/video' component={VideoPostForm} />
           <ProtectedRoute exact path='/:base/post/link' component={LinkPostForm} />
+          <ProtectedRoute exact path='/feed' component={UserFeedContainer} />
           <Route path='/home' component={FeedContainer} />
 
 

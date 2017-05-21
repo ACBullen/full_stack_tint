@@ -10,10 +10,11 @@ export const receivePost = (post) => ({
   post
 });
 
-export const receivePosts = (posts) => ({
+export const receivePosts = (posts) => {
+  return{
   type: RECEIVE_POSTS,
   posts
-});
+}};
 
 export const receivePostErrors = (errors) => ({
   type: RECEIVE_POST_ERRORS,
@@ -41,9 +42,9 @@ export const getPosts = () => dispatch => {
 };
 
 export const getMyPosts = () => dispatch => {
-  return APIUtilP.fetchMyPosts().then((res) =>{
+  return APIUtilP.fetchMyPosts().then((res) => {
       dispatch(addUsers(res.users))
-      return (res) => dispatch(receivePosts(res.posts))
+      return dispatch(receivePosts(res.posts))
     },
     (err) => dispatch(receivePostErrors(err))
   )
