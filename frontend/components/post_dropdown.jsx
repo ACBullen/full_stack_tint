@@ -13,15 +13,15 @@ class PostDropdown extends React.Component {
   }
 
   render() {
-    let here = this.props.location.pathname
+    let here = this.props.location.pathname.split('/')[1]
     return (
     <div id="PostDropdown">
-      <Link to={`${here}/post/text`}><div>Text Post</div></Link>
-      <Link to={`${here}/post/quote`}><div>Quote Post</div></Link>
-      <Link to={`${here}/post/image`}><div>Image Post</div></Link>
-      <Link to={`${here}/post/video`}><div>Video Post</div></Link>
-      <Link to={`${here}/post/audio`}><div>Audio Post</div></Link>
-      <Link to={`${here}/post/link`}><div>Link Post</div></Link>
+      <Link to={`/${here}/post/text`}><div>Text Post</div></Link>
+      <Link to={`/${here}/post/quote`}><div>Quote Post</div></Link>
+      <Link to={`/${here}/post/image`}><div>Image Post</div></Link>
+      <Link to={`/${here}/post/video`}><div>Video Post</div></Link>
+      <Link to={`/${here}/post/audio`}><div>Audio Post</div></Link>
+      <Link to={`/${here}/post/link`}><div>Link Post</div></Link>
 
     </div>
   )}
