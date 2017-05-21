@@ -8,7 +8,7 @@ import App from './App'
 // import * as APIUtilS from './util/session_api_util';
 import * as APIUtilP from './util/post_api_util';
 import * as FollowActions from './actions/user_actions';
-// import { getPosts } from './actions/post_actions';
+import { getPosts, getMyPosts } from './actions/post_actions';
 // import { requestCloudinaryKeys } from './actions/api_key_actions';
 
 
@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.APIUtilP = APIUtilP;
+  window.getMyPosts = getMyPosts;
   window.store = store;
   window.FollowActions = FollowActions;
   ReactDOM.render(<App store={store} />, root)

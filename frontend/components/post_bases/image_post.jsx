@@ -1,10 +1,10 @@
 import React from 'react';
 import PostHeader from './post_header';
 
-const ImagePost = ({post, user}) => {
+const ImagePost = ({post, user, fi}) => {
 
   return (
-    <div id="ImagePost" className="baseLozenge feed-item">
+    <div id="ImagePost" className={ fi ? "baseLozenge feed-item" : "baseLozenge"}>
       <PostHeader user={user} />
       <img id="media" src={post.media_link ? post.media_link : post.link_url } />
       <p>{post.body}</p>

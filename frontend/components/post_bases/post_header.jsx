@@ -5,6 +5,7 @@ import { createFollow, destroyFollow } from '../../actions/user_actions';
 class PostHeader extends React.Component {
   constructor(props){
     super(props)
+
   }
 
   handleFollowToggle(){
@@ -24,18 +25,22 @@ class PostHeader extends React.Component {
       <header id="PostHeader">
         <img width="20px" height="20px" src={`${this.props.user.profile_pic}`}/>
         <h5>{this.props.user.username}</h5>
-        <button onClick={this.handleFollowToggle.bind(this)}>{this.props.followed ? "Unfollow ": "Follow"}</button>
+        {this.props.currentUser.id === this.props.user.id ? "" : (
+          <button onClick={this.handleFollowToggle.bind(this)}>{this.props.followed ? "Unfollow ": "Follow"}</button>
+        )}
+
       </header>
     )
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) => {
+  return{
   user: ownProps.user,
   currentUser: state.currentUser,
   followed: (state.currentUser.follows.indexOf(ownProps.user.id) >= 0)
-})
-
+}
+}
 const mapDispatchToProps = (dispatch) => ({
   createFollow: (followee_id)=> dispatch(createFollow(followee_id)),
   destroyFollow: (followee_id) => dispatch(destroyFollow(followee_id))
