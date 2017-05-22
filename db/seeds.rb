@@ -91,8 +91,8 @@ p2 = Post.create({
 
   p5= Post.create ({
     post_type: "quote",
-    title: "Happy hour?",
-    body: "Ranelle Reyes.",
+    body: "Happy hour?",
+    title: "Ranelle Reyes.",
     user_id: l3.id
     })
 
