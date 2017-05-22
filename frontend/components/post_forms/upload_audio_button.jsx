@@ -10,6 +10,7 @@ class UploadAudioButton extends React.Component {
     cloudinary.openUploadWidget(
       this.props.cloudinaryOptions,
       (err, images) => {
+        console.log(images);
         if(err === null){
           this.props.getMediaUrl(images[0].url);
         }

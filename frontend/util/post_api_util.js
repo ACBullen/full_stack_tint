@@ -20,3 +20,11 @@ export const fetchMyPosts = () => {
     url: "/api/users/0/followed_posts"
   })
 }
+
+export const likePost = (post_id) => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/likes",
+    
+  })
+}

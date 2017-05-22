@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:create, :index, :show]
     resources :keys, only: [:index]
     resource :follows, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
 end
