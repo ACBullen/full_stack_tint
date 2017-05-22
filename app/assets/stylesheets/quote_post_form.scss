@@ -1,12 +1,12 @@
 #QuotePostForm {
   z-index: 3;
-  padding-top: 5px;
-  justify-content: space-around;
+  top: 160px;
+  left: 30%;
   display: flex;
-  min-height: 160px;
-  position: fixed;
-  margin: 0 auto;
-  top: 20%;
+  position: absolute;
+  margin-left: 0px;
+  min-height: 200px;
+  justify-content: space-around;
 }
 
 #QuotePostForm textarea {
@@ -30,4 +30,14 @@
   display: flex;
   justify-content: space-between;
   width: 90%;
+  button {
+    height: 25px;
+    width: 45px;
+  }
+  a {
+    background: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+  }
 }

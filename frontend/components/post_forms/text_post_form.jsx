@@ -129,9 +129,9 @@ class TextPostForm extends React.Component {
         <div id="topLine">
         <input onChange={this.handleTitleInput} type='text' placeholder="Your title here!" value={this.state.title}/>
           {this.state.media_link === '' ? (<div id="additionalContentLinks">
-            <i className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput.bind(this)}></i>
-            <i className="fa fa-video-camera" aria-hidden="true"onClick={this.showVideoInput.bind(this)}></i>
-            <i className="fa fa-camera" aria-hidden="true"onClick={this.showImageInput.bind(this)}></i>
+            <i id="addlCButton" className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput.bind(this)}></i>
+            <i id="addlCButton" className="fa fa-video-camera" aria-hidden="true"onClick={this.showVideoInput.bind(this)}></i>
+            <i id="addlCButton" className="fa fa-camera" aria-hidden="true"onClick={this.showImageInput.bind(this)}></i>
           </div>) : <h4>Content Uploaded!</h4>}
         </div>
         <div id="additionalContent">

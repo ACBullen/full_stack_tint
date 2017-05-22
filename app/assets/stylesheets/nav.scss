@@ -4,18 +4,19 @@
   background-color: #2B3856;
   display: flex;
   width: 100%;
+  padding: 0 5px;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
 }
 
 #NavRight {
-  padding: 2px;
   display: flex;
   align-content: center;
+  padding: 2px 10px;
 }
 
 #currentUserInfo{
@@ -38,7 +39,7 @@
 
 #PostDropdown  {
   display: none;
-  position: fixed;
+  position: absolute;
 
   top: 8%;
   right: 6%;

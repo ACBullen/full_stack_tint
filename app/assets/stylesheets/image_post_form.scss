@@ -1,12 +1,18 @@
 #ImagePostForm {
-  display: flex;
   z-index: 3;
-  position: fixed;
-  margin: 0 auto;
-  top: 20%;
-  justify-content: space-between;
-  height: 200px;
+  top: 160px;
+  left: 30%;
+  display: flex;
+  position: absolute;
+  margin-left: 0px;
+  min-height: 200px;
+  justify-content: space-around;
 }
+
+#ImagePostForm h5 {
+  margin-left: 10px;
+}
+
 #imgInputs {
   display: flex;
   align-items: center;
@@ -14,8 +20,6 @@
 }
 
 #imgInputs input {
-  border: none;
-  width: 80%;
   font-size: inherit;
   height: 40px;
 }
@@ -34,5 +38,5 @@
 #ImagePostForm input {
   font-size: 13px;
   border: none;
-  width: 90%;
+  width: 75%;
 }

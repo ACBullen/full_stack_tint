@@ -50,34 +50,48 @@ class SessionForm extends React.Component {
     let type = this.props.formType;
 
     return (
+      <div id="sessionPage">
+        <h1>
+          This<br />
+           Is<br />
+          Not<br />
+          Tumblr<br />
+        </h1>
       <div id="FormConcerns">
-        <div id="greeting">
+
         {type === '/signup' ? (
-          <p> Welcome to T.I.N.T., the micro-blogging app of the modern day! Looking to share an interesting thought, an insightful quote, an amazing video, or hilarious image? We've got you covered! Sign up or select Demo Sign-In for a taste of the platform</p>
-        ) : ""}</div>
-      <div id='SessionForm' className="baseLozenge">
-          <div id="SFHeader">
-            <h2>{((type === '/login') ? "Sign In" : "Sign Up")}</h2>
-          </div>
-          <lable> Username:
-          <input type="text" value={this.state.username} onChange={this.handleUsernameInput}/>
-          </lable>
-          <lable>Password:
-            <input type="password" value={this.state.password} onChange={this.handlePasswordInput}/>
+      <div id="greeting">
+          <p> Welcome to T.I.N.T., the micro-blogging app of the modern
+            day! Looking to share an interesting thought, an insightful
+            quote, an amazing video, or hilarious image? We've got you
+            covered! Sign up or select Demo Sign-In for a taste of the
+            platform.</p>
+          <h2>T. I. N. T</h2></div>
+        ) : ""}
+      <div id='SessionForm' className={type === '/signup' ? `baseLozenge signup` : "baseLozenge"}>
+
+            {((type === '/login') ? <div id="SFHeader"><h2>"Sign In"</h2></div> : "")}
+
+
+          <input type="text" placeholder="Username" value={this.state.username} onChange={this.handleUsernameInput}/>
+
+
+            <input type="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordInput}/>
             <ul id='authErrors'>
               {this.props.errors && this.props.errors.responseJSON ? this.props.errors.responseJSON.map((err, idx)=> <li key={idx}>{err}</li>) : ''}
             </ul>
-          </lable>
+
           <div id="SignIn-Up-demo-buttons">
             <button onClick={this.handleSubmit} type='button'>{(type === '/login') ? `Sign In` : `Sign Up` }</button>
             <button onClick={this.handleDemo} type="button">Demo Sign-In</button>
           </div>
           <div id="SFFooter">
             { type === '/login' ? (<Link to='/signup'>Need an account? Sign Up!</Link>) : (
-              <Link to="/login">Already have an account? Sign In!</Link>
+              ''
             )}
           </div>
         </div>
+      </div>
       </div>
     )
   }

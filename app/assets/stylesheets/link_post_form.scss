@@ -1,12 +1,12 @@
 #LinkPostForm {
-  position: fixed;
   z-index: 3;
   top: 160px;
+  left: 30%;
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 200px;
-  margin-left: 0;
+  position: absolute;
+  margin-left: 0px;
+  min-height: 200px;
+  justify-content: space-around;
 }
 
 #LinkPostInputs {
