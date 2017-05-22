@@ -20,6 +20,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   after_initialize :ensure_session_token
+  after_create :gen_self_follow
 
   def self.find_by_credentials(username, pw)
     @user = User.find_by(username: username)
@@ -51,6 +52,10 @@ class User < ApplicationRecord
     self.session_token = SecureRandom.urlsafe_base64
     self.save!
     self.session_token
+  end
+
+  def gen_self_follow
+    Follow.create({follower_id: self.id, followee_id: self.id})
   end
 
   has_many :posts

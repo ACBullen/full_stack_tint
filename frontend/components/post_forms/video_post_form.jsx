@@ -60,9 +60,9 @@ class VideoPostForm extends React.Component {
             <div id="preview">
               <h4>File Uploaded! Preview here:</h4>
 
-                <iframe title="YouTube video player" class="youtube-player" type="text/html"
-                  width="640" height="390" src={this.media_link}
-                  frameborder="0" allowFullScreen></iframe>
+                <video  controls>
+                  <source src={`${this.state.media_link.slice(0, this.state.media_link.length - 4)}`} type="video/mp4" />
+                </video>
           </div>)
           }
           <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>

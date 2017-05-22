@@ -7,7 +7,9 @@ const VideoPost = ({post, user, fi}) => {
     <div id="VideoPost" className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
       <PostHeader user={user} />
       {post.media_link ?(
-        <iframe id="media" src={post.media_link} allowFullScreen></iframe>
+        <video  controls>
+          <source src={`${post.media_link}`}/>
+        </video>
 
       ) : (<iframe id="media" src={post.link_url} allowFullScreen></iframe>) }
       <p>{post.body}</p>

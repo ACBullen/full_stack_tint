@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Follow.destroy_all
+Post.destroy_all
 
 demo = User.create({username: 'Demo', password: 'password'})
 me = User.create({username: 'Alex', password: 'password'})
@@ -19,13 +21,13 @@ dr = User.create({username: "DragRacer", password:'password'})
 lcf = User.create ({username: "LovecraftFan", password: "password"})
 ev = User.create ({username: "Exalted Void", password_digest: "$2a$10$BjZZo5rhwTkik4M8seppEev/ZYVLywE7sDtlGYNmNFOo/wkAewX/S"})
 
-Follow.destroy_all
+
 f1 = Follow.create({follower_id: demo.id, followee_id: me.id})
 f2 = Follow.create({follower_id: demo.id, followee_id: l4.id})
 f3 = Follow.create({follower_id: demo.id, followee_id: lcf.id})
 f4 = Follow.create({follower_id: demo.id, followee_id: dr.id})
 
-Post.destroy_all
+
 
 p18 = Post.create ({
   post_type: "image",

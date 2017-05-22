@@ -15,7 +15,11 @@ class TextPost extends React.Component {
         )
       case "video":
         return (
-          <iframe id="media" src={this.props.post.media_link} />
+
+            <video id="media" controls>
+              <source src={this.props.post.media_link} />
+            </video>
+          
         )
       case "audio":
         return (
