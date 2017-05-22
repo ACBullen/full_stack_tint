@@ -30,7 +30,8 @@ Post.destroy_all
 p18 = Post.create ({
   post_type: "image",
   media_type: "image",
-  link_url: "http://i.imgur.com/qxU3NU4.gif"
+  link_url: "http://i.imgur.com/qxU3NU4.gif",
+  user_id: dr.id
   })
 
 p17 = Post.create ({
@@ -54,7 +55,8 @@ p16 = Post.create ({
   flexitarian. Austin fingerstache pug cliche la croix asymmetrical
   lumbersexual portland, microdosing blue bottle small batch. Keffiyeh
   flannel pour-over, wayfarers cold-pressed photo booth forage.
-  Crucifix kombucha lumbersexual synth gastropub."
+  Crucifix kombucha lumbersexual synth gastropub.",
+  user_id: l1.id
   })
 
 p15= Post.create ({
