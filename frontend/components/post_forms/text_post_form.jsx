@@ -20,7 +20,8 @@ class TextPostForm extends React.Component {
     };
 
     this.formName = "TextPostForm";
-
+    this.cur_path = this.props.location.pathname;
+    this.base_path = cur_path.slice(0, cur_path.indexOf("/post"));
 
     this.handleTitleInput = this.handleTitleInput.bind(this);
     this.handleMediaInput = this.handleMediaInput.bind(this);
@@ -56,7 +57,7 @@ class TextPostForm extends React.Component {
     if (this.state.title.length < 3) {
       alert("Must have  a title of at least 3 characters");
     } else {
-      this.props.createPost(this.state).then(this.props.history.push('/'));
+      this.props.createPost(this.state).then(this.props.history.push(`${this.base_path}`));
 
     }
   }
@@ -186,7 +187,7 @@ class TextPostForm extends React.Component {
 
 
         <div id="controlButtons">
-          <Link to='/'><button type="button">Close</button></Link>
+          <Link to={`${this.base_path}`}><button type="button">Close</button></Link>
           <button onClick={this.handleSubmit} type="button">Post</button>
         </div>
       </form>

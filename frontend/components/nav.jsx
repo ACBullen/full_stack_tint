@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link, Route, Redirect } from 'react-router-dom';
+import {  ProtectedRoute } from '../util/auth_util';
 
 import PostDropdown from './post_dropdown';
+import TextPostForm from './post_forms/text_post_form';
+import QuotePostForm from './post_forms/quote_post_form';
+import ImagePostForm from './post_forms/image_post_form';
+import AudioPostForm from './post_forms/audio_post_form';
+import VideoPostForm from './post_forms/video_post_form';
+import LinkPostForm from './post_forms/link_post_form';
+
 
 class Nav extends React.Component {
   constructor(props){
@@ -43,7 +51,12 @@ class Nav extends React.Component {
             )
           }
         } />
-
+        <ProtectedRoute exact path="/:base/post/text" component={TextPostForm} />
+        <ProtectedRoute exact path="/:base/post/quote" component={QuotePostForm} />
+        <ProtectedRoute exact path="/:base/post/image" component={ImagePostForm} />
+        <ProtectedRoute exact path='/:base/post/audio' component={AudioPostForm} />
+        <ProtectedRoute exact path='/:base/post/video' component={VideoPostForm} />
+        <ProtectedRoute exact path='/:base/post/link' component={LinkPostForm} />
       <Link to="/home"><h1>T.I.N.T.</h1></Link>
         <div id="NavRight">
           { this.props.currentUser.username ?(
