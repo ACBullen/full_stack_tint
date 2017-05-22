@@ -52,7 +52,7 @@ class VideoPostForm extends React.Component {
         {this.state.media_link === '' ? (
           <form id="PostInputs">
 
-        <input onChange={this.handleLinkInput} type="text" placeholder="Link your video file here)" value={this.state.link_url}/> <div><p>or upload:</p>
+        <input onChange={this.handleLinkInput} type="text" placeholder="Link your video file here)" value={this.state.link_url}/> <div><p>{"or upload (40MB max): "}</p>
         <UploadVideoButton cloudinaryOptions={this.props.apiKeys.cloudinary_options}
           getMediaUrl={this.getMediaUrl.bind(this)} /></div>
 

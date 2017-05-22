@@ -1,10 +1,13 @@
 #FeedFootprint {
   display: inline-block;
   width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
   margin-top: 80px;
+
 }
 
-.feed-item { width: 250px; float: left; margin:5px; }
+.feed-item { width: 23%; margin:5px; }
 
 #PostHeader img {
   border-top: 1px solid grey;

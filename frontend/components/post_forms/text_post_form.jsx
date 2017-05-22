@@ -4,7 +4,7 @@ import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util';
 import UploadImgButton from './upload_img_button';
 import UploadVidButton from './upload_vid_button';
-
+import UploadAudioButton from './upload_audio_button';
 
 class TextPostForm extends React.Component {
   constructor(props){
@@ -79,11 +79,13 @@ class TextPostForm extends React.Component {
 
     let imageInput= document.getElementById("additionalImage");
     let videoInput= document.getElementById("additionalVid");
+    let audioInput= document.getElementById("additionalAud");
 
     if (imageInput.style.display === ""){
 
       imageInput.style.display = 'flex';
       videoInput.style.display = '';
+      audioInput.style.display = '';
 
       this.setState({media_type: 'image'});
 
@@ -95,21 +97,32 @@ class TextPostForm extends React.Component {
     this.setState({media_link: ''});
   }
 
+  showAudioInput(e){
+    let imageInput= document.getElementById("additionalImage");
+    let videoInput= document.getElementById("additionalVid");
+    let audioInput= document.getElementById("additionalAud");
 
-  getMediaUrl(url) {
-    document.getElementById("additionalImage").style.display = 'none';
-    document.getElementById("additionalVid").style.display= 'none';
-    this.setState({media_link: url});
+    if (audioInput.style.display === ""){
+      imageInput.style.display = '';
+      videoInput.style.display = '';
+      audioInput.style.display = "flex";
+
+      this.setState({media_type: 'audio'});
+    } else {
+      audioInput.style.display = '';
+    }
+
+    this.setState({media_link: ''});
   }
-
 
   showVideoInput(e){
 
     let imageInput= document.getElementById("additionalImage");
     let videoInput= document.getElementById("additionalVid");
+    let audioInput = document.getElementById("additionalAud");
 
     if (videoInput.style.display === ""){
-
+      audioInput.style.display = '';
       imageInput.style.display = '';
       videoInput.style.display = 'flex';
 
@@ -119,6 +132,12 @@ class TextPostForm extends React.Component {
 
     }
     this.setState({media_link: ''});
+  }
+
+  getMediaUrl(url) {
+    document.getElementById("additionalImage").style.display = 'none';
+    document.getElementById("additionalVid").style.display= 'none';
+    this.setState({media_link: url});
   }
 
   render() {
@@ -132,6 +151,7 @@ class TextPostForm extends React.Component {
             <i id="addlCButton" className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput.bind(this)}></i>
             <i id="addlCButton" className="fa fa-video-camera" aria-hidden="true"onClick={this.showVideoInput.bind(this)}></i>
             <i id="addlCButton" className="fa fa-camera" aria-hidden="true"onClick={this.showImageInput.bind(this)}></i>
+            <i id="addlCButton" className="fa fa-headphones" aria-hidden="true"onClick={this.showAudioInput.bind(this)}></i>
           </div>) : <h4>Content Uploaded!</h4>}
         </div>
         <div id="additionalContent">
@@ -141,16 +161,22 @@ class TextPostForm extends React.Component {
         </lable>
 
         <lable id="additionalImage"><i className="fa fa-camera" aria-hidden="true"></i>
-        <input type="text" value={this.state.media_link} placeholder="Input image link here!" onChange={this.handleMediaInput.bind(this)}/>
+        <input type="text" value={this.state.media_link} placeholder="Input image link here!" onChange={this.handleMediaInput}/>
 
         <lable> or upload: <UploadImgButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></lable>
 
         </lable>
 
         <lable id="additionalVid"><i className="fa fa-video-camera" aria-hidden="true"></i>
-        <input type="text" value={this.state.media_link} placeholder="Input video link here!" onChange={this.handleMediaInput.bind(this)}/>
+        <input type="text" value={this.state.media_link} placeholder="Input video link here!" onChange={this.handleMediaInput}/>
 
-        <lable> or upload: <UploadVidButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></lable>
+        <lable> {"or upload (40MB max):"} <UploadVidButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></lable>
+
+        </lable>
+
+        <lable id="additionalAud"><i className="fa fa-headphones" aria-hidden="true"></i>
+        <input type="text" value={this.state.media_link} placeholder="Input audio link here!" onChange={this.handleMediaInput}/>
+        <lable> {"or upload (10MB max):"} <UploadAudioButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></lable>
 
         </lable>
         </div>

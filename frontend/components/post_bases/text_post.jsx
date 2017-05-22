@@ -19,11 +19,11 @@ class TextPost extends React.Component {
             <video id="media" controls>
               <source src={this.props.post.media_link} />
             </video>
-          
+
         )
       case "audio":
         return (
-          <audio  controls src={this.props.post.media_link} type="audio/mpeg" />
+          <audio  controls src={this.props.post.media_link}  />
         )
       default:
       return "";
