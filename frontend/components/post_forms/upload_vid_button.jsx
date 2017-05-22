@@ -11,7 +11,7 @@ class UploadVidButton extends React.Component {
       this.props.cloudinaryOptions,
       (err, images) => {
         if(err === null){
-          this.props.getMediaUrl(images[0].url);
+          this.props.getMediaUrl(images[0].secure_url);
         }
       }
     )

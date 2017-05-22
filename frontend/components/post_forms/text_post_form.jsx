@@ -21,7 +21,7 @@ class TextPostForm extends React.Component {
 
     this.formName = "TextPostForm";
     this.cur_path = this.props.location.pathname;
-    this.base_path = cur_path.slice(0, cur_path.indexOf("/post"));
+    this.base_path = this.cur_path.slice(0, this.cur_path.indexOf("/post"));
 
     this.handleTitleInput = this.handleTitleInput.bind(this);
     this.handleMediaInput = this.handleMediaInput.bind(this);

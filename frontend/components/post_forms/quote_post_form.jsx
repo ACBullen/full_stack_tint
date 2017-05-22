@@ -20,7 +20,7 @@ class QuotePostForm extends React.Component {
 
     this.formName = "QuotePostForm"
     this.cur_path = this.props.location.pathname;
-    this.base_path = cur_path.slice(0, cur_path.indexOf("/post"));
+    this.base_path = this.cur_path.slice(0, this.cur_path.indexOf("/post"));
 
     this.handleAuthorInput = this.handleAuthorInput.bind(this);
     this.handleQuoteInput = this.handleQuoteInput.bind(this);
