@@ -1,13 +1,13 @@
 #PostForm {
-  display: flex;
   z-index: 3;
-  position: fixed;
-  margin: 0 auto;
-  top: 20%;
-  justify-content: space-between;
-  height: 200px;
-  flex-direction: column;
-  padding-bottom: 10px;
+  top: 160px;
+  left: 30%;
+  display: flex;
+  position: absolute;
+  margin-left: 0px;
+  min-height: 200px;
+  justify-content: space-around;
+
 }
 #PostForm input{
   border: none;
@@ -27,10 +27,10 @@
 }
 
 #PostInputs input{
-  width: 350px;
-  height: 60px;
-  border: none;
-  font-size: 20px;
+  font-size: 13px;
+    border: none;
+    width: 75%;
+    height: 40px;
 }
 
 #PostInputs div {

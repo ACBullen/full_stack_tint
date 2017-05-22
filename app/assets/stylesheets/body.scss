@@ -1,5 +1,5 @@
 .baseLozenge {
-  background-color: black;
+  background-color: #747C9E;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,19 +15,38 @@
 
 #MainBody {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+#sessionPage {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around
 }
 
+#sessionPage h1{
+  font-size: 80px;
+  letter-spacing: 15px;
+  display: inline-block;
+  font-family: "Cutive Mono", monospace;
+  margin-top: 130px;
+  color: aliceblue;
+}
 #FormConcerns {
-  display: flex;
+  display: inline-block;;
   flex-direction: column;
   align-items: center;
-  width: 360px;
+  justify-content: center;
+
+
+  margin-top: 100px;
   border: 1px solid #2B3856;
 }
 
 #FormConcerns p {
-  background-color: black;
+  background-color: #747C9E;
   padding: 10px;
   color: white;
   text-shadow: none;
@@ -37,18 +56,27 @@
 #greeting {
   display: block;
   font-size: 20px;
-  margin-top: 100px;
   width: 420px;
   padding: 0 50px;
   text-align: center;
 }
 
+#SessionForm {
+  width: 458px;
+}
 
+.signup {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
 
 #SessionForm input {
   margin: 10px auto;
   display: block;
-  width: 160px;
+  width: 90%;
+  height: 30px;
+  font-size: 24px;
 }
 
 #SessionForm lable {
@@ -57,8 +85,7 @@
 }
 
 #SFHeader {
-  width: 410px;
-  border-bottom: 1px solid black;
+
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
@@ -80,14 +107,24 @@
 #SignIn-Up-demo-buttons{
   display: flex;
   justify-content: space-around;
-  width: 200px;
-  margin-bottom: 50px;
+  width: 420px;
+  margin-bottom: 0px;
+}
+
+#SignIn-Up-demo-buttons button {
+  width: 85%;
+
+  border-radius: 2px;
+  margin: 0 7px;
+  background-color: #747C9E;
+  height: 30px;
+  font-size: 16px;
 }
 
 #SFFooter {
-  border-top: 1px solid black;
+  text-align: center;
   display: flex;
-  width: 410px;
+  width: 458px;
   justify-content: center;
 }
 #SFFooter a {
