@@ -46,7 +46,8 @@
   margin: 10 auto;
 }
 .baseLozenge #media {
-  max-width: 103%;
+  max-width: 102%;
+  max-height: 100%;
   border: none;
 }
 .baseLozenge audio {
@@ -59,8 +60,11 @@
   min-height: 200px;
 }
 iframe {
-  width: 400px;
-  height: 220px;
+  width: 600px;
+  height: 300px;
+}
+.feed-item iframe {
+  height: 150px;
 }
 
 .UserFeed {

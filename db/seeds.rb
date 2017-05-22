@@ -18,7 +18,51 @@ l4 = User.create({username: "Lorem4", password:'password'})
 dr = User.create({username: "DragRacer", password:'password'})
 lcf = User.create ({username: "LovecraftFan", password: "password"})
 ev = User.create ({username: "Exalted Void", password_digest: "$2a$10$BjZZo5rhwTkik4M8seppEev/ZYVLywE7sDtlGYNmNFOo/wkAewX/S"})
+
+Follow.destroy_all
+f1 = Follow.create({follower_id: demo.id, followee_id: me.id})
+f2 = Follow.create({follower_id: demo.id, followee_id: l4.id})
+f3 = Follow.create({follower_id: demo.id, followee_id: lcf.id})
+f4 = Follow.create({follower_id: demo.id, followee_id: dr.id})
+
 Post.destroy_all
+
+p18 = Post.create ({
+  post_type: "image",
+  media_type: "image",
+  link_url: "http://i.imgur.com/qxU3NU4.gif"
+  })
+
+p17 = Post.create ({
+  post_type: "audio",
+  media_type: "audio",
+  media_link: "http://hwcdn.libsyn.com/p/9/5/0/950f3e431a44a995/720-20History20Week.mp3?c_id=15202746&destination_id=149717&expiration=1495469026&hwt=8d6061eb9f0d45f6c5016a63ffbf2906",
+  title: "WTNV: History week",
+  body: "Love this stuff, you can find more at http://www.welcometonightvale.com/ !",
+  user_id: l4.id
+  })
+
+p16 = Post.create ({
+  post_type: "text",
+  title: "Lachs and bagels",
+  body: "IPhone seitan cold-pressed semiotics williamsburg DIY drinking
+  vinegar locavore. Readymade meh tattooed food truck, chicharrones pug
+  fashion axe next level godard quinoa narwhal man bun raclette banjo.
+  Roof party kale chips semiotics, DIY pinterest street art venmo neutra
+  man bun four dollar toast hot chicken. Vice marfa pinterest, pork
+  belly butcher humblebrag four dollar toast occupy bitters sustainable
+  flexitarian. Austin fingerstache pug cliche la croix asymmetrical
+  lumbersexual portland, microdosing blue bottle small batch. Keffiyeh
+  flannel pour-over, wayfarers cold-pressed photo booth forage.
+  Crucifix kombucha lumbersexual synth gastropub."
+  })
+
+p15= Post.create ({
+  post_type: "video",
+  media_type: "video",
+  link_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  user_id: l2.id
+  })
 
 p1 = Post.create({
   post_type: "text",
@@ -43,12 +87,7 @@ p2 = Post.create({
     user_id: demo.id
   })
 
-  p4= Post.create({
-    post_type: "video",
-    body: "Must-see! Those moves...",
-    link_url: "https://www.youtube.com/embed/IOhu26-Yirw",
-    user_id: me.id
-    })
+
 
   p5= Post.create ({
     post_type: "quote",
@@ -138,3 +177,10 @@ p2 = Post.create({
     media_link: "http://res.cloudinary.com/dadyuehpo/image/upload/v1495261287/1478814894790_lkjcwe.jpg",
     user_id: ev.id
     })
+
+    p4= Post.create({
+      post_type: "video",
+      body: "Must-see! Those moves...",
+      link_url: "https://www.youtube.com/embed/IOhu26-Yirw",
+      user_id: me.id
+      })
