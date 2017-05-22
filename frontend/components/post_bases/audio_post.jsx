@@ -8,7 +8,7 @@ const AudioPost = ({post, user, fi}) => {
     <div id="AudioPost" className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
       <PostHeader user={user} />
       <h3>{post.title}</h3>
-        <audio  controls src={source} type="audio/mpeg" />
+        <audio  controls src={source}  />
 
         <p>{post.body}</p>
     </div>

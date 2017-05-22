@@ -60,7 +60,7 @@ class AudioPostForm extends React.Component {
         {this.state.media_link === '' ? (
           <form id="PostInputs">
 
-        <input onChange={this.handleLinkInput} type="text" placeholder="Link your audio file here (mp3 only)" value={this.state.link_url}/> <div><p>or upload:</p>
+        <input onChange={this.handleLinkInput} type="text" placeholder="Link your audio file here (mp3 only)" value={this.state.link_url}/> <div><p>{"or upload (10MB max):"}</p>
         <UploadAudioButton cloudinaryOptions={this.props.apiKeys.cloudinary_options}
           getMediaUrl={this.getMediaUrl.bind(this)} /></div>
 
