@@ -28,12 +28,22 @@ class TextPost extends React.Component {
 
   render (){
     let fi = this.props.fi
+
+    let show_url;
+    if (this.props.post.link_url) {
+      let char_limit;
+      fi === "true" ? char_limit = 25 : char_limit = 40
+      this.props.post.link_url.length > char_limit + 3 ? (
+        show_url = `${this.props.post.link_url.slice(0, char_limit)}...`
+        ) : (
+          show_url = this.props.post.link_url)
+      }
     return(
       <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
         <PostHeader user={this.props.user} />
         <h2>{this.props.post.title}</h2>
         {this.props.post.link_url ?(
-          <a href={this.props.post.link_url}>{this.props.post.link_url}</a>) : (
+          <a href={this.props.post.link_url}>{show_url}</a>) : (
             ""
           )
         }
