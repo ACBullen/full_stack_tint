@@ -15,7 +15,8 @@ class AudioPostForm extends React.Component {
       media_type: 'audio',
       user_id: this.props.userId
     }
-
+    this.cur_path = this.props.location.pathname;
+    this.base_path = cur_path.slice(0, cur_path.indexOf("/post"));
 
     this.handleTrackInput = this.handleTrackInput.bind(this);
     this.handleDescInput = this.handleDescInput.bind(this);
@@ -48,9 +49,7 @@ class AudioPostForm extends React.Component {
     if(this.state.link_url.length < 4 && this.state.media_link.length < 1){
       alert("please submit a valid url or upload an audio file")
     } else {
-      let cur_path = this.props.location.pathname;
-      let base_path = cur_path.slice(0, cur_path.indexOf("/post"));
-      this.props.createPost(this.state).then(this.props.history.push(`${base_path}`));
+      this.props.createPost(this.state).then(this.props.history.push(`${this.base_path}`));
     }
   }
 
@@ -76,7 +75,7 @@ class AudioPostForm extends React.Component {
           <input onChange={this.handleTrackInput} type="text" placeholder="Track name here!" value={this.state.title}/>
           <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>
           <div id="controlButtons">
-            <Link to="/home"><button type="button">close</button></Link>
+            <Link to={`${this.base_path}`}><button type="button">close</button></Link>
             <button onClick={this.handleSubmit} type="button">Post</button>
           </div>
       </div>

@@ -19,7 +19,8 @@ class ImagePostForm extends React.Component {
     };
 
     this.formName = "ImagePostForm";
-
+    this.cur_path = this.props.location.pathname;
+    this.base_path = cur_path.slice(0, cur_path.indexOf("/post"));
 
     this.closeForm = closeForm.bind(this)(this.formName);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,9 +37,7 @@ class ImagePostForm extends React.Component {
     if (this.state.link_url.length < 4 && this.state.media_link.length < 1){
       alert("please submit a valid link or upload an image");
     } else {
-      let cur_path = this.props.location.pathname;
-      let base_path = cur_path.slice(0, cur_path.indexOf("/post"));
-      this.props.createPost(this.state).then(this.props.history.push(`${base_path}`));
+      this.props.createPost(this.state).then(this.props.history.push(`${this.base_path}`));
     }
   }
 
@@ -61,7 +60,7 @@ class ImagePostForm extends React.Component {
       <UploadImgButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></div>) : <img src={this.state.media_link} />}
         <input type="text" placeholder="Add a description (optional)" onChange={this.handleDesc} value={this.state.body} />
           <div id="controlButtons">
-            <Link to='/'><button type="button">Close</button></Link>
+            <Link to={`${this.base_path}`}><button type="button">Close</button></Link>
           <button onClick={this.handleSubmit}>Post</button>
           </div>
       </form>

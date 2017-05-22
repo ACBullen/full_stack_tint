@@ -15,6 +15,9 @@ class VideoPostForm extends React.Component {
       media_type: 'video',
       user_id: this.props.userId
     }
+    this.cur_path = this.props.location.pathname;
+    this.base_path = cur_path.slice(0, cur_path.indexOf("/post"));
+
     this.handleLinkInput = this.handleLinkInput.bind(this);
     this.handleDescInput = this.handleDescInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,7 +45,7 @@ class VideoPostForm extends React.Component {
     if(this.state.link_url.length < 5 && this.state.media_link < 1){
       alert("Please fill in a valid link or upload a video file");
     } else {
-      this.props.createPost(this.state).then(this.props.history.push('/'));
+      this.props.createPost(this.state).then(this.props.history.push(`${this.base_path}`));
     }
   }
 
@@ -67,7 +70,7 @@ class VideoPostForm extends React.Component {
           }
           <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>
           <div id="controlButtons">
-            <Link to='/'><button type="button">close</button></Link>
+            <Link to={`${this.base_path}`}><button type="button">close</button></Link>
             <button onClick={this.handleSubmit} type="button">post</button>
           </div>
       </div>

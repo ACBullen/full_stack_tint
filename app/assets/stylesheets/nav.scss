@@ -7,7 +7,7 @@
   padding: 0 5px;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 3;
@@ -69,5 +69,5 @@
 #NavBar a{
   text-decoration: none;
   color: inherit;
-  height: 30px
+
 }
