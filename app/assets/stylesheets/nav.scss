@@ -41,12 +41,12 @@
   display: none;
   position: absolute;
 
-  top: 70%;
+  top: 75%;
   right: 7%;
   border: 1px solid gray;
   background-color: white;
   border-radius: 2px;
-  width: 90px;
+  width: 100px;
   z-index: 999;
 
 }
@@ -55,17 +55,19 @@
   border: none;
   background-color: transparent;
   width: 100%;
-
+  margin-top: 6px;
+  height: 25px;
   box-shadow: none;
   text-align: left;
   border-bottom: 1px solid black;
   text-align: center;
   color: black;
-
-
 }
+
+
 
 #NavBar a{
   text-decoration: none;
   color: inherit;
+  height: 30px
 }
