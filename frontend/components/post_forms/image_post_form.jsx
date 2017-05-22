@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PFContainer from './post_form_container';
 import { closeForm } from '../../util/post_form_util';
 import UploadImgButton from './upload_img_button';
@@ -20,7 +20,7 @@ class ImagePostForm extends React.Component {
 
     this.formName = "ImagePostForm";
     this.cur_path = this.props.location.pathname;
-    this.base_path = cur_path.slice(0, cur_path.indexOf("/post"));
+    this.base_path = this.cur_path.slice(0, this.cur_path.indexOf("/post"));
 
     this.closeForm = closeForm.bind(this)(this.formName);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -68,4 +68,4 @@ class ImagePostForm extends React.Component {
   }
 }
 
-export default PFContainer(ImagePostForm);
+export default withRouter(PFContainer(ImagePostForm));

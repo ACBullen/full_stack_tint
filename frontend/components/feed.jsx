@@ -27,7 +27,6 @@ class Feed extends React.Component {
     isFitWidth: true
     })
     imagesLoaded(feed, ()=>{
-      console.log('re-layout');
       msnry.layout()
     });
 

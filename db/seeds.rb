@@ -178,7 +178,7 @@ p2 = Post.create({
   p14 = Post.create ({
     post_type: "image",
     media_type: "image",
-    media_link: "http://res.cloudinary.com/dadyuehpo/image/upload/v1495261287/1478814894790_lkjcwe.jpg",
+    media_link: "https://res.cloudinary.com/dadyuehpo/image/upload/v1495261287/1478814894790_lkjcwe.jpg",
     user_id: ev.id
     })
 

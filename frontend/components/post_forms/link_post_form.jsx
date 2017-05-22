@@ -16,7 +16,7 @@ class LinkPostForm extends React.Component {
       user_id: this.props.userId
     };
     this.cur_path = this.props.location.pathname;
-    this.base_path = cur_path.slice(0, cur_path.indexOf("/post"));
+    this.base_path = this.cur_path.slice(0, this.cur_path.indexOf("/post"));
     this.handleLinkInput = this.handleLinkInput.bind(this);
     this.handleDescInput = this.handleDescInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
