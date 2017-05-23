@@ -16,6 +16,7 @@ class Nav extends React.Component {
     super(props);
     this.logMeOut = this.logMeOut.bind(this);
     this.showPostOptions = this.showPostOptions.bind(this);
+    console.log(this.props);
   }
 
   logMeOut(e){
@@ -57,6 +58,8 @@ class Nav extends React.Component {
         <ProtectedRoute exact path='/:base/post/audio' component={AudioPostForm} />
         <ProtectedRoute exact path='/:base/post/video' component={VideoPostForm} />
         <ProtectedRoute exact path='/:base/post/link' component={LinkPostForm} />
+
+        <ProtectedRoute exact path='/:base/edit/quote/:id' component={QuotePostForm}/>
       <Link to="/home"><h1>T.I.N.T.</h1></Link>
         <div id="NavRight">
           { this.props.currentUser.username ?(

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import PostBase from './post_base';
+import { deletePost } from '../../actions/post_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -9,4 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
   fi: ownProps.fi
 });
 
-export default connect(mapStateToProps)(PostBase);
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  deletePost: (post_id) => dispatch(deletePost(post_id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostBase);

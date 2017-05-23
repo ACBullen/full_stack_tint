@@ -25,6 +25,21 @@ export const likePost = (post_id) => {
   return $.ajax({
     method: "POST",
     url: "/api/likes",
-    
+
+  })
+}
+
+export const updatePost = (post_id, post) => {
+  return $.ajax({
+    method: "PATCH",
+    url: `/api/posts/${post_id}`,
+    data: {post}
+  })
+}
+
+export const deletePost = (post_id) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `api/posts/${post_id}`
   })
 }

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :followed_posts, only: [:index]
     end
     resource :session, only: [:create, :destroy]
-    resources :posts, only: [:create, :index, :show]
+    resources :posts, only: [:create, :index, :show, :update, :destroy]
     resources :keys, only: [:index]
     resource :follows, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]

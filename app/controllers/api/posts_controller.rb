@@ -5,23 +5,32 @@ class Api::PostsController < ApplicationController
     render :index
   end
 
-  
+
   def create
     @post = Post.new(post_params)
 
     if @post.save
-      render json: { id: @post.id,
-                     post_type: @post.post_type,
-                     user_id: @post.user_id,
-                     title: @post.title,
-                     body: @post.body,
-                     link_url: @post.link_url,
-                     media_link: @post.media_link,
-                     created_at: @post.created_at
-                    }
+      render :show
     else
       render json: @post.errors.full_messages
     end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+
+    if @post.update_attributes(post_params)
+      render :show
+    else
+      render json: @post.errors.full_messages
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+
+    @post.destroy
+    render :show
   end
 
   private
