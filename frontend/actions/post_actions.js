@@ -3,7 +3,8 @@ import { receiveUsers, addUsers } from './user_actions';
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
-export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS"
+export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
+export const REMOVE_POST = "REMOVE_POST";
 
 export const receivePost = (post) => ({
   type: RECEIVE_POST,
@@ -20,6 +21,11 @@ export const receivePostErrors = (errors) => ({
   type: RECEIVE_POST_ERRORS,
   errors
 });
+
+export const removePost = post => ({
+  type: REMOVE_POST,
+  post
+})
 
 export const createPost = post => dispatch => {
   return APIUtilP.newPost(post).then(
@@ -49,3 +55,17 @@ export const getMyPosts = () => dispatch => {
     (err) => dispatch(receivePostErrors(err))
   )
 };
+
+export const updatePost = (post_id, post) => dispatch => {
+  return APIUtilP.updatePost(post_id, post).then((res)=> {
+    return dispatch(receivePost(res))
+  },
+  err => dispatch(receivePostErrors(err))
+  )
+}
+
+export const deletePost = post_id => dispatch => {
+  return APIUtilP.deletePost(post_id).then((res)=>{
+    return dispatch(removePost(res));
+  })
+}
