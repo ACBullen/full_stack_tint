@@ -37,7 +37,11 @@ class ImagePostForm extends React.Component {
     if (this.state.link_url.length < 4 && this.state.media_link.length < 1){
       alert("please submit a valid link or upload an image");
     } else {
-      this.props.createPost(this.state).then(this.props.history.push(`${this.base_path}`));
+      let target = this.base_path
+      if (this.base_path === "home"){
+        target = '/'
+      }
+      this.props.createPost(this.state).then(this.props.history.push(`${target}`));
     }
   }
 
