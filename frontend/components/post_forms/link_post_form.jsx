@@ -15,7 +15,7 @@ class LinkPostForm extends React.Component {
         link_url: '',
         media_link: '',
         post_type: 'link',
-        media_type: '',
+        media_type: 'none',
         user_id: this.props.userId
       };
     }
@@ -40,7 +40,11 @@ class LinkPostForm extends React.Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    if(this.state.link_url.length < 5){
+    let post_props = this.state
+    if (post_props.link_url.indexOf("www") === -1 && post_props.link_url.indexOf("http") === -1){
+      post_props.link_url = `https://www.${post_props.link_url}`;
+    }
+    if(post_props.link_url.length < 5){
       alert('please input a valid link');
     } else {
       let target = this.base_path
@@ -48,8 +52,8 @@ class LinkPostForm extends React.Component {
         target = '/'
       }
       this.props.post ? (
-        this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
-      ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
+        this.props.updatePost(this.props.post.id, post_props).then(this.props.history.push(`${target}`))
+      ): (this.props.createPost(post_props).then(this.props.history.push(`${target}`)));
     }
   }
 
