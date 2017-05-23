@@ -38,7 +38,7 @@ class ImagePostForm extends React.Component {
       alert("please submit a valid link or upload an image");
     } else {
       let target = this.base_path
-      if (this.base_path === "home"){
+      if (this.base_path === "/home"){
         target = '/'
       }
       this.props.createPost(this.state).then(this.props.history.push(`${target}`));

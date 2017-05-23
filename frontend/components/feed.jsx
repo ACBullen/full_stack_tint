@@ -19,7 +19,7 @@ class Feed extends React.Component {
 
   }
   componentDidUpdate(){
-    console.log("hit");
+
     let feed = document.getElementById('FeedFootprint');
     let msnry = new Masonry(feed, {
     itemSelector: '.feed-item',
@@ -30,7 +30,7 @@ class Feed extends React.Component {
     })
 
     imagesLoaded(feed, ()=>{
-      console.log("I'm laying out");
+  
       msnry.layout()
     });
 
