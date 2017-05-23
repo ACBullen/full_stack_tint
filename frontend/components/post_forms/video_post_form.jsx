@@ -45,7 +45,11 @@ class VideoPostForm extends React.Component {
     if(this.state.link_url.length < 5 && this.state.media_link < 1){
       alert("Please fill in a valid link or upload a video file");
     } else {
-      this.props.createPost(this.state).then(this.props.history.push(`${this.base_path}`));
+      let target = this.base_path
+      if (this.base_path === "home"){
+        target = '/'
+      }
+      this.props.createPost(this.state).then(this.props.history.push(`${target}`));
     }
   }
 
