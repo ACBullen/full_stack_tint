@@ -1,9 +1,11 @@
 import React from 'react';
 import PostHeader from './post_header';
+import { Link } from 'react-router-dom';
 
 class TextPost extends React.Component {
   constructor(props){
     super(props);
+
   }
 
   mediaSwitcher(){
@@ -14,7 +16,9 @@ class TextPost extends React.Component {
           <img id="media" src={this.props.post.media_link} />
         )
       case "video":
-        return (
+        return (this.props.post.media_link.indexOf('youtube') > -1 ) ? (
+          <iframe id="media" src={this.props.post.media_link} allowFullScreen></iframe>
+        ) : (
 
             <video id="media" controls>
               <source src={this.props.post.media_link} />
@@ -55,6 +59,20 @@ class TextPost extends React.Component {
         <article>
           <p>{this.props.post.body}</p>
         </article>
+        {this.props.currentUser.id === this.props.user.id ? (
+          <div id="authorOptions">
+            <Link to={ fi === "true" ? (
+                `home/edit/text/${this.props.post.id}`
+              ) : (`feed/edit/text/${this.props.post.id}`)}><button>Edit</button></Link>
+            <button onClick={
+                (e)=> {
+                  e.preventDefault;
+                  return this.props.deletePost.bind(this)(this.props.post.id);
+                }
+              }>Delete</button>
+
+            </div>
+        ) : ("")}
       </div>
     )
   }

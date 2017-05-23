@@ -23,19 +23,18 @@
   display: flex;
   align-content: center;
   width: 136px;
+  margin-right: 15px;
 }
 #currentUserInfo img {
   margin: 18px 10px;
 }
 
 #currentUserInfo button {
-  margin-top: 16%;
-  margin-left: 3px;
+  margin-top: 14%;
+  margin-left: 10px;
 }
 
-#NavBar button {
-  height: 20px;
-}
+
 
 #PostDropdown  {
   display: none;
