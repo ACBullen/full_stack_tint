@@ -6,17 +6,22 @@ import { withRouter, Link } from 'react-router-dom';
 class LinkPostForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      title: '',
-      body: '',
-      link_url: '',
-      media_link: '',
-      post_type: 'link',
-      media_type: '',
-      user_id: this.props.userId
-    };
+    if(this.props.post) {
+      this.state = this.props.post;
+    } else {
+      this.state = {
+        title: '',
+        body: '',
+        link_url: '',
+        media_link: '',
+        post_type: 'link',
+        media_type: '',
+        user_id: this.props.userId
+      };
+    }
     this.cur_path = this.props.location.pathname;
-    this.base_path = this.cur_path.slice(0, this.cur_path.indexOf("/post"));
+    let base_idx = (this.cur_path.indexOf("/post") > -1 ? this.cur_path.indexOf('/post') : this.cur_path.indexOf('/edit'))
+    this.base_path = this.cur_path.slice(0, base_idx);
     this.handleLinkInput = this.handleLinkInput.bind(this);
     this.handleDescInput = this.handleDescInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,14 +47,16 @@ class LinkPostForm extends React.Component {
       if (this.base_path === "/home"){
         target = '/'
       }
-      this.props.createPost(this.state).then(()=> this.props.history.push(`${target}`));
+      this.props.post ? (
+        this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
+      ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
     }
   }
 
 
   render(){
     return (
-      <div id="LinkPostForm" className="baseLozenge">
+      <div id="PostForm" className="baseLozenge">
         <form id="LinkPostInputs">
         <input onChange={this.handleLinkInput} value={this.state.link_url} type="text" placeholder="Link content here" />
         <input onChange={this.handleDescInput} value={this.state.body} type="text" placeholder="Give the link a description" />

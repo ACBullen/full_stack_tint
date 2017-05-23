@@ -9,19 +9,23 @@ import UploadAudioButton from './upload_audio_button';
 class TextPostForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      title: '',
-      body: '',
-      link_url: '',
-      media_link: '',
-      post_type: 'text',
-      media_type: '',
-      user_id: this.props.userId
-    };
-
+    if(this.props.post) {
+      this.state = this.props.post;
+    } else {
+      this.state = {
+        title: '',
+        body: '',
+        link_url: '',
+        media_link: '',
+        post_type: 'text',
+        media_type: 'none',
+        user_id: this.props.userId
+      };
+    }
     this.formName = "TextPostForm";
     this.cur_path = this.props.location.pathname;
-    this.base_path = this.cur_path.slice(0, this.cur_path.indexOf("/post"));
+    let base_idx = (this.cur_path.indexOf("/post") > -1 ? this.cur_path.indexOf('/post') : this.cur_path.indexOf('/edit'))
+    this.base_path = this.cur_path.slice(0, base_idx);
 
     this.handleTitleInput = this.handleTitleInput.bind(this);
     this.handleMediaInput = this.handleMediaInput.bind(this);
@@ -51,6 +55,9 @@ class TextPostForm extends React.Component {
     e.preventDefault();
     this.setState({media_link: e.currentTarget.value})
   }
+  handleLinkInput(e){
+    this.setState({link_url: e.currentTarget.value})
+  }
 
   handleSubmit (e){
     e.preventDefault();
@@ -61,8 +68,13 @@ class TextPostForm extends React.Component {
       if (this.base_path === "/home"){
         target = '/'
       }
-      this.props.createPost(this.state).then(this.props.history.push(`${target}`));
 
+      if(this.props.post)  {
+
+        this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
+      }else {
+        this.props.createPost(this.state).then(this.props.history.push(`${target}`))
+    };
     }
   }
 
@@ -96,7 +108,7 @@ class TextPostForm extends React.Component {
 
     } else {
       imageInput.style.display = '';
-      this.setState({media_type: ''});
+      this.setState({media_type: 'none'});
 
     }
     this.setState({media_link: ''});
@@ -115,6 +127,7 @@ class TextPostForm extends React.Component {
       this.setState({media_type: 'audio'});
     } else {
       audioInput.style.display = '';
+      this.setState({media_type: "none"})
     }
 
     this.setState({media_link: ''});
@@ -134,6 +147,7 @@ class TextPostForm extends React.Component {
       this.setState({media_type: 'video'});
     } else {
       videoInput.style.display = '';
+      this.setState({media_type: 'none'})
 
     }
     this.setState({media_link: ''});
@@ -157,11 +171,13 @@ class TextPostForm extends React.Component {
             <i id="addlCButton" className="fa fa-video-camera" aria-hidden="true"onClick={this.showVideoInput.bind(this)}></i>
             <i id="addlCButton" className="fa fa-camera" aria-hidden="true"onClick={this.showImageInput.bind(this)}></i>
             <i id="addlCButton" className="fa fa-headphones" aria-hidden="true"onClick={this.showAudioInput.bind(this)}></i>
-          </div>) : <h4>Content Uploaded!</h4>}
+          </div>) : (
+          <h4><div id="additionalContentLinks"><i id="addlCButton" className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput.bind(this)}></i></div> Content Uploaded!</h4>
+          )}
         </div>
         <div id="additionalContent">
         <lable id="additionalLink"><i className="fa fa-link" aria-hidden="true"></i>
-        <input type="text" value={this.state.link_url} placeholder="Input link here!" onChange={this.handleMediaInput.bind(this)}/>
+        <input type="text" value={this.state.link_url} placeholder="Input link here!" onChange={this.handleLinkInput.bind(this)}/>
 
         </lable>
 

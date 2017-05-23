@@ -6,17 +6,22 @@ import UploadVideoButton from './upload_vid_button';
 class VideoPostForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      title: '',
-      body: '',
-      link_url: '',
-      media_link: '',
-      post_type: 'video',
-      media_type: 'video',
-      user_id: this.props.userId
+    if(this.props.post) {
+      this.state = this.props.post;
+    } else {
+      this.state = {
+        title: '',
+        body: '',
+        link_url: '',
+        media_link: '',
+        post_type: 'video',
+        media_type: 'video',
+        user_id: this.props.userId
+      }
     }
     this.cur_path = this.props.location.pathname;
-    this.base_path = this.cur_path.slice(0, this.cur_path.indexOf("/post"));
+    let base_idx = (this.cur_path.indexOf("/post") > -1 ? this.cur_path.indexOf('/post') : this.cur_path.indexOf('/edit'))
+    this.base_path = this.cur_path.slice(0, base_idx);
 
     this.handleLinkInput = this.handleLinkInput.bind(this);
     this.handleDescInput = this.handleDescInput.bind(this);
@@ -49,7 +54,10 @@ class VideoPostForm extends React.Component {
       if (this.base_path === "/home"){
         target = '/'
       }
-      this.props.createPost(this.state).then(this.props.history.push(`${target}`));
+
+      this.props.post ? (
+        this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
+      ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
     }
   }
 
@@ -70,6 +78,7 @@ class VideoPostForm extends React.Component {
                 <video  controls>
                   <source src={`${this.state.media_link.slice(0, this.state.media_link.length - 4)}`} type="video/mp4" />
                 </video>
+                <button onClick={this.setState.bind(this)({media_link: ''})}>Remove</button>
           </div>)
           }
           <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>

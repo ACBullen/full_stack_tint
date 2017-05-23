@@ -7,20 +7,23 @@ import UploadImgButton from './upload_img_button';
 class ImagePostForm extends React.Component {
   constructor(props){
     super(props);
-
-    this.state = {
-      title: '',
-      body: '',
-      link_url: '',
-      media_link: '',
-      post_type: 'image',
-      media_type: 'image',
-      user_id: this.props.userId
-    };
-
-    this.formName = "ImagePostForm";
+    if(this.props.post) {
+      this.state = this.props.post;
+    } else {
+      this.state = {
+        title: '',
+        body: '',
+        link_url: '',
+        media_link: '',
+        post_type: 'image',
+        media_type: 'image',
+        user_id: this.props.userId
+      };
+    }
+    this.formName = "PostForm";
     this.cur_path = this.props.location.pathname;
-    this.base_path = this.cur_path.slice(0, this.cur_path.indexOf("/post"));
+    let base_idx = (this.cur_path.indexOf("/post") > -1 ? this.cur_path.indexOf('/post') : this.cur_path.indexOf('/edit'))
+    this.base_path = this.cur_path.slice(0, base_idx);
 
     this.closeForm = closeForm.bind(this)(this.formName);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,7 +44,9 @@ class ImagePostForm extends React.Component {
       if (this.base_path === "/home"){
         target = '/'
       }
-      this.props.createPost(this.state).then(this.props.history.push(`${target}`));
+      this.props.post ? (
+        this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
+      ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
     }
   }
 
@@ -60,8 +65,8 @@ class ImagePostForm extends React.Component {
   render(){
     return (
       <form id={this.formName} className="baseLozenge">
-        {this.state.media_link === '' ? (<div id="imgInputs"> <input type="text" onChange={this.handleLinkInput} placeholder="Your image link here" value={this.state.link_url}/> <h5> Or upload: </h5>
-      <UploadImgButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></div>) : <img src={this.state.media_link} />}
+        {this.state.media_link === '' ? (<div id="imgInputs"> <input type="text" onChange={this.handleLinkInput} placeholder="Your image link here" value={this.state.link_url}/> <h4> Or upload: </h4>
+      <UploadImgButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></div>) : <div id="preview"><img src={this.state.media_link} /> <button onClick={this.setState.bind(this)({media_link: ''})}>Remove</button></div>}
         <input type="text" placeholder="Add a description (optional)" onChange={this.handleDesc} value={this.state.body} />
           <div id="controlButtons">
             <Link to={`${this.base_path}`}><button type="button">Close</button></Link>

@@ -12,6 +12,7 @@ class Api::PostsController < ApplicationController
     if @post.save
       render :show
     else
+      p @post.errors.full_messages
       render json: @post.errors.full_messages
     end
   end
@@ -42,6 +43,7 @@ class Api::PostsController < ApplicationController
                                  :user_id,
                                  :link_url,
                                  :media_link,
+                                 :media_type,
                                  :user_id
                                 )
 

@@ -8,19 +8,26 @@ import { closeForm } from '../../util/post_form_util.js';
 class QuotePostForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '',
-      body: '',
-      link_url: '',
-      media_link: '',
+    if(this.props.post) {
+      this.state = this.props.post;
+    } else {
+      this.state = {
+        title: '',
+        body: '',
+        link_url: '',
+        media_link: '',
 
-      post_type: 'quote',
-      user_id: this.props.userId
-    };
+        post_type: 'quote',
+        user_id: this.props.userId
+      };
+
+    }
+
 
     this.formName = "QuotePostForm"
     this.cur_path = this.props.location.pathname;
-    this.base_path = this.cur_path.slice(0, this.cur_path.indexOf("/post"));
+    let base_idx = (this.cur_path.indexOf("/post") > -1 ? this.cur_path.indexOf('/post') : this.cur_path.indexOf('/edit'))
+    this.base_path = this.cur_path.slice(0, base_idx);
 
     this.handleAuthorInput = this.handleAuthorInput.bind(this);
     this.handleQuoteInput = this.handleQuoteInput.bind(this);
@@ -42,12 +49,15 @@ class QuotePostForm extends React.Component {
     e.preventDefault();
     if (this.state.title.length < 3 || this.state.body.length < 3 ){
       alert("Please fill out both the quote and the author")
-    } else{
+    } else {
       let target = this.base_path
       if (this.base_path === "/home"){
         target = '/'
       }
-      this.props.createPost(this.state).then(this.props.history.push(`${target}`));
+
+      this.props.post ? (
+        this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
+      ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
     }
   }
 

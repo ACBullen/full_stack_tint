@@ -23,14 +23,15 @@ class Feed extends React.Component {
     let feed = document.getElementById('FeedFootprint');
     let msnry = new Masonry(feed, {
     itemSelector: '.feed-item',
-    columnWidth: 30,
+    columnWidth: 5,
     horizontalOrder: true,
     isFitWidth: true,
-    percentPosition: true
+
+    stagger: 30
     })
 
     imagesLoaded(feed, ()=>{
-  
+
       msnry.layout()
     });
 
