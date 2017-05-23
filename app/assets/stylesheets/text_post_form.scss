@@ -1,13 +1,15 @@
 #TextPostForm {
 
   z-index: 3;
-  top: 160px;
-  left: 30%;
+  bottom: -261%;
+  left: 50%;
+  transform: translate(-50%, 50%);
   display: flex;
   position: absolute;
   margin-left: 0px;
-  min-height: 200px;
+  min-height: 300px;
   justify-content: space-around;
+
 }
 
 #TextPostForm textarea {

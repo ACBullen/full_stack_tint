@@ -78,7 +78,7 @@ class VideoPostForm extends React.Component {
                 <video  controls>
                   <source src={`${this.state.media_link.slice(0, this.state.media_link.length - 4)}`} type="video/mp4" />
                 </video>
-                <button onClick={this.setState.bind(this)({media_link: ''})}>Remove</button>
+                <button onClick={()=>this.setState.bind(this)({media_link: ''})}>Remove</button>
           </div>)
           }
           <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>

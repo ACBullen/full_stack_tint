@@ -62,11 +62,21 @@ class ImagePostForm extends React.Component {
     this.setState({media_link: url});
   }
 
+  removeContent(e){
+    this.setState({media_link: ''})
+  }
+
   render(){
     return (
       <form id={this.formName} className="baseLozenge">
-        {this.state.media_link === '' ? (<div id="imgInputs"> <input type="text" onChange={this.handleLinkInput} placeholder="Your image link here" value={this.state.link_url}/> <h4> Or upload: </h4>
-      <UploadImgButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></div>) : <div id="preview"><img src={this.state.media_link} /> <button onClick={this.setState.bind(this)({media_link: ''})}>Remove</button></div>}
+        {this.state.media_link === '' ? (
+          <div id="imgInputs"> <input type="text" onChange={this.handleLinkInput} placeholder="Your image link here" value={this.state.link_url}/>
+          <h4> Or upload: </h4>
+      <UploadImgButton cloudinaryOptions={this.props.apiKeys.cloudinary_options} getMediaUrl={this.getMediaUrl.bind(this)} /></div>
+      ) : (
+        <div id="preview"><img src={this.state.media_link} />
+        <button onClick={this.removeContent.bind(this)}>Remove</button></div>
+      )}
         <input type="text" placeholder="Add a description (optional)" onChange={this.handleDesc} value={this.state.body} />
           <div id="controlButtons">
             <Link to={`${this.base_path}`}><button type="button">Close</button></Link>
