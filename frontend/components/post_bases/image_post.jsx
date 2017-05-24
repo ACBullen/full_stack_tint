@@ -2,7 +2,7 @@ import React from 'react';
 import PostHeader from './post_header';
 import { Link } from 'react-router-dom';
 
-const ImagePost = ({post, user, deletePost, fi}) => {
+const ImagePost = ({post, user, currentUser, deletePost, fi}) => {
 
   return (
     <div id="ImagePost" className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
