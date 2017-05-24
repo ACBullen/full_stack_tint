@@ -48,15 +48,6 @@ class PostFooter extends React.Component {
             <i className="fa fa-heart-o" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
           ) }
 
-          {currentUserId === authorId ? (
-            <div id="authorOptions">
-              <Link to={ fi === "true" ? (
-                  `home/edit/quote/${post.id}`
-                ) : (`feed/edit/quote/${post.id}`)}><button>Edit</button></Link>
-              <button onClick={this.handleDelete.bind(this)}>Delete</button>
-
-              </div>
-          ) : ("")}
         </div>
       </div>
     )

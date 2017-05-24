@@ -43,8 +43,10 @@ class PostHeader extends React.Component {
     let fi = this.props.fi;
     return(
       <header id="PostHeader">
+        <div>
         <img width="20px" height="20px" src={`${this.state.user.profile_pic}`}/>
-        <h5>{this.state.user.username}</h5>
+        <h5>{this.state.user.username}</h5> </div>
+        <div>
         { this.state.currentUser.username ?
           (this.state.currentUser.id === this.state.user.id ? (
             <div id="authorOptions">
@@ -57,7 +59,7 @@ class PostHeader extends React.Component {
           ) : (
           <button onClick={this.handleFollowToggle.bind(this)}>{this.state.followed ? "Unfollow ": "Follow"}</button>
         )) : "" }
-
+        </div>
       </header>
     )
   }
