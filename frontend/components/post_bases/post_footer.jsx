@@ -38,21 +38,26 @@ class PostFooter extends React.Component {
     let fi = this.props.fi;
     return(
       <div id="PostFooter">
-        {this.state.liked ? (
-          <i className="fa fa-heart" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
-      ) : (
-          <i className="fa fa-heart-o" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
-        ) }
+        <div id="pfLeft">
+          <h4>{this.state.post.likes.length === 1 ? `${this.state.post.likes.length} like` : `${this.state.post.likes.length} likes` }</h4>
+        </div>
+        <div id="pfRight">
+          {this.state.liked ? (
+            <i className="fa fa-heart" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
+        ) : (
+            <i className="fa fa-heart-o" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
+          ) }
 
-        {currentUserId === authorId ? (
-          <div id="authorOptions">
-            <Link to={ fi === "true" ? (
-                `home/edit/quote/${post.id}`
-              ) : (`feed/edit/quote/${post.id}`)}><button>Edit</button></Link>
-            <button onClick={this.handleDelete.bind(this)}>Delete</button>
+          {currentUserId === authorId ? (
+            <div id="authorOptions">
+              <Link to={ fi === "true" ? (
+                  `home/edit/quote/${post.id}`
+                ) : (`feed/edit/quote/${post.id}`)}><button>Edit</button></Link>
+              <button onClick={this.handleDelete.bind(this)}>Delete</button>
 
-            </div>
-        ) : ("")}
+              </div>
+          ) : ("")}
+        </div>
       </div>
     )
   }
