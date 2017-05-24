@@ -9,6 +9,7 @@
 User.destroy_all
 Follow.destroy_all
 Post.destroy_all
+Like.desroy_all
 
 demo = User.create({username: 'Demo', password: 'password'})
 me = User.create({username: 'Alex', password: 'password'})
@@ -16,16 +17,19 @@ me = User.create({username: 'Alex', password: 'password'})
 l1 = User.create({username: "Lorem1", password:'password'})
 l2 = User.create({username: "Lorem2", password:'password'})
 l3 = User.create({username: "Lorem3", password:'password'})
-l4 = User.create({username: "Lorem4", password:'password'})
+l4 = User.create({username: "Nightvalean", password:'password'})
 dr = User.create({username: "DragRacer", password:'password'})
 lcf = User.create ({username: "LovecraftFan", password: "password"})
 ev = User.create ({username: "Exalted Void", password_digest: "$2a$10$BjZZo5rhwTkik4M8seppEev/ZYVLywE7sDtlGYNmNFOo/wkAewX/S"})
-
+hope = User.create ({username: "Hope", password_digest: "$2a$10$WWyM58ZpodFKis1Yx8vDbe3o2SdcJYjpuhO6Wmbg/nW./1R8WvlI6"})
 
 f1 = Follow.create({follower_id: demo.id, followee_id: me.id})
 f2 = Follow.create({follower_id: demo.id, followee_id: l4.id})
 f3 = Follow.create({follower_id: demo.id, followee_id: lcf.id})
 f4 = Follow.create({follower_id: demo.id, followee_id: dr.id})
+
+
+
 
 
 
@@ -75,6 +79,14 @@ p1 = Post.create({
   link_url: "http://allrecipes.com/recipe/10549/best-brownies/",
   user_id: l1.id
   })
+
+  p19 = Post.create({
+    post_type:"quote",
+    media_type: "none",
+    body: "Weird at last, weird at last. God almighty, weird at last.",
+    title: "Welcome to NightVale",
+    user_id: hope.id
+    })
 
 p2 = Post.create({
   post_type: "image",
@@ -182,9 +194,31 @@ p2 = Post.create({
     user_id: ev.id
     })
 
-    p4= Post.create({
-      post_type: "video",
-      body: "Must-see! Those moves...",
-      link_url: "https://www.youtube.com/embed/IOhu26-Yirw",
-      user_id: me.id
+  p20 = Post.create({
+    post_type: "image",
+    media_type: "image",
+    link_url: "https://new4.fjcdn.com/pictures/Welcome_44aa06_5297508.png",
+    body: "Welcome to Nightvale",
+    user_id: hope.id
+    })
+
+    p20 = Post.create({
+      post_type: "image",
+      media_type: "image",
+      link_url: "https://new4.fjcdn.com/pictures/Welcome_9a6b22_5297508.jpg",
+      user_id: hope.id
       })
+
+  p4= Post.create({
+    post_type: "video",
+    body: "Must-see! Those moves...",
+    link_url: "https://www.youtube.com/embed/IOhu26-Yirw",
+    user_id: me.id
+    })
+
+  p21 = Post.create({
+    post_type: "image",
+    media_type: "image",
+    link_url: "https://thesavvyreader2014.files.wordpress.com/2015/10/screen-shot-2015-10-30-at-1-25-22-pm.png?w=748",
+    user_id: hope.id
+    })
