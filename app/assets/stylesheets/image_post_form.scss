@@ -1,13 +1,4 @@
-#ImagePostForm {
-  z-index: 3;
-  top: 160px;
-  left: 30%;
-  display: flex;
-  position: absolute;
-  margin-left: 0px;
-  min-height: 200px;
-  justify-content: space-around;
-}
+
 
 
 
@@ -28,14 +19,4 @@
 
 #imgInputs i:hover {
   cursor: pointer;
-}
-
-#ImagePostForm img {
-  max-width: 550px;
-}
-
-#ImagePostForm input {
-  font-size: 13px;
-  border: none;
-  width: 75%;
 }
