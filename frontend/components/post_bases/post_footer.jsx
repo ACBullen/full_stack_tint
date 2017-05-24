@@ -6,8 +6,20 @@ import { likePost, unlikePost, deletePost } from '../../actions/post_actions';
 class PostFooter extends React.Component {
   constructor(props){
     super(props);
-    console.log("current user:", this.props.currentUser.id);
-    console.log("post likes:", this.props.post.likes);
+    this.state = ({
+      post: this.props.post,
+      currentUser: this.props.currentUser,
+      liked: this.props.liked
+    })
+  }
+
+  componentWillReceiveProps(newProps){
+
+    this.setState({
+      post: newProps.post,
+      currentUser: newProps.currentUser,
+      liked: newProps.liked
+    })
   }
 
   handleDelete(e) {
@@ -16,22 +28,17 @@ class PostFooter extends React.Component {
   }
 
   handleLikeToggle () {
-    console.log("hit");
-    this.props.post.likes.indexOf(this.props.currentUser.id) > -1 ? (
-      this.props.unlikePost()
-    ) : (
-      this.props.likePost()
-    )
+    this.state.liked ? this.props.unlikePost() : this.props.likePost()
   };
 
   render() {
-    let authorId= this.props.post.user_id;
-    let currentUserId = this.props.currentUser.id;
-    let post = this.props.post;
+    let authorId= this.state.post.user_id;
+    let currentUserId = this.state.currentUser.id;
+    let post = this.state.post;
     let fi = this.props.fi;
     return(
       <div id="PostFooter">
-        {post.likes.indexOf(currentUserId) > -1 ? (
+        {this.state.liked ? (
           <i className="fa fa-heart" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
       ) : (
           <i className="fa fa-heart-o" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
@@ -55,7 +62,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
   currentUser: state.currentUser,
   post: ownProps.post,
-  fi: ownProps.fi
+  fi: ownProps.fi,
+  liked: ownProps.post.likes.indexOf(state.currentUser.id) > -1
   }
 }
 

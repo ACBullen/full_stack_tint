@@ -15,8 +15,8 @@ class Feed extends React.Component {
     this.props.getPosts()
   }
   componentWillReceiveProps(newProps){
-    if (values(newProps.posts) != this.state.posts){
-    this.setState({posts: values(newProps.posts)});}
+
+  this.setState({posts: values(newProps.posts)});
 
   }
   componentDidUpdate(){
