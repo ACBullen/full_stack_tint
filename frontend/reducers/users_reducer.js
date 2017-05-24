@@ -4,13 +4,13 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 const UsersReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = Object.assign({}, state)
+  let newState = merge({}, state)
   switch (action.type) {
     case RECEIVE_USERS:
-    newState = Object.assign(newState, action.users)
+    newState = merge(newState, action.users)
     return newState;
     case ADD_USERS:
-    newState = Object.assign(newState, action.users);
+    newState = merge(newState, action.users);
 
     return newState;
     case RECEIVE_CURRENT_USER:
