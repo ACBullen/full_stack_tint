@@ -39,8 +39,29 @@
 #PostFooter {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;;
   align-items: baseline;
+  padding: 10px;
+}
+
+#pfLeft {
+  width: 30%;
+  display: inline-block;
+}
+
+#pfLeft h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#pfRight {
+  display: flex;
+  width: 65%;
+  justify-content: flex-end;;
+}
+
+#pfRight i {
+  margin-right: 5px;
 }
 
 #authorOptions a {
