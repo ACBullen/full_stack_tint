@@ -2,7 +2,7 @@ import React from 'react';
 import PostHeader from './post_header';
 import { Link } from 'react-router-dom';
 
-const LinkPost = ({post, user, deletePost, fi}) => {
+const LinkPost = ({post, user, deletePost, currentUser, fi}) => {
   let show_url = post.link_url;
   let char_limit;
   fi === "true" ? char_limit = 25 : char_limit = 40
