@@ -68,9 +68,6 @@ class TextPostForm extends React.Component {
       alert("Must have  a title of at least 3 characters");
     } else {
       let target = this.base_path
-      if (this.base_path === "/home"){
-        target = '/'
-      }
 
       if(this.props.post)  {
 

@@ -48,7 +48,7 @@ class TextPost extends React.Component {
       }
     return(
       <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-        <PostHeader user={this.props.user} />
+        <PostHeader user={this.props.user} fi={this.props.fi} post={this.props.post} />
         <h2>{this.props.post.title}</h2>
         {this.props.post.link_url ?(
           <a href={this.props.post.link_url}>{show_url}</a>) : (

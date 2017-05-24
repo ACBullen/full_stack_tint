@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createFollow, destroyFollow } from '../../actions/user_actions';
+import { Link } from 'react-router-dom';
+import { deletePost } from '../../actions/post_actions';
 
 class PostHeader extends React.Component {
   constructor(props){
@@ -31,16 +33,30 @@ class PostHeader extends React.Component {
     }
   }
 
-  render(){
+  handleDelete(e){
+    e.preventDefault();
+    this.props.deletePost();
+  }
 
+  render(){
+    let post = this.props.post;
+    let fi = this.props.fi;
     return(
       <header id="PostHeader">
         <img width="20px" height="20px" src={`${this.state.user.profile_pic}`}/>
         <h5>{this.state.user.username}</h5>
         { this.state.currentUser.username ?
-          (this.state.currentUser.id === this.state.user.id ? "" : (
+          (this.state.currentUser.id === this.state.user.id ? (
+            <div id="authorOptions">
+              <Link to={ fi === "true" ? (
+                  `home/edit/quote/${post.id}`
+                ) : (`feed/edit/quote/${post.id}`)}><button>Edit</button></Link>
+              <button onClick={this.handleDelete.bind(this)}>Delete</button>
+
+              </div>
+          ) : (
           <button onClick={this.handleFollowToggle.bind(this)}>{this.state.followed ? "Unfollow ": "Follow"}</button>
-        )) : ""}
+        )) : "" }
 
       </header>
     )
@@ -51,12 +67,15 @@ const mapStateToProps = (state, ownProps) => {
   return{
   user: ownProps.user,
   currentUser: state.currentUser,
-  followed: (state.currentUser.follows ? state.currentUser.follows.indexOf(ownProps.user.id) >= 0 : null)
+  followed: (state.currentUser.follows ? state.currentUser.follows.indexOf(ownProps.user.id) >= 0 : null),
+  post: ownProps.post,
+  fi: ownProps.fi
 }
 }
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   createFollow: (followee_id)=> dispatch(createFollow(followee_id)),
-  destroyFollow: (followee_id) => dispatch(destroyFollow(followee_id))
+  destroyFollow: (followee_id) => dispatch(destroyFollow(followee_id)),
+  deletePost: () => dispatch(deletePost(ownProps.post.id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostHeader);

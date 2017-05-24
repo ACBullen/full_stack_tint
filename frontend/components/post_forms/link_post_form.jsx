@@ -52,9 +52,6 @@ class LinkPostForm extends React.Component {
       alert('please input a valid link');
     } else {
       let target = this.base_path
-      if (this.base_path === "/home"){
-        target = '/'
-      }
       this.props.post ? (
         this.props.updatePost(this.props.post.id, post_props).then(this.props.history.push(`${target}`))
       ): (this.props.createPost(post_props).then(this.props.history.push(`${target}`)));

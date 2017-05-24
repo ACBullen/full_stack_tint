@@ -6,7 +6,7 @@ const QuotePost = ({post, user, fi, deletePost, currentUser }) => {
 
   return (
     <div id="Quote" className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-      <PostHeader user={user} />
+      <PostHeader user={user} fi={fi} post={post} />
       <article><i className="fa fa-quote-left" aria-hidden="true"></i>
       {post.body}<i className="fa fa-quote-right" aria-hidden="true"></i></article>
 

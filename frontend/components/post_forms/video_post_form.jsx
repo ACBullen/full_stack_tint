@@ -54,9 +54,6 @@ class VideoPostForm extends React.Component {
       alert("Please fill in a valid link or upload a video file");
     } else {
       let target = this.base_path
-      if (this.base_path === "/home"){
-        target = '/'
-      }
 
       this.props.post ? (
         this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
