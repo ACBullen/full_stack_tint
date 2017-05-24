@@ -6,12 +6,23 @@ import { likePost, unlikePost, deletePost } from '../../actions/post_actions';
 class PostFooter extends React.Component {
   constructor(props){
     super(props);
+    console.log("current user:", this.props.currentUser.id);
+    console.log("post likes:", this.props.post.likes);
   }
 
   handleDelete(e) {
     e.preventDefault();
     this.props.deletePost();
   }
+
+  handleLikeToggle () {
+    console.log("hit");
+    this.props.post.likes.indexOf(this.props.currentUser.id) > -1 ? (
+      this.props.unlikePost()
+    ) : (
+      this.props.likePost()
+    )
+  };
 
   render() {
     let authorId= this.props.post.user_id;
@@ -20,7 +31,12 @@ class PostFooter extends React.Component {
     let fi = this.props.fi;
     return(
       <div id="PostFooter">
-        <i className="fa fa-heart-o" aria-hidden="true"></i>
+        {post.likes.indexOf(currentUserId) > -1 ? (
+          <i className="fa fa-heart" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
+      ) : (
+          <i className="fa fa-heart-o" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
+        ) }
+
         {currentUserId === authorId ? (
           <div id="authorOptions">
             <Link to={ fi === "true" ? (

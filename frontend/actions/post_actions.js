@@ -6,6 +6,8 @@ export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 export const REMOVE_POST = "REMOVE_POST";
+export const ADD_POST_LIKE = "ADD_POST_LIKE";
+export const REMOVE_POST_LIKE = "REMOVE_POST_LIKE";
 
 export const receivePost = (post) => ({
   type: RECEIVE_POST,
@@ -26,6 +28,11 @@ export const receivePostErrors = (errors) => ({
 export const removePost = post => ({
   type: REMOVE_POST,
   post
+});
+
+export const addPostLike = like => ({
+  type: ADD_POST_LIKE,
+  like
 })
 
 export const createPost = post => dispatch => {

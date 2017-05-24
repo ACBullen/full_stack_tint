@@ -20,7 +20,11 @@ class Api::LikesController < ApplicationController
     @like = current_user.likes.where(post_id: params[:like][:post_id])
 
     @like.destroy_all
-    render json: @like.user_id
+
+    render json: {
+      user_id: current_user.id,
+      post_id: params[:like][:post_id]
+    }
   end
 
 

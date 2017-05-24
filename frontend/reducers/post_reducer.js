@@ -1,5 +1,12 @@
 import { merge } from 'lodash';
-import { RECEIVE_POSTS, RECEIVE_POST, ADD_POSTS, REMOVE_POST } from '../actions/post_actions';
+import {
+        RECEIVE_POSTS,
+        RECEIVE_POST,
+        ADD_POSTS,
+        REMOVE_POST,
+        ADD_POST_LIKE,
+        REMOVE_POST_LIKE
+       } from '../actions/post_actions';
 
 const PostReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -17,6 +24,12 @@ const PostReducer = (state = {}, action) => {
     case REMOVE_POST:
       delete newState[action.post.id];
       return newState
+    case ADD_POST_LIKE:
+      newState[action.like.post_id].push(action.like.user_id);
+      return newState;
+    case REMOVE_POST_LIKE:
+      newState[acion.like.post_id]
+      return
     default:
       return state
   }
