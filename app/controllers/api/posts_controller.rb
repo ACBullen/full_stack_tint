@@ -23,6 +23,7 @@ class Api::PostsController < ApplicationController
     if @post.update_attributes(post_params)
       render :show
     else
+      p @post.errors.full_messages
       render json: @post.errors.full_messages
     end
   end

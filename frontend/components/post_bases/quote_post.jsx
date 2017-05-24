@@ -1,6 +1,7 @@
 import React from 'react';
-import PostHeader from './post_header';
 import { Link } from 'react-router-dom';
+import PostHeader from './post_header';
+import PostFooter from './post_footer';
 
 const QuotePost = ({post, user, fi, deletePost, currentUser }) => {
 
@@ -11,6 +12,7 @@ const QuotePost = ({post, user, fi, deletePost, currentUser }) => {
       {post.body}<i className="fa fa-quote-right" aria-hidden="true"></i></article>
 
       <p>{post.title}</p>
+      <PostFooter post={post} fi={fi} />
       {currentUser.id === user.id ? (
         <div id="authorOptions">
           <Link to={ fi === "true" ? (
@@ -25,7 +27,6 @@ const QuotePost = ({post, user, fi, deletePost, currentUser }) => {
 
           </div>
       ) : ("")}
-
     </div>
   )
 }
