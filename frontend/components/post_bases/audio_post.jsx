@@ -1,7 +1,10 @@
 import React from 'react';
 import PostHeader from './post_header';
+import PostFooter from './post_footer';
+
 
 const AudioPost = ({post, user, deletePost, currentUser, fi}) => {
+
   let source;
   post.media_link ? source = post.media_link : source = post.link_url;
   return (
@@ -11,20 +14,7 @@ const AudioPost = ({post, user, deletePost, currentUser, fi}) => {
         <audio  controls src={source}  />
 
         <p>{post.body}</p>
-          {currentUser.id === user.id ? (
-            <div id="authorOptions">
-              <Link to={ fi === "true" ? (
-                  `home/edit/audio/${post.id}`
-                ) : (`feed/edit/audio/${post.id}`)}><button>Edit</button></Link>
-              <button onClick={
-                  (e)=> {
-                    e.preventDefault;
-                    return deletePost(post.id);
-                  }
-                }>Delete</button>
-
-              </div>
-          ) : ("")}
+          <PostFooter post={post} fi={fi} />
     </div>
   )
 }

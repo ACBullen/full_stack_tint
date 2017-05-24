@@ -1,6 +1,7 @@
 class Api::LikesController < ApplicationController
 
   def create
+    p params
     @like = Like.new(user_id: current_user.id,
                      post_id: params[:like][:post_id]
                     )
@@ -16,10 +17,14 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    @like = User.likes.where(post_id: params[:like][:post_id])
+    @like = current_user.likes.where(post_id: params[:like][:post_id])
 
-    @like.destroy
-    render json: @like.user_id
+    @like.destroy_all
+
+    render json: {
+      user_id: current_user.id,
+      post_id: params[:like][:post_id]
+    }
   end
 
 

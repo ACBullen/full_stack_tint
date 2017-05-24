@@ -7,7 +7,11 @@ class LinkPostForm extends React.Component {
   constructor(props){
     super(props);
     if(this.props.post) {
-      this.state = this.props.post;
+      let post = Object.assign({}, this.props.post);
+      post.created_at = undefined;
+      post.id = undefined;
+      post.media_type = 'none';
+      this.state = post;
     } else {
       this.state = {
         title: '',

@@ -9,23 +9,27 @@
 User.destroy_all
 Follow.destroy_all
 Post.destroy_all
+Like.desroy_all
 
 demo = User.create({username: 'Demo', password: 'password'})
 me = User.create({username: 'Alex', password: 'password'})
 
-l1 = User.create({username: "Lorem1", password:'password'})
-l2 = User.create({username: "Lorem2", password:'password'})
-l3 = User.create({username: "Lorem3", password:'password'})
-l4 = User.create({username: "Lorem4", password:'password'})
+udb = User.create({username: "UnicycleDreamboat", password:'password'})
+cap = User.create({username: "CuteAnimalPoster", password:'password'})
+aas = User.create({username: "a/A student", password:'password'})
+nv = User.create({username: "Nightvalean", password:'password'})
 dr = User.create({username: "DragRacer", password:'password'})
 lcf = User.create ({username: "LovecraftFan", password: "password"})
 ev = User.create ({username: "Exalted Void", password_digest: "$2a$10$BjZZo5rhwTkik4M8seppEev/ZYVLywE7sDtlGYNmNFOo/wkAewX/S"})
-
+hope = User.create ({username: "Hope", password_digest: "$2a$10$WWyM58ZpodFKis1Yx8vDbe3o2SdcJYjpuhO6Wmbg/nW./1R8WvlI6"})
 
 f1 = Follow.create({follower_id: demo.id, followee_id: me.id})
-f2 = Follow.create({follower_id: demo.id, followee_id: l4.id})
+f2 = Follow.create({follower_id: demo.id, followee_id: nv.id})
 f3 = Follow.create({follower_id: demo.id, followee_id: lcf.id})
 f4 = Follow.create({follower_id: demo.id, followee_id: dr.id})
+
+
+
 
 
 
@@ -42,7 +46,7 @@ p17 = Post.create ({
   media_link: "http://hwcdn.libsyn.com/p/9/5/0/950f3e431a44a995/720-20History20Week.mp3?c_id=15202746&destination_id=149717&expiration=1495469026&hwt=8d6061eb9f0d45f6c5016a63ffbf2906",
   title: "WTNV: History week",
   body: "Love this stuff, you can find more at http://www.welcometonightvale.com/ !",
-  user_id: l4.id
+  user_id: nv.id
   })
 
 p16 = Post.create ({
@@ -58,14 +62,14 @@ p16 = Post.create ({
   lumbersexual portland, microdosing blue bottle small batch. Keffiyeh
   flannel pour-over, wayfarers cold-pressed photo booth forage.
   Crucifix kombucha lumbersexual synth gastropub.",
-  user_id: l1.id
+  user_id: udb.id
   })
 
 p15= Post.create ({
   post_type: "video",
   media_type: "video",
   link_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  user_id: l2.id
+  user_id: cap.id
   })
 
 p1 = Post.create({
@@ -73,15 +77,23 @@ p1 = Post.create({
   title: "Delicious!",
   body: "Butter instead of oil in brownies, who knew?",
   link_url: "http://allrecipes.com/recipe/10549/best-brownies/",
-  user_id: l1.id
+  user_id: udb.id
   })
+
+  p19 = Post.create({
+    post_type:"quote",
+    media_type: "none",
+    body: "Weird at last, weird at last. God almighty, weird at last.",
+    title: "Welcome to NightVale",
+    user_id: hope.id
+    })
 
 p2 = Post.create({
   post_type: "image",
   media_type: "image",
   media_link: "http://i.imgur.com/ZlbBeAe.gif",
   body: "Amazing escape!",
-  user_id: l2.id
+  user_id: cap.id
   })
 
   p3 = Post.create({
@@ -97,7 +109,7 @@ p2 = Post.create({
     post_type: "quote",
     body: "Happy hour?",
     title: "Ranelle Reyes.",
-    user_id: l3.id
+    user_id: aas.id
     })
 
   p6 = Post.create ({
@@ -105,7 +117,7 @@ p2 = Post.create({
     title: "The Woman From Italy (WTNV)",
     body: "Love this stuff, you can find more at http://www.welcometonightvale.com/ !",
     media_link: "https://secure-hwcdn.libsyn.com/p/5/b/3/5b35a29dbac9d612/3920-20The20Woman20from20Italy2028R29.mp3?c_id=13734447&expiration=1495254674&hwt=1f6dc8382503d3b8bcfd18d7da11ca64",
-    user_id: l4.id
+    user_id: nv.id
     })
 
   p7 = Post.create ({
@@ -120,7 +132,7 @@ p2 = Post.create({
     post_type: "video",
     body: "Adorable!",
     link_url: "https://www.youtube.com/embed/iqH2ffyNJsk",
-    user_id: l2.id
+    user_id: cap.id
     })
 
   p9 = Post.create ({
@@ -130,7 +142,7 @@ p2 = Post.create({
     link_url: "http://memory-alpha.wikia.com/wiki/USS_Enterprise_(NCC-1701-D)",
     media_link: "https://www.youtube.com/embed/ZPoqNeR3_UA",
     media_type: "video",
-    user_id: l4.id
+    user_id: nv.id
     })
 
   p9 = Post.create ({
@@ -151,7 +163,7 @@ p2 = Post.create({
     media_link: "http://hwcdn.libsyn.com/p/5/6/f/56f72a0761e63408/Bonus20Episode20320-20_The20Librarian_20Horoscopes.mp3?c_id=12976566&destination_id=149717&expiration=1495296479&hwt=48c963f4a4cf23fe99bd8ca361ad89f8",
     title: "WTNV: The Librarian- Horoscopes",
     body: "The stars were right for this",
-    user_id: l4.id
+    user_id: nv.id
     })
 
   p11 = Post.create ({
@@ -165,7 +177,7 @@ p2 = Post.create({
     post_type: "text",
     title: "Single Origin Twinkie",
     body: "Wolf narwhal godard, photo booth mustache aesthetic authentic. Williamsburg church-key helvetica ramps intelligentsia. Before they sold out asymmetrical fingerstache dreamcatcher, ugh sapiente laborum pop-up photo booth. Readymade keytar pork belly placeat, +1 kogi trust fund gastropub asymmetrical 90's lomo listicle assumenda yuccie. Craft beer trust fund gastropub in you probably haven't heard of them 90's. Shoreditch tattooed live-edge, tousled before they sold out laborum twee incididunt fugiat. Shabby chic chia officia blog enamel pin, kombucha ex.",
-    user_id: l1.id
+    user_id: udb.id
     })
 
   p13= Post.create ({
@@ -182,9 +194,31 @@ p2 = Post.create({
     user_id: ev.id
     })
 
-    p4= Post.create({
-      post_type: "video",
-      body: "Must-see! Those moves...",
-      link_url: "https://www.youtube.com/embed/IOhu26-Yirw",
-      user_id: me.id
+  p20 = Post.create({
+    post_type: "image",
+    media_type: "image",
+    link_url: "https://new4.fjcdn.com/pictures/Welcome_44aa06_5297508.png",
+    body: "Welcome to Nightvale",
+    user_id: hope.id
+    })
+
+    p20 = Post.create({
+      post_type: "image",
+      media_type: "image",
+      link_url: "https://new4.fjcdn.com/pictures/Welcome_9a6b22_5297508.jpg",
+      user_id: hope.id
       })
+
+  p4= Post.create({
+    post_type: "video",
+    body: "Must-see! Those moves...",
+    link_url: "https://www.youtube.com/embed/IOhu26-Yirw",
+    user_id: me.id
+    })
+
+  p21 = Post.create({
+    post_type: "image",
+    media_type: "image",
+    link_url: "https://thesavvyreader2014.files.wordpress.com/2015/10/screen-shot-2015-10-30-at-1-25-22-pm.png?w=748",
+    user_id: hope.id
+    })

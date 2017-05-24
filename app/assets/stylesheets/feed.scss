@@ -36,6 +36,51 @@
  margin: auto 0;
 }
 
+#PostFooter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;;
+  align-items: baseline;
+  padding: 10px;
+}
+
+#pfLeft {
+  width: 30%;
+  display: inline-block;
+}
+
+#pfLeft h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#pfRight {
+  display: flex;
+  width: 65%;
+  justify-content: flex-end;;
+}
+
+#pfRight i {
+  margin-right: 5px;
+}
+
+#authorOptions a {
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+#authorOptions button {
+  margin-right: 5px;
+  padding: 0px;
+  height: 25px;
+  width: 60px;
+  text-align: center;
+  justify-content: center;
+}
+
 .baseLozenge a {
   width: 97%;
   padding: 2.59%;
@@ -48,6 +93,7 @@
 .baseLozenge p {
   margin: 0 auto;
   max-width: 96%;
+  word-wrap: break-word;
 }
 .baseLozenge #media {
   max-width: 102%;

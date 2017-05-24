@@ -4,7 +4,7 @@ import { deletePost } from '../../actions/post_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  currentUser: state.currentUser,
+  currentUser: state.currentUser || {},
   users: state.users,
   post: ownProps.post,
   fi: ownProps.fi

@@ -1,6 +1,7 @@
 import React from 'react';
 import PostHeader from './post_header';
-import { Link } from 'react-router-dom';
+import PostFooter from './post_footer';
+
 
 const VideoPost = ({post, user, deletePost, currentUser, fi}) => {
 
@@ -14,20 +15,7 @@ const VideoPost = ({post, user, deletePost, currentUser, fi}) => {
 
       ) : (<iframe id="media" src={post.link_url} allowFullScreen></iframe>) }
       <p>{post.body}</p>
-        {currentUser.id === user.id ? (
-          <div id="authorOptions">
-            <Link to={ fi === "true" ? (
-                `home/edit/video/${post.id}`
-              ) : (`feed/edit/video/${post.id}`)}><button>Edit</button></Link>
-            <button onClick={
-                (e)=> {
-                  e.preventDefault;
-                  return deletePost(post.id);
-                }
-              }>Delete</button>
-
-            </div>
-        ) : ("")}
+        <PostFooter post={post} fi={fi} />
     </div>
   )
 }

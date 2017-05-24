@@ -1,8 +1,10 @@
 import React from 'react';
 import PostHeader from './post_header';
-import { Link } from 'react-router-dom';
+import PostFooter from './post_footer';
+
 
 const LinkPost = ({post, user, deletePost, currentUser, fi}) => {
+
   let show_url = post.link_url;
   let char_limit;
   fi === "true" ? char_limit = 25 : char_limit = 40
@@ -14,20 +16,7 @@ const LinkPost = ({post, user, deletePost, currentUser, fi}) => {
       <PostHeader user={user} />
       <a href={post.link_url}>{show_url}</a>
       <p>{post.body}</p>
-        {currentUser.id === user.id ? (
-          <div id="authorOptions">
-            <Link to={ fi === "true" ? (
-                `home/edit/link/${post.id}`
-              ) : (`feed/edit/link/${post.id}`)}><button>Edit</button></Link>
-            <button onClick={
-                (e)=> {
-                  e.preventDefault;
-                  return deletePost(post.id);
-                }
-              }>Delete</button>
-
-            </div>
-        ) : ("")}
+        <PostFooter post={post} fi={fi} />
     </div>
   )
 }
