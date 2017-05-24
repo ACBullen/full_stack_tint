@@ -222,3 +222,4 @@ p2 = Post.create({
     link_url: "https://thesavvyreader2014.files.wordpress.com/2015/10/screen-shot-2015-10-30-at-1-25-22-pm.png?w=748",
     user_id: hope.id
     })
+    post_ary = [p1.id, p2.id, p3.id, p4.id, p5.id, p6.id, p7.id, p8.id, p9.id, p10]
