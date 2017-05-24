@@ -1,5 +1,5 @@
 import React from 'react';
-import Masonry from 'masonry-layout'
+import Bricks from 'bricks.js'
 import imagesLoaded from 'imagesloaded';
 import {values} from 'lodash';
 import PostContainer from './post_bases/post_container';
@@ -14,27 +14,37 @@ class Feed extends React.Component {
   componentWillMount() {
     this.props.getPosts()
   }
-  componentWillReceiveProps(newProps){
 
-  this.setState({posts: values(newProps.posts)});
-
-  }
-  componentDidUpdate(){
-
-    let feed = document.getElementById('FeedFootprint');
-    let msnry = new Masonry(feed, {
-    itemSelector: '.feed-item',
-    columnWidth: 5,
-    horizontalOrder: true,
-    isFitWidth: true,
-    stagger: 30
+  componentDidMount() {
+    let sizes = [
+      {columns: 1, gutter: 10 },
+      { mq: "600px", columns: 2, gutter: 10 },
+      { mq: '845px', columns: 3, gutter: 10 },
+      { mq: '1100px', columns: 4, gutter: 10 },
+      { mq: "1400px", columns: 5, gutter: 10 }
+    ]
+    let feed = document.getElementById('FeedFootprint')
+    console.log(feed);
+    this.instance = Bricks({
+      container: feed,
+      packed: 'packed',
+      sizes: sizes,
+      position: true
     })
 
-    imagesLoaded(feed, ()=>{
+    this.instance.pack();
+    this.instance.resize(true);
+    imagesLoaded(feed, () => this.instance.pack());
+  }
 
-      msnry.layout()
-    });
+  componentWillReceiveProps(newProps){
+  this.setState({posts: values(newProps.posts)});
+  }
 
+  componentDidUpdate(){
+    let feed = document.getElementById("FeedFootprint");
+    this.instance.pack();
+    imagesLoaded(feed, () => this.instance.pack());
   }
 
   render(){

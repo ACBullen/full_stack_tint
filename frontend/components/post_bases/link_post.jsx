@@ -13,7 +13,7 @@ const LinkPost = ({post, user, deletePost, currentUser, fi}) => {
   }
   return (
     <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-      <PostHeader user={user} />
+      <PostHeader user={user} fi={fi} post={post} />
       <a href={post.link_url}>{show_url}</a>
       <p>{post.body}</p>
         <PostFooter post={post} fi={fi} />

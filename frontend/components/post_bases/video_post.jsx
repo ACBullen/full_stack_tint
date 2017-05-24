@@ -7,7 +7,7 @@ const VideoPost = ({post, user, deletePost, currentUser, fi}) => {
 
   return (
     <div id="VideoPost" className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-      <PostHeader user={user} />
+      <PostHeader user={user} fi={fi} post={post} />
       {post.media_link ?(
         <video  controls>
           <source src={`${post.media_link}`}/>

@@ -55,10 +55,6 @@ class QuotePostForm extends React.Component {
       alert("Please fill out both the quote and the author")
     } else {
       let target = this.base_path
-      if (this.base_path === "/home"){
-        target = '/'
-      }
-
       this.props.post ? (
         this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
       ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
