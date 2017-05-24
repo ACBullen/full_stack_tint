@@ -10,16 +10,16 @@ import {
 
 const PostReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = Object.assign({}, state);
+  let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_POSTS:
-      newState = Object.assign(newState, action.posts);
+      newState = merge(newState, action.posts);
       return newState;
     case RECEIVE_POST:
       newState[action.post.id] = action.post;
       return newState;
     case ADD_POSTS:
-      newState = Object.assign(newState, action.posts);
+      newState = merge(newState, action.posts);
       return newState;
     case REMOVE_POST:
       delete newState[action.post.id];

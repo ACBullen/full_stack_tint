@@ -6,7 +6,7 @@ const APIKeyReducer = (state={}, action) =>{
 
   switch (action.type) {
     case RECIEVE_CLOUDINARY_KEYS:
-      let newState = Object.assign({}, state);
+      let newState = merge({}, state);
       newState.cloudinary_options = action.cloudinary_keys;
 
       return newState;
