@@ -43,6 +43,7 @@
   justify-content: space-between;;
   align-items: baseline;
   padding: 10px;
+  margin-top: 10px;
 }
 
 #pfLeft {
@@ -91,18 +92,26 @@
   font-size: 18px;
   margin-bottom: 5px
 }
+
 .baseLozenge p {
   margin: 0 auto;
+  margin-top: 10px;
   max-width: 96%;
   word-wrap: break-word;
 }
+
 .baseLozenge #media {
   max-width: 102%;
   max-height: 100%;
   border: none;
 }
+
 .baseLozenge audio {
   max-width: 100%;
+}
+
+.baseLozenge article {
+  margin-top: 10px;
 }
 
 
@@ -133,4 +142,8 @@ video {
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.fa-heart {
+  color: crimson;
 }

@@ -24,7 +24,7 @@ class Feed extends React.Component {
       { mq: "1400px", columns: 5, gutter: 10 }
     ]
     let feed = document.getElementById('FeedFootprint')
-    console.log(feed);
+
     this.instance = Bricks({
       container: feed,
       packed: 'packed',

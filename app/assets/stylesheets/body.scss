@@ -35,7 +35,7 @@
   color: aliceblue;
 }
 #FormConcerns {
-  display: inline-block;;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -107,7 +107,7 @@
 #SignIn-Up-demo-buttons{
   display: flex;
   justify-content: space-around;
-  width: 420px;
+  width: 94%;
   margin-bottom: 0px;
 }
 

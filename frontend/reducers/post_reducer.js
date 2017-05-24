@@ -25,9 +25,7 @@ const PostReducer = (state = {}, action) => {
       delete newState[action.post.id];
       return newState
     case ADD_POST_LIKE:
-      console.log(newState[action.like.post_id].likes);
       newState[action.like.post_id].likes.push(action.like.user_id);
-      console.log(newState[action.like.post_id].likes);
       return newState;
     case REMOVE_POST_LIKE:
       let remove_idx = newState[action.like.post_id].likes.indexOf(action.like.user_id)
