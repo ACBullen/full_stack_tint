@@ -38,7 +38,7 @@
 
 .baseLozenge a {
   width: 97%;
-  padding: 2.7%;
+  padding: 2.59%;
   background: #a2a8b2;
   color: black;
   text-shadow: none;
@@ -46,7 +46,8 @@
   margin-bottom: 5px
 }
 .baseLozenge p {
-  margin: 10 auto;
+  margin: 0 auto;
+  max-width: 96%;
 }
 .baseLozenge #media {
   max-width: 102%;

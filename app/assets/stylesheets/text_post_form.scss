@@ -3,7 +3,7 @@
   z-index: 3;
   bottom: -261%;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-51%, 50%);
   display: flex;
   position: absolute;
   margin-left: 0px;
@@ -14,12 +14,14 @@
 
 #TextPostForm textarea {
   width: 93%;
+  font-size: 16px;
   height: 74px;
   border: none;
 }
 
 #TextPostForm input {
-  border: none
+  border: none;
+  font-size: 14px;
 }
 
 #additionalContentLinks {
