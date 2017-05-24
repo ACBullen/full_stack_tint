@@ -172,7 +172,8 @@ class TextPostForm extends React.Component {
             <i id="addlCButton" className="fa fa-camera" aria-hidden="true"onClick={this.showImageInput.bind(this)}></i>
             <i id="addlCButton" className="fa fa-headphones" aria-hidden="true"onClick={this.showAudioInput.bind(this)}></i>
           </div>) : (
-          <h4><div id="additionalContentLinks"><i id="addlCButton" className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput.bind(this)}></i></div> Content Uploaded!</h4>
+          <div id="TPUploaded"><div id="additionalContentLinks"><i id="addlCButton" className="fa fa-link" aria-hidden="true" onClick={this.showLinkInput.bind(this)}></i></div>
+            <h4>Content Uploaded!</h4><button onClick={()=> this.setState.bind(this)({media_link: '', media_type: "none"})}>Remove</button></div>
           )}
         </div>
         <div id="additionalContent">
