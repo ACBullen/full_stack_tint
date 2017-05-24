@@ -76,7 +76,7 @@ class Nav extends React.Component {
           : '' }
           { this.props.currentUser.username ? (
             <button onClick={this.logMeOut}>Log Out</button>) :(
-              <Link to='/login'><button type="button">Sign In</button></Link>) }
+              <div id="signin"><Link to='/login'><button type="button">Sign In</button></Link></div>) }
           <PostDropdown />
         </div>
       </div>
