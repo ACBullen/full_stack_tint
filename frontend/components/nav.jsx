@@ -71,6 +71,9 @@ class Nav extends React.Component {
             <div id="currentUserInfo">
         <img width="20px" height="20px" src={`${this.props.currentUser.profile_pic}`}/>
             <Link to="/feed"><h3>{`${this.props.currentUser.username}`}</h3></Link>
+            {this.props.location.pathname.indexOf('feed') === -1 ? (
+              <Link to="/feed"><button>My Feed</button></Link>
+            ):(<Link to="/home"><button>Home</button></Link>)}
             <button onClick={this.showPostOptions}>Post</button>
           </div>)
           : '' }
