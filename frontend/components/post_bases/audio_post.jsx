@@ -1,7 +1,7 @@
 import React from 'react';
 import PostHeader from './post_header';
 
-const AudioPost = ({post, user, deletePost, fi}) => {
+const AudioPost = ({post, user, currentUser, deletePost, fi}) => {
   let source;
   post.media_link ? source = post.media_link : source = post.link_url;
   return (
