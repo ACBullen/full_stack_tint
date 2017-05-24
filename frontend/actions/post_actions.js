@@ -1,6 +1,7 @@
 import * as APIUtilP from '../util/post_api_util';
 import { receiveUsers, addUsers } from './user_actions';
 
+
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
@@ -67,5 +68,17 @@ export const updatePost = (post_id, post) => dispatch => {
 export const deletePost = post_id => dispatch => {
   return APIUtilP.deletePost(post_id).then((res)=>{
     return dispatch(removePost(res));
+  })
+}
+
+export const likePost = post_id => dispatch => {
+  return APIUtilP.likePost(post_id).then((res)=>{
+    return dispatch(addPostLike(res));
+  })
+}
+
+export const unlikePost = post_id => dispatch => {
+  return APIUtilP.unlikePost(post_id).then((res)=>{
+    return dispatch(removePostLike(res));
   })
 }

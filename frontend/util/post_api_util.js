@@ -25,7 +25,15 @@ export const likePost = (post_id) => {
   return $.ajax({
     method: "POST",
     url: "/api/likes",
+    data: {like: {post_id}}
+  })
+}
 
+export const unlikePost = post_id =>{
+  return $.ajax({
+    method: "DELETE",
+    url: "/api/likes",
+    data: {like: {post_id}}
   })
 }
 
