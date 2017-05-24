@@ -15,7 +15,8 @@ class Feed extends React.Component {
     this.props.getPosts()
   }
   componentWillReceiveProps(newProps){
-    this.setState({posts: values(newProps.posts)});
+    if (values(newProps.posts) != this.state.posts){
+    this.setState({posts: values(newProps.posts)});}
 
   }
   componentDidUpdate(){
@@ -26,7 +27,6 @@ class Feed extends React.Component {
     columnWidth: 5,
     horizontalOrder: true,
     isFitWidth: true,
-
     stagger: 30
     })
 
