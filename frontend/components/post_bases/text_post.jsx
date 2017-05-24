@@ -1,6 +1,6 @@
 import React from 'react';
 import PostHeader from './post_header';
-import { Link } from 'react-router-dom';
+import PostFooter from './post_footer';
 
 class TextPost extends React.Component {
   constructor(props){
@@ -59,20 +59,7 @@ class TextPost extends React.Component {
         <article>
           <p>{this.props.post.body}</p>
         </article>
-        {this.props.currentUser.id === this.props.user.id ? (
-          <div id="authorOptions">
-            <Link to={ fi === "true" ? (
-                `home/edit/text/${this.props.post.id}`
-              ) : (`feed/edit/text/${this.props.post.id}`)}><button>Edit</button></Link>
-            <button onClick={
-                (e)=> {
-                  e.preventDefault;
-                  return this.props.deletePost.bind(this)(this.props.post.id);
-                }
-              }>Delete</button>
-
-            </div>
-        ) : ("")}
+        <PostFooter post={this.props.post} fi={this.props.fi} />
       </div>
     )
   }

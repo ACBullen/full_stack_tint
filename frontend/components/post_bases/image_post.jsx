@@ -1,6 +1,6 @@
 import React from 'react';
 import PostHeader from './post_header';
-import { Link } from 'react-router-dom';
+import PostFooter from './post_footer';
 
 const ImagePost = ({post, user, currentUser, deletePost, fi}) => {
 
@@ -9,20 +9,7 @@ const ImagePost = ({post, user, currentUser, deletePost, fi}) => {
       <PostHeader user={user} />
       <img id="media" src={post.media_link ? post.media_link : post.link_url } />
       <p>{post.body}</p>
-        {currentUser.id === user.id ? (
-          <div id="authorOptions">
-            <Link to={ fi === "true" ? (
-                `home/edit/image/${post.id}`
-              ) : (`feed/edit/image/${post.id}`)}><button>Edit</button></Link>
-            <button onClick={
-                (e)=> {
-                  e.preventDefault;
-                  return deletePost(post.id);
-                }
-              }>Delete</button>
-
-            </div>
-        ) : ("")}
+        <PostFooter post={post} fi={fi} />
     </div>
   )
 }
