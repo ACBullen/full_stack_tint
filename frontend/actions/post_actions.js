@@ -35,6 +35,11 @@ export const addPostLike = like => ({
   like
 })
 
+export const removePostLike = like =>({
+  type: REMOVE_POST_LIKE,
+  like
+})
+
 export const createPost = post => dispatch => {
   return APIUtilP.newPost(post).then(
     (res) => {
