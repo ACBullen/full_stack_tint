@@ -3,7 +3,7 @@ import PostHeader from './post_header';
 import PostFooter from './post_footer';
 
 
-const LinkPost = ({post, user, deletePost, currentUser, fi}) => {
+const LinkPost = ({post, user, deletePost, currentUser, fi, orAuth}) => {
 
   let show_url = post.link_url;
   let char_limit;
@@ -13,7 +13,7 @@ const LinkPost = ({post, user, deletePost, currentUser, fi}) => {
   }
   return (
     <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-      <PostHeader user={user} fi={fi} post={post} />
+      <PostHeader orAuth={orAuth} user={user} fi={fi} post={post} />
       <a href={post.link_url}>{show_url}</a>
       <p>{post.body}</p>
         <PostFooter post={post} fi={fi} />

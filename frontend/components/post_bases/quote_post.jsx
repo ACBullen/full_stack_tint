@@ -2,11 +2,10 @@ import React from 'react';
 import PostHeader from './post_header';
 import PostFooter from './post_footer';
 
-const QuotePost = ({post, user, fi, deletePost, currentUser }) => {
-
+const QuotePost = ({post, user, fi, deletePost, currentUser, orAuth }) => {
   return (
     <div id="Quote" className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-      <PostHeader user={user} fi={fi} post={post} />
+      <PostHeader user={user} orAuth={orAuth} fi={fi} post={post} />
       <article><i className="fa fa-quote-left" aria-hidden="true"></i>
       {post.body}<i className="fa fa-quote-right" aria-hidden="true"></i></article>
 

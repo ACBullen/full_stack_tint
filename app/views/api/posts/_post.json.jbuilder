@@ -4,7 +4,7 @@ post.liking_users.each do |user|
 end
 
 
-json.extract! post, :id, :post_type, :user_id, :title, :body, :link_url, :media_link, :media_type, :created_at
+json.extract! post, :id, :post_type, :user_id, :title, :body, :link_url, :media_link, :media_type, :created_at, :original_auth_id
 json.set! "likes" do
   json.array! likes
 end
