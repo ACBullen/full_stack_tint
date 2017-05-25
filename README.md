@@ -47,7 +47,8 @@ mediaSwitcher(){
     default:
     return "";
   }
-}```
+}
+```
 
 It is also worth noting that having a single set of information common to
 all post types allows for a single container to hold all of the necessary
