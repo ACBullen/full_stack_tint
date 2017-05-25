@@ -41,11 +41,17 @@ class PostHeader extends React.Component {
   render(){
     let post = this.props.post;
     let fi = this.props.fi;
+    let display_name;
+    if (this.state.user.username.length >= 12 && this.state.currentUser.username === this.state.user.username){
+      display_name = `${this.state.user.username.slice(0,9)}...`;
+    } else {
+      display_name= this.state.user.username;
+    }
     return(
       <header id="PostHeader">
         <div>
         <img width="20px" height="20px" src={`${this.state.user.profile_pic}`}/>
-        <h5>{this.state.user.username}</h5> </div>
+        <h5>{display_name}</h5> </div>
         <div>
         { this.state.currentUser.username ?
           (this.state.currentUser.id === this.state.user.id ? (

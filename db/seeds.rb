@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ActiveRecord::Base.transaction do
+
 
 User.destroy_all
 Follow.destroy_all
@@ -209,12 +211,26 @@ p2 = Post.create({
     user_id: ev.id
     })
 
+  Post.create({
+    post_type: "image",
+    media_type: "image",
+    link_url: "http://imgur.com/sbEfnDF",
+    user_id: cap.id
+    })
+
   p20 = Post.create({
     post_type: "image",
     media_type: "image",
     link_url: "https://new4.fjcdn.com/pictures/Welcome_44aa06_5297508.png",
     body: "Welcome to Nightvale",
     user_id: hope.id
+    })
+
+  Post.create({
+    post_type: "image",
+    media_type: "image",
+    link_url: "https://i.imgur.com/q5KffkK.jpg?1",
+    user_id: cap.id
     })
 
     p20 = Post.create({
@@ -243,3 +259,4 @@ p2 = Post.create({
   User.all.each do |user|
     user.liked_posts = post_ary.sample(5)
   end
+end
