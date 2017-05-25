@@ -1,12 +1,19 @@
 import React from 'react';
 import PostFormContainer from './post_form_container';
-import PostContainer from '../post_bases/post_container';
-
+import ImagePost from '../post_bases/image_post';
+import LinkPost from '../post_bases/link_post';
+import AudioPost from '../post_bases/audio_post';
+import VideoPost from '../post_bases/video_post';
+import QuotePost from '../post_bases/quote_post';
+import TextPost from '../post_bases/text_post';
+import { getAPost } from '../../actions/post_actions';
+import { withRouter } from 'react-router-dom';
 
 class ReblogPostForm extends React.Component {
   constructor(props){
     super(props);
-
+    console.log(this.props.match.params["id"]);
+    let post = this.props.post || {}
     this.state = ({
       title: '',
       body: '',
@@ -15,40 +22,84 @@ class ReblogPostForm extends React.Component {
       post_type: 'reblog',
       media_type: 'none',
       user_id: this.props.userId,
-      original_auth_id: this.props.post.original_auth_id || this.props.post.user_id,
-      rb_post_id: this.props.post.id
+      original_auth_id: post.original_auth_id || post.user_id,
+      rb_post_id: post.id
     })
   }
 
-  contentDisplay(){
-    switch (this.props.post.post_type){
+  componentDidMount() {
+    console.log("hit");
+    this.props.getAPost(this.props.match.params["id"]);
+
+  }
+
+  componentWillReceiveProps(newProps){
+
+    let post = newProps.post || {}
+    this.setState({
+      title: '',
+      body: '',
+      link_url: '',
+      media_link: '',
+      post_type: 'reblog',
+      media_type: 'none',
+      user_id: newProps.userId,
+      original_auth_id: post.original_auth_id || post.user_id,
+      rb_post_id: post.id
+    })
+  }
+
+  contentDisplay(post){
+
+    switch (post.post_type){
     case "image":
-      return <ImagePost post={this.props.post} />
+      return <ImagePost post={post} />
     case "link":
-      return <LinkPost post={this.props.post} />
+      return <LinkPost post={post} />
     case "audio":
-      return <AudioPost post={this.props.post} />
+      return <AudioPost post={post} />
     case "video":
-      return <VideoPost post={this.props.post} />
+      return <VideoPost post={post} />
+    case "text":
+      return <TextPost post={post} />
+    case "quote":
+      return <QuotePost post={post} />
     case "reblog":
-      return <h1>REBLOGREBLOGREBLOG</h1>
+      return (<h1>REBLOGREBLOGREBLOG</h1>)
     default:
-      return <p>{this.props.post.id}</p>
-      }
+      return (<p>{post.id}</p>)
+    }
+  }
+
+  handleInputComment(e){
+    e.preventDefault();
+    this.setState({body: e.target.value})
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    console.log("hit");
   }
 
   render() {
+    if(this.props.post === undefined){
+      return <p>Fetching post</p>
+    } else {
+      return (
 
-    return(
-      <div>
-        <div className="baseLozenge">
-        {this.contentDisplay()}
+        <div id="ReblogForm" className="baseLozenge">
+          {this.contentDisplay(this.props.post)}
+          <div>
+            <textarea placeholder="Add a comment(optional)" onChange={this.handleInputComment.bind(this)} value={this.state.body}></textarea>
+            <button onClick={this.handleSubmit.bind(this)}>Reblog</button>
         </div>
-      <h1>REBLOGREBLOGREBLOG</h1>
       </div>
-    )
+
+      )
+    }
+
   }
 
 }
 
-export default PostFormContainer(ReblogPostForm);
+export default withRouter(PostFormContainer(ReblogPostForm));

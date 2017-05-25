@@ -28,6 +28,16 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def show
+    p @post = Post.find(params[:id])
+
+    if @post
+      render :show
+    else
+      render json: "Post not found", status: 404
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
 

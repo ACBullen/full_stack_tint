@@ -6,6 +6,7 @@ import NavContainer from './nav_container';
 import { AuthRoute, ProtectedRoute } from '../util/auth_util';
 import FeedContainer from './feed_container';
 import UserFeedContainer from './user_feed_container';
+import ReblogPostForm from './post_forms/reblog_post_form';
 
 
 class Main extends React.Component {
@@ -27,7 +28,7 @@ class Main extends React.Component {
 
           <ProtectedRoute exact path='/feed' component={UserFeedContainer} />
           <Route path='/home' component={FeedContainer} />
-
+          <ProtectedRoute exact path= '/post/:id/reblog/' component={ReblogPostForm} />
 
           <AuthRoute path= "/login" component={SessionFormContainer} />
           <AuthRoute path= "/signup" component={SessionFormContainer} />
