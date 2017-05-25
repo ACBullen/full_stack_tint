@@ -42,7 +42,7 @@ class PostHeader extends React.Component {
     let post = this.props.post;
     let fi = this.props.fi;
     let display_name;
-    if (this.state.user.username.length >= 12 && this.state.currentUser.username === this.state.user.username){
+    if (this.state.user.username.length >= 12 && this.state.currentUser.username === this.state.user.username && fi === "true"){
       display_name = `${this.state.user.username.slice(0,9)}...`;
     } else {
       display_name= this.state.user.username;
