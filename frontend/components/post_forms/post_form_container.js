@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   }
   return {
   userId: state.currentUser.id,
+  currentUser: state.currentUser,
   apiKeys: state.apiKeys,
   post: post,
   errors: state.errors.post_errors

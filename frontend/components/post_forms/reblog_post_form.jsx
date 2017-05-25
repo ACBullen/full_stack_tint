@@ -6,13 +6,14 @@ import AudioPost from '../post_bases/audio_post';
 import VideoPost from '../post_bases/video_post';
 import QuotePost from '../post_bases/quote_post';
 import TextPost from '../post_bases/text_post';
+import ReblogPost from '../post_bases/reblog_post';
 import { getAPost } from '../../actions/post_actions';
 import { withRouter } from 'react-router-dom';
 
 class ReblogPostForm extends React.Component {
   constructor(props){
     super(props);
-    console.log(this.props.match.params["id"]);
+    console.log(this.props.history);
     let post = this.props.post || {}
     this.state = ({
       title: '',
@@ -65,7 +66,7 @@ class ReblogPostForm extends React.Component {
     case "quote":
       return <QuotePost post={post} />
     case "reblog":
-      return (<h1>REBLOGREBLOGREBLOG</h1>)
+      return (<ReblogPost post={post} />)
     default:
       return (<p>{post.id}</p>)
     }
@@ -78,7 +79,10 @@ class ReblogPostForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    console.log("hit");
+    if (this.state.body.length > 0){
+      this.state.body =`${this.props.currentUser.username}: \n\n ${this.state.body}`
+    }
+    this.props.createPost(this.state).then(()=> this.props.history.push('/feed'))
   }
 
   render() {

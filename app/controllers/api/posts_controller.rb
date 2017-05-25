@@ -29,7 +29,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    p @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
 
     if @post
       render :show
@@ -56,7 +56,8 @@ class Api::PostsController < ApplicationController
                                  :media_link,
                                  :media_type,
                                  :user_id,
-                                 :original_auth_id
+                                 :original_auth_id,
+                                 :rb_post_id
                                 )
 
   end

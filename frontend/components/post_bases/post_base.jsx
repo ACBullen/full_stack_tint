@@ -5,6 +5,7 @@ import LinkPost from './link_post';
 import VideoPost from './video_post';
 import AudioPost from './audio_post';
 import TextPost from './text_post';
+import ReblogPost from './reblog_post';
 import PostHeader from './post_header';
 import PostFooter from './post_footer';
 
@@ -62,6 +63,13 @@ class PostBase extends React.Component {
           <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
             <PostHeader user={user} post={post} fi={fi} />
             <TextPost post={post} fi={fi} />
+              <PostFooter post={post} fi={fi}/>
+          </div>)
+      case "reblog":
+        return (
+          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+            <PostHeader user={user} post={post} fi={fi} />
+            <ReblogPost user={user} post={post} fi={fi} />
               <PostFooter post={post} fi={fi}/>
           </div>)
       default:
