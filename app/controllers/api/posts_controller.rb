@@ -45,7 +45,8 @@ class Api::PostsController < ApplicationController
                                  :link_url,
                                  :media_link,
                                  :media_type,
-                                 :user_id
+                                 :user_id,
+                                 :original_auth_id
                                 )
 
   end

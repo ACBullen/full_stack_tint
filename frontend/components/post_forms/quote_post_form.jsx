@@ -13,6 +13,10 @@ class QuotePostForm extends React.Component {
       post.created_at = undefined;
       post.id = undefined;
       post.media_type = "none";
+      if(this.props.reblog){
+        post.original_auth_id = post.user_id,
+        post.user_id = this.props.userId
+      }
       this.state = post;
     } else {
       this.state = {
@@ -55,9 +59,13 @@ class QuotePostForm extends React.Component {
       alert("Please fill out both the quote and the author")
     } else {
       let target = this.base_path
-      this.props.post ? (
-        this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
-      ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
+      if (this.props.reblog){
+        this.props.createPost(this.state).then(this.props.history.push(`${target}`))
+      } else {
+        this.props.post ? (
+          this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
+        ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
+      }
     }
   }
 
