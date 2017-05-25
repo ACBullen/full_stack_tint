@@ -9,6 +9,7 @@ import ImagePostForm from './post_forms/image_post_form';
 import AudioPostForm from './post_forms/audio_post_form';
 import VideoPostForm from './post_forms/video_post_form';
 import LinkPostForm from './post_forms/link_post_form';
+import ReblogPostForm from './post_forms/reblog_post_form';
 
 
 class Nav extends React.Component {
@@ -66,12 +67,8 @@ class Nav extends React.Component {
         <ProtectedRoute exact path='/:base/edit/video/:id' component={VideoPostForm} />
         <ProtectedRoute exact path='/:base/edit/link/:id' component={LinkPostForm} />
 
-        <ProtectedRoute exact path= '/:base/reblog/quote/:id' component={QuotePostForm} />
-        <ProtectedRoute exact path= '/:base/reblog/text/:id' component={TextPostForm} />
-        <ProtectedRoute exact path= '/:base/reblog/image/:id' component={ImagePostForm} />
-        <ProtectedRoute exact path= '/:base/reblog/audio/:id' component={AudioPostForm} />
-        <ProtectedRoute exact path= '/:base/reblog/video/:id' component={VideoPostForm} />
-        <ProtectedRoute exact path= '/:base/reblog/link/:id' component={LinkPostForm} />
+        <ProtectedRoute exact path= '/:base/reblog/:id' component={ReblogPostForm} />
+
       <Link to="/home"><h1>T.I.N.T.</h1></Link>
         <div id="NavRight">
           { this.props.currentUser.username ?(

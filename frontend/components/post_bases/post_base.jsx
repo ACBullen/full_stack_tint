@@ -5,6 +5,8 @@ import LinkPost from './link_post';
 import VideoPost from './video_post';
 import AudioPost from './audio_post';
 import TextPost from './text_post';
+import PostHeader from './post_header';
+import PostFooter from './post_footer';
 
 class PostBase extends React.Component {
   constructor(props){
@@ -20,24 +22,48 @@ class PostBase extends React.Component {
     let currentUser = this.props.currentUser;
     switch (post.post_type) {
       case "quote":
-        return <QuotePost post={post} currentUser={currentUser} orAuth={orAuth}
-                  deletePost={this.props.deletePost} user={user} fi={fi}  />
+        return (
+          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+            <PostHeader user={user} post={post} fi={fi} />
+            <QuotePost post={post}   />
+                  <PostFooter post={post} fi={fi}/>
+          </div>)
       case "image":
 
-        return <ImagePost post={post} currentUser={currentUser}
-                  deletePost={this.props.deletePost} user={user} fi={fi} />
+        return (
+          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+            <PostHeader user={user} post={post} fi={fi} />
+            <ImagePost post={post}  />
+                <PostFooter post={post} fi={fi}/>
+          </div>)
       case "link":
-        return <LinkPost post={post} currentUser={currentUser}
-                  deletePost={this.props.deletePost} user={user} fi={fi} />
+        return (
+          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+            <PostHeader user={user} post={post} fi={fi} />
+            <LinkPost post={post} fi={fi} />
+                <PostFooter post={post} fi={fi}/>
+            </div>)
       case "video":
-        return <VideoPost post={post} currentUser={currentUser}
-                deletePost={this.props.deletePost} user={user} fi={fi} />
+        return (
+          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+            <PostHeader user={user} post={post} fi={fi} />
+          <VideoPost post={post}  />
+              <PostFooter post={post} fi={fi}/>
+          </div>)
       case "audio":
-        return <AudioPost post={post} currentUser={currentUser}
-                deletePost={this.props.deletePost} user={user} fi={fi} />
+        return (
+          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+            <PostHeader user={user} post={post} fi={fi} />
+            <AudioPost post={post} />
+              <PostFooter post={post} fi={fi}/>
+            </div>)
       case "text":
-        return <TextPost post={post} currentUser={currentUser}
-                deletePost={this.props.deletePost} user={user} fi={fi} />
+        return (
+          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+            <PostHeader user={user} post={post} fi={fi} />
+            <TextPost post={post} fi={fi} />
+              <PostFooter post={post} fi={fi}/>
+          </div>)
       default:
       return(
         <div className={ this.props.fi ? "baseLozenge feed-item" : "baseLozenge"}>

@@ -12,8 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
   userId: state.currentUser.id,
   apiKeys: state.apiKeys,
-  post: post,
-  reblog: reblog
+  post: post
 }};
 
 const mapDispatchToProps = dispatch => ({
