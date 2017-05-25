@@ -31,6 +31,25 @@ class PostFooter extends React.Component {
     this.state.liked ? this.props.unlikePost() : this.props.likePost()
   };
 
+  renderLikeButton() {
+    if (this.state.currentUser.id) {
+      return(
+        <div id="pfRight">
+          {this.state.liked ? (
+            <i className="fa fa-heart" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
+        ) : (
+            <i className="fa fa-heart-o" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
+          ) }
+
+        </div>
+      )
+    } else {
+      return (
+        <div id="pfRight"></div>
+      )
+    }
+  }
+
   render() {
     let authorId= this.state.post.user_id;
     let currentUserId = this.state.currentUser.id;
@@ -41,14 +60,7 @@ class PostFooter extends React.Component {
         <div id="pfLeft">
           <h4>{this.state.post.likes.length === 1 ? `${this.state.post.likes.length} like` : `${this.state.post.likes.length} likes` }</h4>
         </div>
-        <div id="pfRight">
-          {this.state.liked ? (
-            <i className="fa fa-heart" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
-        ) : (
-            <i className="fa fa-heart-o" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
-          ) }
-
-        </div>
+        {this.renderLikeButton()}
       </div>
     )
   }

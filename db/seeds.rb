@@ -9,7 +9,7 @@
 User.destroy_all
 Follow.destroy_all
 Post.destroy_all
-Like.desroy_all
+Like.destroy_all
 
 demo = User.create({username: 'Demo', password: 'password'})
 me = User.create({username: 'Alex', password: 'password'})
@@ -28,8 +28,12 @@ f2 = Follow.create({follower_id: demo.id, followee_id: nv.id})
 f3 = Follow.create({follower_id: demo.id, followee_id: lcf.id})
 f4 = Follow.create({follower_id: demo.id, followee_id: dr.id})
 
+i = 1
 
-
+while i < 10 do
+  User.create({username: "LoremBot#{i}", password: 'password'})
+  i += 1
+end
 
 
 
@@ -111,6 +115,12 @@ p2 = Post.create({
     title: "Ranelle Reyes.",
     user_id: aas.id
     })
+  p23 = Post.create ({
+    post_type: "image",
+    media_type: "image",
+    media_link: "https://res.cloudinary.com/dadyuehpo/image/upload/v1495657367/highFive_tq3lv7.gif",
+    user_id: hope.id
+    })
 
   p6 = Post.create ({
     post_type: "audio",
@@ -186,7 +196,12 @@ p2 = Post.create({
     title: "Lovecraft? Like, probably?",
     user_id: lcf.id
     })
-
+  p22 = Post.create ({
+    post_type: "image",
+    media_type: "image",
+    media_link: "https://res.cloudinary.com/dadyuehpo/image/upload/v1495645531/Welcome_60cc6c_5297508_zjlcg5.png",
+    user_id: hope.id
+    })
   p14 = Post.create ({
     post_type: "image",
     media_type: "image",
@@ -222,4 +237,9 @@ p2 = Post.create({
     link_url: "https://thesavvyreader2014.files.wordpress.com/2015/10/screen-shot-2015-10-30-at-1-25-22-pm.png?w=748",
     user_id: hope.id
     })
-    post_ary = [p1.id, p2.id, p3.id, p4.id, p5.id, p6.id, p7.id, p8.id, p9.id, p10]
+
+  post_ary = Post.all
+
+  User.all.each do |user|
+    user.liked_posts = post_ary.sample(5)
+  end
