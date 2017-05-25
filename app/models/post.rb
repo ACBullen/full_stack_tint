@@ -16,7 +16,7 @@
 class Post < ApplicationRecord
   validates :user_id, :post_type, presence: true
 
-  validates :post_type, inclusion: { in: ["text", "quote", "audio", 'video', "image", "link"] }, allow_nil: true
+  validates :post_type, inclusion: { in: ["text", "quote", "audio", 'video', "image", "link", "reblog"] }, allow_nil: true
   validates :media_type, inclusion: { in: ["audio", "video", "image", "none"] }, allow_nil: true
 
   belongs_to :original_author,
