@@ -57,8 +57,8 @@ class PostHeader extends React.Component {
           (this.state.currentUser.id === this.state.user.id ? (
             <div id="authorOptions">
               <Link to={ fi === "true" ? (
-                  `home/edit/quote/${post.id}`
-                ) : (`feed/edit/quote/${post.id}`)}><button>Edit</button></Link>
+                  `home/edit/${post.post_type}/${post.id}`
+                ) : (`feed/edit/${post.post_type}/${post.id}`)}><button>Edit</button></Link>
               <button onClick={this.handleDelete.bind(this)}>Delete</button>
 
               </div>

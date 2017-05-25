@@ -204,6 +204,14 @@ p2 = Post.create({
     media_link: "https://res.cloudinary.com/dadyuehpo/image/upload/v1495645531/Welcome_60cc6c_5297508_zjlcg5.png",
     user_id: hope.id
     })
+
+  Pot.create ({
+    post_type: "image",
+    media_type: "image",
+    link_url: "http://i.imgur.com/ra7x6.jpg",
+    user_id: cap.id
+    })
+
   p14 = Post.create ({
     post_type: "image",
     media_type: "image",
