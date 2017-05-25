@@ -60,6 +60,7 @@ class PostFooter extends React.Component {
         <div id="pfLeft">
           <h4>{this.state.post.likes.length === 1 ? `${this.state.post.likes.length} like` : `${this.state.post.likes.length} likes` }</h4>
         </div>
+        <i className="fa fa-retweet" aria-hidden="true"></i>
         {this.renderLikeButton()}
       </div>
     )

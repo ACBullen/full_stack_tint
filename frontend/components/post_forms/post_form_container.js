@@ -9,10 +9,15 @@ const mapStateToProps = (state, ownProps) => {
   if (ownProps.match.params.id) {
     post = state.posts[ownProps.match.params.id]
   }
+  let reblog = false;
+  if (ownProps.location.pathname.indexOf('reblog') > -1){
+    reblog = true;
+  }
   return {
   userId: state.currentUser.id,
   apiKeys: state.apiKeys,
-  post: post
+  post: post,
+  reblog: reblog
 }};
 
 const mapDispatchToProps = dispatch => ({
