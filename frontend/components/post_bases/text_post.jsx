@@ -19,11 +19,9 @@ class TextPost extends React.Component {
         return (this.props.post.media_link.indexOf('youtube') > -1 ) ? (
           <iframe id="media" src={this.props.post.media_link} allowFullScreen></iframe>
         ) : (
-
             <video id="media" controls>
               <source src={this.props.post.media_link} />
             </video>
-
         )
       case "audio":
         return (

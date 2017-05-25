@@ -20,7 +20,7 @@ class Feed extends React.Component {
       {columns: 1, gutter: 10 },
       { mq: "600px", columns: 2, gutter: 10 },
       { mq: '845px', columns: 3, gutter: 10 },
-      { mq: '1100px', columns: 4, gutter: 10 },
+      { mq: '1100px', columns: 4, gutter: 8 },
       { mq: "1400px", columns: 5, gutter: 10 }
     ]
     let feed = document.getElementById('FeedFootprint')

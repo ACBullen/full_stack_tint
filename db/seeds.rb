@@ -205,7 +205,7 @@ p2 = Post.create({
     user_id: hope.id
     })
 
-  Pot.create ({
+  Post.create ({
     post_type: "image",
     media_type: "image",
     link_url: "http://i.imgur.com/ra7x6.jpg",
@@ -222,7 +222,7 @@ p2 = Post.create({
   Post.create({
     post_type: "image",
     media_type: "image",
-    link_url: "http://imgur.com/sbEfnDF",
+    link_url: "https://i.imgur.com/sbEfnDF.jpg",
     user_id: cap.id
     })
 
