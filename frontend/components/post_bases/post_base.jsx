@@ -15,22 +15,29 @@ class PostBase extends React.Component {
   render(){
     let post = this.props.post;
     let user = this.props.users[post.user_id];
+    let orAuth = this.props.users[post.original_auth_id];
     let fi = this.props.fi;
     let currentUser = this.props.currentUser;
     switch (post.post_type) {
       case "quote":
-        return <QuotePost post={post} currentUser={currentUser} deletePost={this.props.deletePost} user={user} fi={fi}  />
+        return <QuotePost post={post} currentUser={currentUser} orAuth={orAuth}
+                  deletePost={this.props.deletePost} user={user} fi={fi}  />
       case "image":
 
-        return <ImagePost post={post} currentUser={currentUser} deletePost={this.props.deletePost} user={user} fi={fi} />
+        return <ImagePost post={post} currentUser={currentUser}
+                  deletePost={this.props.deletePost} user={user} fi={fi} />
       case "link":
-        return <LinkPost post={post} currentUser={currentUser} deletePost={this.props.deletePost} user={user} fi={fi} />
+        return <LinkPost post={post} currentUser={currentUser}
+                  deletePost={this.props.deletePost} user={user} fi={fi} />
       case "video":
-        return <VideoPost post={post} currentUser={currentUser} deletePost={this.props.deletePost} user={user} fi={fi} />
+        return <VideoPost post={post} currentUser={currentUser}
+                deletePost={this.props.deletePost} user={user} fi={fi} />
       case "audio":
-        return <AudioPost post={post} currentUser={currentUser} deletePost={this.props.deletePost} user={user} fi={fi} />
+        return <AudioPost post={post} currentUser={currentUser}
+                deletePost={this.props.deletePost} user={user} fi={fi} />
       case "text":
-        return <TextPost post={post} currentUser={currentUser} deletePost={this.props.deletePost} user={user} fi={fi} />
+        return <TextPost post={post} currentUser={currentUser}
+                deletePost={this.props.deletePost} user={user} fi={fi} />
       default:
       return(
         <div className={ this.props.fi ? "baseLozenge feed-item" : "baseLozenge"}>

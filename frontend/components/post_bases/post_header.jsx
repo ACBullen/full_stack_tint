@@ -10,7 +10,8 @@ class PostHeader extends React.Component {
     this.state = {
       followed : this.props.followed,
       user : this.props.user,
-      currentUser : this.props.currentUser
+      currentUser : this.props.currentUser,
+      orAuth: this.props.orAuth
     }
   }
 
@@ -45,7 +46,7 @@ class PostHeader extends React.Component {
       <header id="PostHeader">
         <div>
         <img width="20px" height="20px" src={`${this.state.user.profile_pic}`}/>
-        <h5>{this.state.user.username}</h5> </div>
+        <h5>{this.state.orAuth ? <div>{this.state.user.username} <i className="fa fa-retweet" aria-hidden="true"></i> {`${this.state.orAuth.username}`} </div>: this.state.user.username}</h5> </div>
         <div>
         { this.state.currentUser.username ?
           (this.state.currentUser.id === this.state.user.id ? (
@@ -71,7 +72,8 @@ const mapStateToProps = (state, ownProps) => {
   currentUser: state.currentUser,
   followed: (state.currentUser.follows ? state.currentUser.follows.indexOf(ownProps.user.id) >= 0 : null),
   post: ownProps.post,
-  fi: ownProps.fi
+  fi: ownProps.fi,
+  orAuth: ownProps.orAuth
 }
 }
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -13,7 +13,7 @@ class QuotePostForm extends React.Component {
       post.created_at = undefined;
       post.id = undefined;
       post.media_type = "none";
-      if(this.props.reblog){
+      if(this.props.reblog && post.original_auth_id === undefined){
         post.original_auth_id = post.user_id,
         post.user_id = this.props.userId
       }
@@ -33,10 +33,7 @@ class QuotePostForm extends React.Component {
 
 
     this.formName = "QuotePostForm"
-    this.cur_path = this.props.location.pathname;
-    let base_idx = (this.cur_path.indexOf("/post") > -1 ? this.cur_path.indexOf('/post') : this.cur_path.indexOf('/edit'))
-    this.base_path = this.cur_path.slice(0, base_idx);
-
+    this.base_path = this.props.match.params['base'];
     this.handleAuthorInput = this.handleAuthorInput.bind(this);
     this.handleQuoteInput = this.handleQuoteInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -60,11 +57,11 @@ class QuotePostForm extends React.Component {
     } else {
       let target = this.base_path
       if (this.props.reblog){
-        this.props.createPost(this.state).then(this.props.history.push(`${target}`))
+        this.props.createPost(this.state).then(this.props.history.push(`/${target}`))
       } else {
         this.props.post ? (
-          this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
-        ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
+          this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`/${target}`))
+        ): (this.props.createPost(this.state).then(this.props.history.push(`/${target}`)));
       }
     }
   }
@@ -78,8 +75,8 @@ class QuotePostForm extends React.Component {
         <input onChange={this.handleAuthorInput} placeholder="Quote Author" value={this.state.title}/>
         </lable>
         <div id="controlButtons">
-          <Link to={`${this.base_path}`}><button type="button">Close</button></Link>
-        <button onClick={this.handleSubmit}>Post</button>
+          <Link to={`/${this.base_path}`}><button type="button">Close</button></Link>
+        <button onClick={this.handleSubmit}>{this.props.reblog ? Reblog : Post}</button>
         </div>
       </form>
 

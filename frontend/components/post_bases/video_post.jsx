@@ -3,11 +3,11 @@ import PostHeader from './post_header';
 import PostFooter from './post_footer';
 
 
-const VideoPost = ({post, user, deletePost, currentUser, fi}) => {
+const VideoPost = ({post, user, deletePost, currentUser, fi, orAuth}) => {
 
   return (
     <div id="VideoPost" className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-      <PostHeader user={user} fi={fi} post={post} />
+      <PostHeader orAuth={orAuth} user={user} fi={fi} post={post} />
       {post.media_link ?(
         <video  controls>
           <source src={`${post.media_link}`}/>
