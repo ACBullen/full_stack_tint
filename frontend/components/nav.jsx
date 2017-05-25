@@ -67,7 +67,7 @@ class Nav extends React.Component {
         <ProtectedRoute exact path='/:base/edit/video/:id' component={VideoPostForm} />
         <ProtectedRoute exact path='/:base/edit/link/:id' component={LinkPostForm} />
 
-        <ProtectedRoute exact path= '/:base/reblog/:id' component={ReblogPostForm} />
+
 
       <Link to="/home"><h1>T.I.N.T.</h1></Link>
         <div id="NavRight">

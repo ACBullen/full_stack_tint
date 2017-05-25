@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525003720) do
+ActiveRecord::Schema.define(version: 20170525220624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,9 @@ ActiveRecord::Schema.define(version: 20170525003720) do
     t.datetime "updated_at",       null: false
     t.string   "media_type"
     t.integer  "original_auth_id"
+    t.integer  "rb_post_id"
     t.index ["original_auth_id"], name: "index_posts_on_original_auth_id", using: :btree
+    t.index ["rb_post_id"], name: "index_posts_on_rb_post_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 

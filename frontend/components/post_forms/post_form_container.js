@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { createPost } from '../../actions/post_actions';
 
 import { requestCloudinaryKeys } from '../../actions/api_key_actions';
-import { updatePost } from '../../actions/post_actions';
+import { updatePost, getAPost } from '../../actions/post_actions';
+
 
 const mapStateToProps = (state, ownProps) => {
   let post;
@@ -12,13 +13,15 @@ const mapStateToProps = (state, ownProps) => {
   return {
   userId: state.currentUser.id,
   apiKeys: state.apiKeys,
-  post: post
+  post: post,
+  errors: state.errors.post_errors
 }};
 
 const mapDispatchToProps = dispatch => ({
   createPost: (post) => dispatch(createPost(post)),
   requestCloudinaryKeys: () => dispatch(requestCloudinaryKeys()),
-  updatePost: (post_id, post) => dispatch(updatePost(post_id, post))
+  updatePost: (post_id, post) => dispatch(updatePost(post_id, post)),
+  getAPost: (post_id) => dispatch(getAPost(post_id))
 
 });
 
