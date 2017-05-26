@@ -60,6 +60,19 @@ and components for every possible post type. Similarly, all post forms
 receive their props from their own universal container, and switch between
 create vs. edit properties based on the url location from which they render.
 
+#### Reblogs
+
+The reblog feature has some of the same challenges as the textpost in that
+it by necessity has various kinds of information in it from its parent post
+in addition to the comment potentially added by the user, which also would
+need to be viewed during post creation. This is addressed by abstracting the
+content display logic from within the various other post types and integrating
+it into the post form with a similar content switch function, and then by saving
+the reblog with all the same info from its parent in the database and appending
+added comments to the comment column in progress. Displaying similarly
+uses the borrowed display logic for the original post and then appends the
+comments to the end.
+
 ### Home Feed
 
 The home feed consists of a series of reduced-sized posts ordered into columns
@@ -82,11 +95,6 @@ ___
 ## Future Features
 
 Below are the next steps in further implementing Tumblr-esque functionality:
-
-### ~~Reblogs~~
-
-Another iconic feature of Tumblr is the ability to repost and comment on
-other individuals posts, maintaining attribution to the original user.
 
 ### User Blogs
 
