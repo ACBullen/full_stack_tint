@@ -80,7 +80,7 @@ by a bricks.js masonry layout. The plugin allows you to specify the number
 of columns to be displayed at various breakpoints of screen width and
 dynamically adjust the display as elements are added or as screen dimensions change.
 
-![columns appear and disappear dynamically as screen resizes)](/docs/wireframes/bricksResize2.gif)
+![columns appear and disappear dynamically as screen resizes)](/docs/wireframes/updatedBricksResizeDemo.gif)
 
 ### Current User Feed
 
@@ -90,7 +90,7 @@ join table relating a follwer and followee. In the event a user unfollows
 a user from their feed page, that user's posts are immediately removed
 from the feed and on subsequent visits are not added to the feed.
 
-![unfollowed users' posts are dynamically removed](/docs/wireframes/userFeed.gif)
+![unfollowed users' posts are dynamically removed](/docs/wireframes/updatedFeedShowing.gif)
 ___
 ## Future Features
 
