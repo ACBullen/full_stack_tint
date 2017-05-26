@@ -255,12 +255,32 @@ p2 = Post.create({
     user_id: me.id
     })
 
+    Post.create ({
+      user_id: hope.id,
+      post_type: "video",
+      body: "Adorable!",
+      link_url: "https://www.youtube.com/embed/iqH2ffyNJsk",
+      original_auth_id: cap.id,
+      rb_post_id: p8.id
+      })
+
   p21 = Post.create({
     post_type: "image",
     media_type: "image",
     link_url: "https://thesavvyreader2014.files.wordpress.com/2015/10/screen-shot-2015-10-30-at-1-25-22-pm.png?w=748",
     user_id: hope.id
     })
+
+    Post.create ({
+      user_id: me.id,
+      post_type: "audio",
+      media_type: "audio",
+      media_link: "http://hwcdn.libsyn.com/p/9/5/0/950f3e431a44a995/720-20History20Week.mp3?c_id=15202746&destination_id=149717&expiration=1495469026&hwt=8d6061eb9f0d45f6c5016a63ffbf2906",
+      title: "WTNV: History week",
+      body: "Love this stuff, you can find more at http://www.welcometonightvale.com/ !",
+      original_auth_id: nv.id,
+      rb_post_id: p17.id,
+      })
 
   post_ary = Post.all
 
