@@ -49,7 +49,15 @@ class PostHeader extends React.Component {
     } else {
       display_name= this.state.user.username;
     }
-    
+    let editLocation;
+    if (this.props.post.rb_post_id) {
+      editLocation = `/edit/reblog/${post.id}`
+    } else {
+      fi === "true" ? (
+        editLocation = `/home/edit/${post.post_type}/${post.id}`
+      ) : ( editLocation = `/feed/edit/${post.post_type}/${post.id}`)
+    }
+
     return(
       <header id="PostHeader">
         <div id="phLeft">
@@ -61,9 +69,7 @@ class PostHeader extends React.Component {
         { this.state.currentUser.username ?
           (this.state.currentUser.id === this.state.user.id ? (
             <div id="authorOptions">
-              <Link to={ fi === "true" ? (
-                  `home/edit/${post.post_type}/${post.id}`
-                ) : (`feed/edit/${post.post_type}/${post.id}`)}><button>Edit</button></Link>
+              <Link to={editLocation}><button>Edit</button></Link>
               <button onClick={this.handleDelete.bind(this)}>Delete</button>
 
               </div>

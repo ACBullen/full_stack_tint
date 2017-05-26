@@ -29,6 +29,7 @@ class Main extends React.Component {
           <ProtectedRoute exact path='/feed' component={UserFeedContainer} />
           <Route path='/home' component={FeedContainer} />
           <ProtectedRoute exact path= '/post/:id/reblog/' component={ReblogPostForm} />
+          <ProtectedRoute exact path = '/edit/reblog/:id' component={ReblogPostForm} />
 
           <AuthRoute path= "/login" component={SessionFormContainer} />
           <AuthRoute path= "/signup" component={SessionFormContainer} />

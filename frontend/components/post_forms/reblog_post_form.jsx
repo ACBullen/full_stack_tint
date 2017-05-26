@@ -14,11 +14,19 @@ class ReblogPostForm extends React.Component {
   constructor(props){
     super(props);
 
+
     let post = this.props.post || {};
     this.state = post;
     this.state.original_auth_id = this.state.original_auth_id || post.id;
     this.state.rb_post_id = post.id
     this.state.cur_comment = '';
+    if(this.props.location.pathname.indexOf('edit') !== -1 && this.props.post){
+      this.edit = true;
+      let comments = this.state.comments.split("NEWLINE@#*$");
+      this.state.cur_comment = comments[comments.length - 1];
+      this.state.comments = comments.slice(0, comments.length - 2).join("NEWLINE@#*$");
+    }
+
 
     this.status = "Fetching post..."
   }
@@ -35,6 +43,15 @@ class ReblogPostForm extends React.Component {
     if (post.id === undefined) {
       this.status = "No such post"
     }
+
+    if(this.props.location.pathname.indexOf('edit') !== -1 && newProps.post){
+      this.edit = true;
+      let comments = post.comments.split("NEWLINE@#*$");
+
+      post.cur_comment = comments[comments.length - 1];
+      post.comments = comments.slice(0, comments.length - 2).join("NEWLINE@#*$");
+
+    }
     this.setState({
       id: post.id,
       title: post.title,
@@ -47,8 +64,9 @@ class ReblogPostForm extends React.Component {
       original_auth_id: post.original_auth_id || post.user_id,
       comments: post.comments,
       rb_post_id: post.id,
-      cur_comment: ''
+      cur_comment: post.cur_comment || ''
     })
+
   }
 
   contentDisplay(post){
@@ -87,7 +105,12 @@ class ReblogPostForm extends React.Component {
       this.state.comments ? (this.state.comments = this.state.comments + `NEWLINE@#*$${this.props.currentUser.username}:NEWLINE@#*$ ${this.state.cur_comment}`
       ) : this.state.comments = `${this.props.currentUser.username}:NEWLINE@#*$ ${this.state.cur_comment}`
     }
-    this.props.createPost(this.state).then(()=> this.props.history.push('/feed'))
+    if (this.edit){
+      let post_id = this.props.match.params["id"]
+      this.props.updatePost(post_id, this.state).then(()=> this.props.history.goBack(1));
+    } else {
+      this.props.createPost(this.state).then(()=> this.props.history.goBack(1));
+    }
   }
 
   backOut(e){
@@ -99,6 +122,7 @@ class ReblogPostForm extends React.Component {
     if(this.state.id === undefined){
       return <div id="ReblogPostForm">{this.status}</div>
     } else {
+
       return (
 
         <div id="ReblogPostForm" className="baseLozenge">
@@ -107,7 +131,7 @@ class ReblogPostForm extends React.Component {
             <textarea placeholder="Add a comment(optional)" onChange={this.handleInputComment.bind(this)} value={this.state.cur_comment}></textarea>
           <div id="controlButtons">
             <button onClick={this.backOut.bind(this)}>Cancel</button>
-            <button onClick={this.handleSubmit.bind(this)}>Reblog</button>
+            <button onClick={this.handleSubmit.bind(this)}>{this.edit ? "Edit" : "Reblog"}</button>
           </div>
         </div>
       </div>
