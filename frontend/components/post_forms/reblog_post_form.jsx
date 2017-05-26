@@ -29,7 +29,7 @@ class ReblogPostForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log("hit");
+
     this.props.getAPost(this.props.match.params["id"]);
 
   }

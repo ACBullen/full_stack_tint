@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.store = store;
-  window.APIUtilP = APIUtilP;
+  // window.store = store;
+  // window.APIUtilP = APIUtilP;
 
   ReactDOM.render(<App store={store} />, root)
 });
