@@ -25,7 +25,7 @@ class PostBase extends React.Component {
       case "quote":
         return (
           <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} post={post} fi={fi} />
+            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
             <QuotePost post={post}   />
                   <PostFooter post={post} fi={fi}/>
           </div>)
@@ -33,42 +33,42 @@ class PostBase extends React.Component {
 
         return (
           <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} post={post} fi={fi} />
+            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
             <ImagePost post={post}  />
                 <PostFooter post={post} fi={fi}/>
           </div>)
       case "link":
         return (
           <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} post={post} fi={fi} />
+            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
             <LinkPost post={post} fi={fi} />
                 <PostFooter post={post} fi={fi}/>
             </div>)
       case "video":
         return (
           <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} post={post} fi={fi} />
+            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
           <VideoPost post={post}  />
               <PostFooter post={post} fi={fi}/>
           </div>)
       case "audio":
         return (
           <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} post={post} fi={fi} />
+            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
             <AudioPost post={post} />
               <PostFooter post={post} fi={fi}/>
             </div>)
       case "text":
         return (
           <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} post={post} fi={fi} />
+            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
             <TextPost post={post} fi={fi} />
               <PostFooter post={post} fi={fi}/>
           </div>)
       case "reblog":
         return (
           <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} post={post} fi={fi} />
+            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
             <ReblogPost user={user} post={post} fi={fi} />
               <PostFooter post={post} fi={fi}/>
           </div>)

@@ -14,7 +14,7 @@ class ReblogPost extends React.Component {
     let localstore = store.getState();
     let posts = localstore.posts;
     while(i < this.post_chain.length){
-      console.log(posts);
+
       if(this.post_chain[i].rb_post_id){
         this.post_chain.push(posts[`${this.post_chain[i].rb_post_id}`])
 
@@ -48,10 +48,10 @@ class ReblogPost extends React.Component {
 
   render(){
     let post_chain = this.post_chain.reverse();
-    console.log(post_chain);
+
     return(
       <div id="reblog">
-        {post_chain.map(post, idx => this.renderPostContent.bind(this)(post, idx))}
+        {post_chain.map((post, idx) => this.renderPostContent.bind(this)(post, idx))}
 
         {this.props.post.body ? <div><p>{this.props.post.body}</p></div> : ""}
 
