@@ -19,7 +19,8 @@ class PostHeader extends React.Component {
     this.setState({
       followed : newProps.followed,
       user : newProps.user,
-      currentUser : newProps.currentUser
+      currentUser : newProps.currentUser,
+      orAuth: newProps.orAuth
     })
   }
 
@@ -48,7 +49,6 @@ class PostHeader extends React.Component {
     } else {
       display_name= this.state.user.username;
     }
-
     return(
       <header id="PostHeader">
         <div id="phLeft">
