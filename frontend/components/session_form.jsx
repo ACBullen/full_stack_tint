@@ -12,7 +12,7 @@ class SessionForm extends React.Component {
     this.handlePasswordInput = this.handlePasswordInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
-    
+
   }
 
   componentWillReceiveProps(newProps) {
@@ -72,7 +72,7 @@ class SessionForm extends React.Component {
         ) : ""}
       <div id='SessionForm' className={type === '/signup' ? `baseLozenge signup` : "baseLozenge"}>
 
-            {((type === '/login') ? <div id="SFHeader"><h2>"Sign In"</h2></div> : "")}
+            {((type === '/login') ? <div id="SFHeader"><h2>Sign In</h2></div> : "")}
 
 
           <input type="text" placeholder="Username" value={this.state.username} onChange={this.handleUsernameInput}/>
