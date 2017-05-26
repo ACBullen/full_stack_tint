@@ -17,9 +17,10 @@ class ReblogPostForm extends React.Component {
 
     let post = this.props.post || {};
     this.state = post;
-    this.state.original_auth_id = this.state.original_auth_id || post.id;
+    this.state.original_auth_id = this.state.original_auth_id || post.user_id;
     this.state.rb_post_id = post.id
     this.state.cur_comment = '';
+    this.state.user_id = this.props.userId;
     if(this.props.location.pathname.indexOf('edit') !== -1 && this.props.post){
       this.edit = true;
       let comments = this.state.comments.split("NEWLINE@#*$");
