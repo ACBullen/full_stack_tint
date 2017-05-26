@@ -28,6 +28,16 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+
+    if @post
+      render :show
+    else
+      render json: "Post not found", status: 404
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
 
@@ -45,7 +55,10 @@ class Api::PostsController < ApplicationController
                                  :link_url,
                                  :media_link,
                                  :media_type,
-                                 :user_id
+                                 :user_id,
+                                 :original_auth_id,
+                                 :rb_post_id,
+                                 :comments
                                 )
 
   end

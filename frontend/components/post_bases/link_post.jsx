@@ -3,7 +3,7 @@ import PostHeader from './post_header';
 import PostFooter from './post_footer';
 
 
-const LinkPost = ({post, user, deletePost, currentUser, fi}) => {
+const LinkPost = ({post, fi}) => {
 
   let show_url = post.link_url;
   let char_limit;
@@ -12,11 +12,11 @@ const LinkPost = ({post, user, deletePost, currentUser, fi}) => {
     show_url = `${show_url.slice(0, char_limit)}...`;
   }
   return (
-    <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-      <PostHeader user={user} fi={fi} post={post} />
+    <div className="contentFlex">
+
       <a href={post.link_url}>{show_url}</a>
       <p>{post.body}</p>
-        <PostFooter post={post} fi={fi} />
+
     </div>
   )
 }

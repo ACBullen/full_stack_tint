@@ -10,6 +10,11 @@ class AudioPostForm extends React.Component {
       let post = Object.assign({}, this.props.post);
       post.created_at = undefined;
       post.id = undefined;
+      post.media_type = "none";
+      if(this.props.reblog && post.original_auth_id === undefined){
+        post.original_auth_id = post.user_id,
+        post.user_id = this.props.userId
+      }
       this.state = post;
     } else {
       this.state = {
@@ -22,9 +27,7 @@ class AudioPostForm extends React.Component {
         user_id: this.props.userId
       }
     }
-    this.cur_path = this.props.location.pathname;
-    let base_idx = (this.cur_path.indexOf("/post") > -1 ? this.cur_path.indexOf('/post') : this.cur_path.indexOf('/edit'))
-    this.base_path = this.cur_path.slice(0, base_idx);
+    this.base_path = this.props.match.params['base'];
 
     this.handleTrackInput = this.handleTrackInput.bind(this);
     this.handleDescInput = this.handleDescInput.bind(this);
@@ -58,9 +61,13 @@ class AudioPostForm extends React.Component {
       alert("please submit a valid url or upload an audio file")
     } else {
       let target = this.base_path
-      this.props.post ? (
-        this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`${target}`))
-      ): (this.props.createPost(this.state).then(this.props.history.push(`${target}`)));
+      if (this.props.reblog){
+        this.props.createPost(this.state).then(this.props.history.push(`/${target}`))
+      } else {
+        this.props.post ? (
+          this.props.updatePost(this.props.post.id, this.state).then(this.props.history.push(`/${target}`))
+        ): (this.props.createPost(this.state).then(this.props.history.push(`/${target}`)));
+      }
     }
   }
 
@@ -88,7 +95,7 @@ class AudioPostForm extends React.Component {
           <textarea onChange={this.handleDescInput} id="desc" placeholder="Leave a description if you like" value={this.state.body}></textarea>
           <div id="controlButtons">
             <Link to={`${this.base_path}`}><button type="button">close</button></Link>
-            <button onClick={this.handleSubmit} type="button">Post</button>
+            <button onClick={this.handleSubmit} type="button">{this.props.reblog ? Reblog : Post}</button>
           </div>
       </div>
     )

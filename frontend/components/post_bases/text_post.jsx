@@ -45,8 +45,8 @@ class TextPost extends React.Component {
           show_url = this.props.post.link_url)
       }
     return(
-      <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-        <PostHeader user={this.props.user} fi={this.props.fi} post={this.props.post} />
+      <div className="contentFlex">
+
         <h2>{this.props.post.title}</h2>
         {this.props.post.link_url ?(
           <a href={this.props.post.link_url}>{show_url}</a>) : (
@@ -57,7 +57,7 @@ class TextPost extends React.Component {
         <article>
           <p>{this.props.post.body}</p>
         </article>
-        <PostFooter post={this.props.post} fi={this.props.fi} />
+
       </div>
     )
   }
