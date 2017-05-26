@@ -75,7 +75,7 @@ class LinkPostForm extends React.Component {
         <input onChange={this.handleDescInput} value={this.state.body} type="text" placeholder="Give the link a description" />
         <div id="controlButtons">
           <Link to={`${this.base_path}`}><button type="button">Close</button></Link>
-          <button onClick={this.handleSubmit} type="button">{this.props.reblog ? Reblog : Post}</button>
+          <button onClick={this.handleSubmit} type="button">Post</button>
         </div>
         </form>
       </div>

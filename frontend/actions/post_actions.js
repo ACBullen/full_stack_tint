@@ -1,5 +1,5 @@
 import * as APIUtilP from '../util/post_api_util';
-import { receiveUsers, addUsers } from './user_actions';
+import { receiveUsers, addUsers, receiveUser } from './user_actions';
 
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
@@ -44,7 +44,7 @@ export const createPost = post => dispatch => {
   return APIUtilP.newPost(post).then(
     (res) => {
       dispatch(receivePostErrors({}));
-      return dispatch(receivePost(res));
+      return dispatch(receivePost(res.post));
     },
     (err) => dispatch(receivePostErrors(err))
   )
@@ -71,7 +71,7 @@ export const getMyPosts = () => dispatch => {
 
 export const updatePost = (post_id, post) => dispatch => {
   return APIUtilP.updatePost(post_id, post).then((res)=> {
-    return dispatch(receivePost(res))
+    return dispatch(receivePost(res.post))
   },
   err => dispatch(receivePostErrors(err))
   )
@@ -79,7 +79,7 @@ export const updatePost = (post_id, post) => dispatch => {
 
 export const deletePost = post_id => dispatch => {
   return APIUtilP.deletePost(post_id).then((res)=>{
-    return dispatch(removePost(res));
+    return dispatch(removePost(res.post));
   })
 }
 
@@ -98,8 +98,8 @@ export const unlikePost = post_id => dispatch => {
 export const getAPost = post_id => dispatch => {
 
   return APIUtilP.fetchPost(post_id).then((res)=>{
-
-    return dispatch(receivePost(res))
+    dispatch(receiveUser(res.user))
+    return dispatch(receivePost(res.post))
   },
   err => {
 

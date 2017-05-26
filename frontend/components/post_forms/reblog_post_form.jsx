@@ -14,15 +14,17 @@ class ReblogPostForm extends React.Component {
   constructor(props){
     super(props);
 
-
-    this.state = this.props.post;
-    this.state.original_auth_id = this.state.original_auth_id || this.props.post.id;
-    this.state.rb_post_id = this.props.post.id
+    let post = this.props.post || {};
+    this.state = post;
+    this.state.original_auth_id = this.state.original_auth_id || post.id;
+    this.state.rb_post_id = post.id
     this.state.cur_comment = '';
+
+    this.status = "Fetching post..."
   }
 
   componentDidMount() {
-    
+
     this.props.getAPost(this.props.match.params["id"]);
 
   }
@@ -30,7 +32,11 @@ class ReblogPostForm extends React.Component {
   componentWillReceiveProps(newProps){
 
     let post = newProps.post || {}
+    if (post.id === undefined) {
+      this.status = "No such post"
+    }
     this.setState({
+      id: post.id,
       title: post.title,
       body: post.body,
       link_url: post.link_url,
@@ -46,6 +52,11 @@ class ReblogPostForm extends React.Component {
   }
 
   contentDisplay(post){
+    if (post.rb_post_id){
+      return (
+        <ReblogPost post={post} />
+      )
+    }
 
     switch (post.post_type){
     case "image":
@@ -60,8 +71,6 @@ class ReblogPostForm extends React.Component {
       return <TextPost post={post} />
     case "quote":
       return <QuotePost post={post} />
-    case "reblog":
-      return (<ReblogPost post={post} />)
     default:
       return (<p>{post.id}</p>)
     }
@@ -87,8 +96,8 @@ class ReblogPostForm extends React.Component {
   }
 
   render() {
-    if(this.props.post === undefined){
-      return <p>Fetching post</p>
+    if(this.state.id === undefined){
+      return <div id="ReblogPostForm">{this.status}</div>
     } else {
       return (
 

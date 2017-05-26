@@ -76,7 +76,7 @@ class QuotePostForm extends React.Component {
         </lable>
         <div id="controlButtons">
           <Link to={`/${this.base_path}`}><button type="button">Close</button></Link>
-        <button onClick={this.handleSubmit}>{this.props.reblog ? Reblog : Post}</button>
+        <button onClick={this.handleSubmit}>Post</button>
         </div>
       </form>
 

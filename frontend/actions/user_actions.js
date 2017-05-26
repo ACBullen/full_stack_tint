@@ -1,6 +1,7 @@
 import * as APIUtilsF from '../util/follow_util';
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
+export const RECEIVE_USER = "RECEIVE_USER";
 export const FOLLOW_USER = "FOLLOW_USER";
 export const UNFOLLOW_USER = "UNFOLLOW_USER";
 export const RECEIVE_FOLLOW_ERRORS = "RECEIVE_FOLLOW_ERRORS";
@@ -8,10 +9,16 @@ export const ADD_USERS = "ADD_USERS"
 
 
 
+
 export const receiveUsers = (users) => ({
   type: RECEIVE_USERS,
   users
 });
+
+export const receiveUser = user => ({
+  type: RECEIVE_USER,
+  user
+})
 
 export const followUser = (followee_id) => ({
   type: FOLLOW_USER,
