@@ -103,7 +103,7 @@ their posts and reblogs.
 
 ### Post page
 
-Post page would show the content of the post in question as well as listicle
+Post page would show the content of the post in question as well as list
 the users who have liked or reblogged the post.
 
 ### Infinite scroll
