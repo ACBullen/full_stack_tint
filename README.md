@@ -7,7 +7,7 @@ similar core functionality and a few re-skinning twists. The back-end
 foundation consists of the Rails framework with a Postgresql database,
 and the frontend is built with the React-Redux implementation of the
 flux coding paradigm.
-
+___
 ## Key Features and implementation
 
 ### Posts
@@ -78,12 +78,12 @@ a user from their feed page, that user's posts are immediately removed
 from the feed and on subsequent visits are not added to the feed.
 
 ![unfollowed users' posts are dynamically removed](/docs/wireframes/userFeed.gif)
-
+___
 ## Future Features
 
 Below are the next steps in further implementing Tumblr-esque functionality:
 
-### Reblogs
+### ~~Reblogs~~
 
 Another iconic feature of Tumblr is the ability to repost and comment on
 other individuals posts, maintaining attribution to the original user.

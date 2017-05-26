@@ -22,7 +22,7 @@ class ReblogPostForm extends React.Component {
   }
 
   componentDidMount() {
-
+    
     this.props.getAPost(this.props.match.params["id"]);
 
   }
@@ -81,6 +81,11 @@ class ReblogPostForm extends React.Component {
     this.props.createPost(this.state).then(()=> this.props.history.push('/feed'))
   }
 
+  backOut(e){
+    e.preventDefault();
+    this.props.history.goBack(1);
+  }
+
   render() {
     if(this.props.post === undefined){
       return <p>Fetching post</p>
@@ -91,7 +96,10 @@ class ReblogPostForm extends React.Component {
           {this.contentDisplay(this.props.post)}
           <div id="RBInputs">
             <textarea placeholder="Add a comment(optional)" onChange={this.handleInputComment.bind(this)} value={this.state.cur_comment}></textarea>
+          <div id="controlButtons">
+            <button onClick={this.backOut.bind(this)}>Cancel</button>
             <button onClick={this.handleSubmit.bind(this)}>Reblog</button>
+          </div>
         </div>
       </div>
 

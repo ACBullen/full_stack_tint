@@ -98,6 +98,7 @@ export const unlikePost = post_id => dispatch => {
 export const getAPost = post_id => dispatch => {
 
   return APIUtilP.fetchPost(post_id).then((res)=>{
+
     return dispatch(receivePost(res))
   },
   err => {
