@@ -13,7 +13,7 @@ import { withRouter } from 'react-router-dom';
 class ReblogPostForm extends React.Component {
   constructor(props){
     super(props);
-    console.log(this.props.history);
+
     let post = this.props.post || {}
     this.state = ({
       title: '',
@@ -80,7 +80,7 @@ class ReblogPostForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     if (this.state.body.length > 0){
-      this.state.body =`${this.props.currentUser.username}: \n\n ${this.state.body}`
+      this.state.body =`${this.props.currentUser.username}: ${this.state.body}`
     }
     this.props.createPost(this.state).then(()=> this.props.history.push('/feed'))
   }

@@ -31,10 +31,15 @@ class PostFooter extends React.Component {
     this.state.liked ? this.props.unlikePost() : this.props.likePost()
   };
 
+  openReblog(){
+    this.props.history.push(`/post/${this.props.post.id}/reblog`);
+  }
+
   renderLikeButton() {
     if (this.state.currentUser.id) {
       return(
         <div id="pfRight">
+          <i className="fa fa-retweet" id="Reblog" onClick={this.openReblog.bind(this)} aria-hidden="true"></i>
           {this.state.liked ? (
             <i className="fa fa-heart" onClick={this.handleLikeToggle.bind(this)} aria-hidden="true"></i>
         ) : (
@@ -60,7 +65,7 @@ class PostFooter extends React.Component {
         <div id="pfLeft">
           <h4>{this.state.post.likes.length === 1 ? `${this.state.post.likes.length} like` : `${this.state.post.likes.length} likes` }</h4>
         </div>
-        <i className="fa fa-retweet" aria-hidden="true"></i>
+
         {this.renderLikeButton()}
       </div>
     )
