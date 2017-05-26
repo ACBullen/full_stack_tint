@@ -91,9 +91,9 @@ class ReblogPostForm extends React.Component {
     } else {
       return (
 
-        <div id="ReblogForm" className="baseLozenge">
+        <div id="ReblogPostForm" className="baseLozenge">
           {this.contentDisplay(this.props.post)}
-          <div>
+          <div id="RBInputs">
             <textarea placeholder="Add a comment(optional)" onChange={this.handleInputComment.bind(this)} value={this.state.body}></textarea>
             <button onClick={this.handleSubmit.bind(this)}>Reblog</button>
         </div>
