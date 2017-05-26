@@ -49,6 +49,7 @@ class PostHeader extends React.Component {
     } else {
       display_name= this.state.user.username;
     }
+    
     return(
       <header id="PostHeader">
         <div id="phLeft">
