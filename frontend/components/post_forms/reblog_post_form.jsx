@@ -75,7 +75,8 @@ class ReblogPostForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     if (this.state.cur_comment.length > 0){
-      this.state.comments = this.state.comments + `NEWLINE@#*$${this.props.currentUser.username}:NEWLINE@#*$ ${this.state.cur_comment}`
+      this.state.comments ? (this.state.comments = this.state.comments + `NEWLINE@#*$${this.props.currentUser.username}:NEWLINE@#*$ ${this.state.cur_comment}`
+      ) : this.state.comments = `${this.props.currentUser.username}:NEWLINE@#*$ ${this.state.cur_comment}`
     }
     this.props.createPost(this.state).then(()=> this.props.history.push('/feed'))
   }
