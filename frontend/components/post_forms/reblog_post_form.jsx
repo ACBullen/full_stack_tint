@@ -14,18 +14,11 @@ class ReblogPostForm extends React.Component {
   constructor(props){
     super(props);
 
-    let post = this.props.post || {}
-    this.state = ({
-      title: '',
-      body: '',
-      link_url: '',
-      media_link: '',
-      post_type: 'reblog',
-      media_type: 'none',
-      user_id: this.props.userId,
-      original_auth_id: post.original_auth_id || post.user_id,
-      rb_post_id: post.id
-    })
+
+    this.state = this.props.post;
+    this.state.original_auth_id = this.state.original_auth_id || this.props.post.id;
+    this.state.rb_post_id = this.props.post.id
+    this.state.cur_comment = '';
   }
 
   componentDidMount() {
@@ -38,15 +31,17 @@ class ReblogPostForm extends React.Component {
 
     let post = newProps.post || {}
     this.setState({
-      title: '',
-      body: '',
-      link_url: '',
-      media_link: '',
-      post_type: 'reblog',
-      media_type: 'none',
+      title: post.title,
+      body: post.body,
+      link_url: post.link_url,
+      media_link: post.media_link,
+      post_type: post.post_type,
+      media_type: post.media_type,
       user_id: newProps.userId,
       original_auth_id: post.original_auth_id || post.user_id,
-      rb_post_id: post.id
+      comments: post.comments,
+      rb_post_id: post.id,
+      cur_comment: ''
     })
   }
 
@@ -74,13 +69,13 @@ class ReblogPostForm extends React.Component {
 
   handleInputComment(e){
     e.preventDefault();
-    this.setState({body: e.target.value})
+    this.setState({cur_comment: e.target.value})
   }
 
   handleSubmit(e){
     e.preventDefault();
-    if (this.state.body.length > 0){
-      this.state.body =`${this.props.currentUser.username}: ${this.state.body}`
+    if (this.state.cur_comment.length > 0){
+      this.state.comments = this.state.comments + `NEWLINE@#*$${this.props.currentUser.username}:NEWLINE@#*$ ${this.state.cur_comment}`
     }
     this.props.createPost(this.state).then(()=> this.props.history.push('/feed'))
   }
@@ -94,7 +89,7 @@ class ReblogPostForm extends React.Component {
         <div id="ReblogPostForm" className="baseLozenge">
           {this.contentDisplay(this.props.post)}
           <div id="RBInputs">
-            <textarea placeholder="Add a comment(optional)" onChange={this.handleInputComment.bind(this)} value={this.state.body}></textarea>
+            <textarea placeholder="Add a comment(optional)" onChange={this.handleInputComment.bind(this)} value={this.state.cur_comment}></textarea>
             <button onClick={this.handleSubmit.bind(this)}>Reblog</button>
         </div>
       </div>

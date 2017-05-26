@@ -9,51 +9,38 @@ import TextPost from '../post_bases/text_post';
 class ReblogPost extends React.Component {
   constructor(props){
     super(props);
-    this.post_chain = [this.props.post];
-    let i = 0
-    let localstore = store.getState();
-    let posts = localstore.posts;
-    while(i < this.post_chain.length){
 
-      if(this.post_chain[i].rb_post_id){
-        this.post_chain.push(posts[`${this.post_chain[i].rb_post_id}`])
-
-      }
-      i++;
-    }
-
-    this.post_chain = this.post_chain.slice(1);
   }
 
-  renderPostContent(post, idx){
+  renderPostContent(post){
     switch (post.post_type){
     case "image":
-      return <ImagePost key={idx} post={post} />
+      return <ImagePost post={post} />
     case "link":
-      return <LinkPost key={idx} post={post} />
+      return <LinkPost post={post} />
     case "audio":
-      return <AudioPost key={idx} post={post} />
+      return <AudioPost post={post} />
     case "video":
-      return <VideoPost key={idx} post={post} />
+      return <VideoPost post={post} />
     case "text":
-      return <TextPost key={idx} post={post} />
+      return <TextPost post={post} />
     case "quote":
-      return <QuotePost key={idx} post={post} />
+      return <QuotePost post={post} />
     case "reblog":
-      return (<ReblogPost key={idx} post={post} />)
+      return (<ReblogPost post={post} />)
     default:
       return (<p>{post.id}</p>)
     }
   }
 
   render(){
-    let post_chain = this.post_chain.reverse();
+
 
     return(
       <div id="reblog">
-        {post_chain.map((post, idx) => this.renderPostContent.bind(this)(post, idx))}
+        {this.renderPostContent(this.props.post)}
 
-        {this.props.post.body ? <div><p>{this.props.post.body}</p></div> : ""}
+        {this.props.post.comments ? this.props.post.comments.split("NEWLINE@#*$").map((line, idx)=><p key={idx}>{line}<br /></p>) : ""}
 
       </div>
     )

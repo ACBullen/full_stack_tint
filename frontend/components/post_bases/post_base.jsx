@@ -21,63 +21,66 @@ class PostBase extends React.Component {
     let orAuth = this.props.users[post.original_auth_id];
     let fi = this.props.fi;
     let currentUser = this.props.currentUser;
-    switch (post.post_type) {
-      case "quote":
-        return (
-          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
-            <QuotePost post={post}   />
-                  <PostFooter post={post} fi={fi}/>
-          </div>)
-      case "image":
-
-        return (
-          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
-            <ImagePost post={post}  />
-                <PostFooter post={post} fi={fi}/>
-          </div>)
-      case "link":
-        return (
-          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
-            <LinkPost post={post} fi={fi} />
-                <PostFooter post={post} fi={fi}/>
-            </div>)
-      case "video":
-        return (
-          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
-          <VideoPost post={post}  />
-              <PostFooter post={post} fi={fi}/>
-          </div>)
-      case "audio":
-        return (
-          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
-            <AudioPost post={post} />
-              <PostFooter post={post} fi={fi}/>
-            </div>)
-      case "text":
-        return (
-          <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
-            <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
-            <TextPost post={post} fi={fi} />
-              <PostFooter post={post} fi={fi}/>
-          </div>)
-      case "reblog":
-        return (
+    if (post.rb_post_id){
+      return (
           <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
             <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
             <ReblogPost user={user} post={post} fi={fi} />
               <PostFooter post={post} fi={fi}/>
           </div>)
-      default:
-      return(
-        <div className={ this.props.fi ? "baseLozenge feed-item" : "baseLozenge"}>
-          <p>{this.props.post.id}{this.props.post.body} <br/> {this.props.post.title} {this.props.post.post_type}</p>
-        </div>
-      )
+    } else {
+      switch (post.post_type) {
+      case "quote":
+      return (
+        <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+          <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
+          <QuotePost post={post}   />
+          <PostFooter post={post} fi={fi}/>
+        </div>)
+        case "image":
+
+        return (
+      <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+        <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
+        <ImagePost post={post}  />
+        <PostFooter post={post} fi={fi}/>
+      </div>)
+      case "link":
+      return (
+      <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+        <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
+        <LinkPost post={post} fi={fi} />
+        <PostFooter post={post} fi={fi}/>
+      </div>)
+      case "video":
+      return (
+      <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+        <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
+        <VideoPost post={post}  />
+        <PostFooter post={post} fi={fi}/>
+      </div>)
+      case "audio":
+      return (
+        <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+          <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
+          <AudioPost post={post} />
+          <PostFooter post={post} fi={fi}/>
+        </div>)
+      case "text":
+      return (
+        <div className={ fi === "true" ? "baseLozenge feed-item" : "baseLozenge"}>
+          <PostHeader user={user} orAuth={orAuth} post={post} fi={fi} />
+          <TextPost post={post} fi={fi} />
+          <PostFooter post={post} fi={fi}/>
+        </div>)
+        default:
+        return(
+          <div className={ this.props.fi ? "baseLozenge feed-item" : "baseLozenge"}>
+            <p>{this.props.post.id}{this.props.post.body} <br/> {this.props.post.title} {this.props.post.post_type}</p>
+          </div>
+        )
+      }
+
     }
   }
 }

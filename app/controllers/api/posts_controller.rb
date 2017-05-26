@@ -57,7 +57,8 @@ class Api::PostsController < ApplicationController
                                  :media_type,
                                  :user_id,
                                  :original_auth_id,
-                                 :rb_post_id
+                                 :rb_post_id,
+                                 :comments
                                 )
 
   end
