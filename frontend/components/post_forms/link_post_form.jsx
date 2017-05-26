@@ -35,10 +35,6 @@ class LinkPostForm extends React.Component {
   }
 
 
-  componentWillMount(){
-    this.props.requestCloudinaryKeys();
-  };
-
   handleLinkInput (e){
     this.setState({link_url: e.target.value})
   }

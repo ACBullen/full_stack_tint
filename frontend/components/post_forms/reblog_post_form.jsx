@@ -32,9 +32,9 @@ class ReblogPostForm extends React.Component {
   }
 
   componentDidMount() {
-
-    this.props.getAPost(this.props.match.params["id"]);
-
+    if (this.props.post === undefined){
+      this.props.getAPost(this.props.match.params["id"]);
+    }
   }
 
   componentWillReceiveProps(newProps){

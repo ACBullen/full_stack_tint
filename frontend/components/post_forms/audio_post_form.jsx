@@ -36,7 +36,9 @@ class AudioPostForm extends React.Component {
   }
 
   componentWillMount() {
-    this.props.requestCloudinaryKeys();
+    if (this.props.apiKeys.cloudinary_options === undefined){
+      this.props.requestCloudinaryKeys();
+    }
   }
 
   handleLinkInput (e){
