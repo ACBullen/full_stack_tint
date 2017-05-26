@@ -205,7 +205,7 @@ p2 = Post.create({
     user_id: hope.id
     })
 
-  Post.create ({
+  foxkitpic= Post.create ({
     post_type: "image",
     media_type: "image",
     link_url: "http://i.imgur.com/ra7x6.jpg",
@@ -218,6 +218,18 @@ p2 = Post.create({
     media_link: "https://res.cloudinary.com/dadyuehpo/image/upload/v1495261287/1478814894790_lkjcwe.jpg",
     user_id: ev.id
     })
+    Post.create ({
+      post_type: "quote",
+      title: "Welcome to NightVale",
+      body: "Weird at last, weird at last. God almighty, weird at last.",
+      link_url: "",
+      media_link: "",
+      user_id: nv.id,
+      media_type: "none",
+      original_auth_id: hope.id,
+      rb_post_id: p19.id,
+      comments: "Nightvalean:NEWLINE@#*$ My aesthetic in a nutshell."
+      })
 
   Post.create({
     post_type: "image",
@@ -240,6 +252,18 @@ p2 = Post.create({
     link_url: "https://i.imgur.com/q5KffkK.jpg?1",
     user_id: cap.id
     })
+  Post.create({
+   post_type: "image",
+   title: "",
+   body: "",
+   link_url: "http://i.imgur.com/ra7x6.jpg",
+   media_link: "",
+   user_id: me.id,
+   media_type: "image",
+   original_auth_id: cap.id,
+   rb_post_id: foxkitpic.id,
+   comments: "Alex:NEWLINE@#*$ Got a special place in my heart for fox kits... so cute!"
+  })
 
     p20 = Post.create({
       post_type: "image",
@@ -248,6 +272,18 @@ p2 = Post.create({
       user_id: hope.id
       })
 
+    Post.create({
+       post_type: "quote",
+       title: "Lovecraft? Like, probably?",
+       body: "The most merciful thing in the world, I think, is the inability of the human mind to correlate all its contents. Cuz, like who has time to remember everything?",
+       link_url: "",
+       media_link: "",
+       user_id: nv.id,
+       media_type: "",
+       original_auth_id: lcf.id,
+       rb_post_id: p13.id,
+       comments: "Nightvalean:NEWLINE@#*$ Part of me wants to read that in a Cecil voice."
+      })
   p4= Post.create({
     post_type: "video",
     body: "Must-see! Those moves...",
