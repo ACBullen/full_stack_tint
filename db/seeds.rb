@@ -42,16 +42,16 @@ end
 p18 = Post.create ({
   post_type: "image",
   media_type: "image",
-  link_url: "http://i.imgur.com/qxU3NU4.gif",
+  link_url: "https://i.imgur.com/qxU3NU4.gif",
   user_id: dr.id
   })
 
 p17 = Post.create ({
   post_type: "audio",
   media_type: "audio",
-  media_link: "http://hwcdn.libsyn.com/p/9/5/0/950f3e431a44a995/720-20History20Week.mp3?c_id=15202746&destination_id=149717&expiration=1495469026&hwt=8d6061eb9f0d45f6c5016a63ffbf2906",
+  media_link: "https://hwcdn.libsyn.com/p/9/5/0/950f3e431a44a995/720-20History20Week.mp3?c_id=15202746&destination_id=149717&expiration=1495469026&hwt=8d6061eb9f0d45f6c5016a63ffbf2906",
   title: "WTNV: History week",
-  body: "Love this stuff, you can find more at http://www.welcometonightvale.com/ !",
+  body: "Love this stuff, you can find more at https://www.welcometonightvale.com/ !",
   user_id: nv.id
   })
 
@@ -82,7 +82,7 @@ p1 = Post.create({
   post_type: "text",
   title: "Delicious!",
   body: "Butter instead of oil in brownies, who knew?",
-  link_url: "http://allrecipes.com/recipe/10549/best-brownies/",
+  link_url: "https://allrecipes.com/recipe/10549/best-brownies/",
   user_id: udb.id
   })
 
@@ -97,14 +97,14 @@ p1 = Post.create({
 p2 = Post.create({
   post_type: "image",
   media_type: "image",
-  media_link: "http://i.imgur.com/ZlbBeAe.gif",
+  media_link: "https://i.imgur.com/ZlbBeAe.gif",
   body: "Amazing escape!",
   user_id: cap.id
   })
 
   p3 = Post.create({
     post_type: "link",
-    link_url: "http://www.npr.org/templates/story/story.php?storyId=35",
+    link_url: "https://www.npr.org/templates/story/story.php?storyId=35",
     body: "Best comedy you can find on npr. (It's a compliment I swear)",
     user_id: demo.id
   })
@@ -127,7 +127,7 @@ p2 = Post.create({
   p6 = Post.create ({
     post_type: "audio",
     title: "The Woman From Italy (WTNV)",
-    body: "Love this stuff, you can find more at http://www.welcometonightvale.com/ !",
+    body: "Love this stuff, you can find more at https://www.welcometonightvale.com/ !",
     media_link: "https://secure-hwcdn.libsyn.com/p/5/b/3/5b35a29dbac9d612/3920-20The20Woman20from20Italy2028R29.mp3?c_id=13734447&expiration=1495254674&hwt=1f6dc8382503d3b8bcfd18d7da11ca64",
     user_id: nv.id
     })
@@ -136,7 +136,7 @@ p2 = Post.create({
     post_type: "image",
     body: "cute doggos",
     media_type: "image",
-    link_url: "http://i.imgur.com/IsetA24.gif",
+    link_url: "https://i.imgur.com/IsetA24.gif",
     user_id: me.id
     })
 
@@ -151,7 +151,7 @@ p2 = Post.create({
     post_type: "text",
     title: "A video and a link!",
     body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    link_url: "http://memory-alpha.wikia.com/wiki/USS_Enterprise_(NCC-1701-D)",
+    link_url: "https://memory-alpha.wikia.com/wiki/USS_Enterprise_(NCC-1701-D)",
     media_link: "https://www.youtube.com/embed/ZPoqNeR3_UA",
     media_type: "video",
     user_id: nv.id
@@ -172,7 +172,7 @@ p2 = Post.create({
   p10 = Post.create ({
     post_type: "audio",
     media_type: "audio",
-    media_link: "http://hwcdn.libsyn.com/p/5/6/f/56f72a0761e63408/Bonus20Episode20320-20_The20Librarian_20Horoscopes.mp3?c_id=12976566&destination_id=149717&expiration=1495296479&hwt=48c963f4a4cf23fe99bd8ca361ad89f8",
+    media_link: "https://hwcdn.libsyn.com/p/5/6/f/56f72a0761e63408/Bonus20Episode20320-20_The20Librarian_20Horoscopes.mp3?c_id=12976566&destination_id=149717&expiration=1495296479&hwt=48c963f4a4cf23fe99bd8ca361ad89f8",
     title: "WTNV: The Librarian- Horoscopes",
     body: "The stars were right for this",
     user_id: nv.id
@@ -208,7 +208,7 @@ p2 = Post.create({
   foxkitpic= Post.create ({
     post_type: "image",
     media_type: "image",
-    link_url: "http://i.imgur.com/ra7x6.jpg",
+    link_url: "https://i.imgur.com/ra7x6.jpg",
     user_id: cap.id
     })
 
@@ -256,7 +256,7 @@ p2 = Post.create({
    post_type: "image",
    title: "",
    body: "",
-   link_url: "http://i.imgur.com/ra7x6.jpg",
+   link_url: "https://i.imgur.com/ra7x6.jpg",
    media_link: "",
    user_id: me.id,
    media_type: "image",
@@ -311,9 +311,9 @@ p2 = Post.create({
       user_id: me.id,
       post_type: "audio",
       media_type: "audio",
-      media_link: "http://hwcdn.libsyn.com/p/9/5/0/950f3e431a44a995/720-20History20Week.mp3?c_id=15202746&destination_id=149717&expiration=1495469026&hwt=8d6061eb9f0d45f6c5016a63ffbf2906",
+      media_link: "https://hwcdn.libsyn.com/p/9/5/0/950f3e431a44a995/720-20History20Week.mp3?c_id=15202746&destination_id=149717&expiration=1495469026&hwt=8d6061eb9f0d45f6c5016a63ffbf2906",
       title: "WTNV: History week",
-      body: "Love this stuff, you can find more at http://www.welcometonightvale.com/ !",
+      body: "Love this stuff, you can find more at https://www.welcometonightvale.com/ !",
       original_auth_id: nv.id,
       rb_post_id: p17.id,
       })
