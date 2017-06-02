@@ -80,7 +80,7 @@ by a bricks.js masonry layout. The plugin allows you to specify the number
 of columns to be displayed at various breakpoints of screen width and
 dynamically adjust the display as elements are added or as screen dimensions change.
 
-![columns appear and disappear dynamically as screen resizes)](/docs/wireframes/updatedBricksResizeDemo.gif)
+![columns appear and disappear dynamically as screen resizes](/docs/wireframes/updatedBricksResizeDemo.gif)
 
 ### Current User Feed
 
