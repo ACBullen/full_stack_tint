@@ -74,6 +74,7 @@ class AudioPostForm extends React.Component {
   }
 
   render() {
+    console.log(this.state.media_link);
     return (
       <div id="PostForm" className="baseLozenge">
         {this.state.media_link === '' ? (
@@ -90,7 +91,7 @@ class AudioPostForm extends React.Component {
               <source src={this.state.media_link} type="audio/mpeg" />
             Your browser does not support the audio element.
             </audio>
-            <button onClick={this.setState.bind(this)({media_link: ''})}>Remove</button>
+            <button onClick={()=>this.setState.bind(this)({media_link: ''})}>Remove</button>
           </div>)
           }
           <input onChange={this.handleTrackInput} type="text" placeholder="Track name here!" value={this.state.title}/>
