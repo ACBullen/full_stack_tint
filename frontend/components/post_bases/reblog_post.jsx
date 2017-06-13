@@ -40,7 +40,7 @@ class ReblogPost extends React.Component {
       <div id="reblog">
         {this.renderPostContent(this.props.post)}
 
-        {this.props.post.comments ? this.props.post.comments.split("NEWLINE@#*$").map((line, idx)=><p key={idx}>{line}<br /></p>) : ""}
+        {this.props.post.comments ? this.props.post.comments.split("NEWLINE@#*$").map((line, idx)=><p id="commentComp" key={idx}>{line}<br /></p>) : ""}
 
       </div>
     )

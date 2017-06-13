@@ -20,3 +20,8 @@
   min-height: 200px;
   font-size: 18px;
 }
+
+#commentComp:nth-child(even) {
+  border-top: 1px solid aliceblue;
+  padding-top: 5px;
+}
