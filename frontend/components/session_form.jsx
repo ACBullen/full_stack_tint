@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
           <p> Welcome to T.I.N.T., the micro-blogging app of the modern
             day! Looking to share an interesting thought, an insightful
             quote, an amazing video, or hilarious image? We've got you
-            covered! See a post you like? Click Like<i className="fa fa-heart-o" aria-hidden="true"></i> or Reblog<i className="fa fa-retweet" aria-hidden="true"></i> to let your
+            covered! See a post you like? Click Like<i id="example" className="fa fa-heart-o" aria-hidden="true"></i> or Reblog<i className="fa fa-retweet" aria-hidden="true"></i> to let your
             friends know! Sign up or select Demo Sign-In for a taste of
             the platform.</p>
           <h2>T. I. N. T</h2></div>
