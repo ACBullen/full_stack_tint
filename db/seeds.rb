@@ -51,7 +51,7 @@ p17 = Post.create ({
   media_type: "audio",
   media_link: "http://hwcdn.libsyn.com/p/9/5/0/950f3e431a44a995/720-20History20Week.mp3?c_id=15202746&destination_id=149717&expiration=1495469026&hwt=8d6061eb9f0d45f6c5016a63ffbf2906",
   title: "WTNV: History week",
-  body: "Love this stuff, you can find more at https://www.welcometonightvale.com/ !",
+  body: "Love this stuff, you can find more at https://www. welcometonightvale .com/ !",
   user_id: nv.id
   })
 
@@ -127,7 +127,7 @@ p2 = Post.create({
   p6 = Post.create ({
     post_type: "audio",
     title: "The Woman From Italy (WTNV)",
-    body: "Love this stuff, you can find more at https://www.welcometonightvale.com/ !",
+    body: "Love this stuff, you can find more at https://www. welcometonightvale .com/ !",
     media_link: "http://secure-hwcdn.libsyn.com/p/5/b/3/5b35a29dbac9d612/3920-20The20Woman20from20Italy2028R29.mp3?c_id=13734447&expiration=1495254674&hwt=1f6dc8382503d3b8bcfd18d7da11ca64",
     user_id: nv.id
     })
@@ -313,7 +313,7 @@ p2 = Post.create({
       media_type: "audio",
       media_link: "http://hwcdn.libsyn.com/p/9/5/0/950f3e431a44a995/720-20History20Week.mp3?c_id=15202746&destination_id=149717&expiration=1495469026&hwt=8d6061eb9f0d45f6c5016a63ffbf2906",
       title: "WTNV: History week",
-      body: "Love this stuff, you can find more at https://www.welcometonightvale.com/ !",
+      body: "Love this stuff, you can find more at https://www. welcometonightvale .com/ !",
       original_auth_id: nv.id,
       rb_post_id: p17.id,
       })

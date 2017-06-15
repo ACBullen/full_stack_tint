@@ -63,7 +63,7 @@ class PostHeader extends React.Component {
         <div id="phLeft">
         <img width="20px" height="20px" src={`${this.state.user.profile_pic}`}/>
 
-        <h5>{this.state.orAuth ? <p>{display_name} <i className="fa fa-retweet" aria-hidden="true"></i> {`${this.state.orAuth.username}`} </p>: display_name}</h5> </div>
+        {this.state.orAuth ? <h5>{display_name} <i className="fa fa-retweet" aria-hidden="true"></i> {`${this.state.orAuth.username}`} </h5>: <h5>{`${display_name}`}</h5>} </div>
 
         <div>
         { this.state.currentUser.username ?

@@ -26,6 +26,12 @@
   justify-content: space-around;;
 }
 
+#NavRight button {
+  margin: 0 5px;
+  width: 80px;
+  height: 30px;
+  font-size: 14px;
+}
 
 
 #currentUserInfo{
@@ -39,12 +45,6 @@
   margin: 0 10px;
 }
 
-#currentUserInfo button {
-  margin: 0 5px;
-  width: 80px;
-  height: 30px;
-  font-size: 14px; 
-}
 
 #PostDropdown  {
   display: none;

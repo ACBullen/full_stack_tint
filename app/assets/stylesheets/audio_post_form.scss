@@ -87,3 +87,16 @@
 .addlCButton:hover {
   cursor: pointer;
 }
+
+.audioDiv {
+  display: inline-block;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+}
+.fa-play-circle {
+  font-size: 30px;
+}
+.fa-play-circle:hover {
+  cursor: pointer;
+}
