@@ -20,7 +20,9 @@
   align-items: center;
   justify-content: center;
 }
-
+// body{
+//   background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2f/SF_skyline_%28702056020%29.jpg");
+// }
 #MainBody {
   display: flex;
   justify-content: center;
@@ -29,7 +31,10 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-around
+  height: 800px;
+  justify-content: space-around;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2f/SF_skyline_%28702056020%29.jpg");
+  background-repeat: no-repeat;
 }
 
 #sessionPage h1{
@@ -40,15 +45,13 @@
   margin-top: 130px;
   color: #f9fcff;
 }
+
 #FormConcerns {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-
   margin-top: 100px;
-  border: 1px solid #2B3856;
+  border: 0px solid #2B3856;
 }
 
 #FormConcerns p {
