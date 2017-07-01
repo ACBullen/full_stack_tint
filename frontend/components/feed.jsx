@@ -7,8 +7,15 @@ import PostContainer from './post_bases/post_container';
 class Feed extends React.Component {
   constructor(props){
     super(props);
-
+    this.updating = false;
     this.state = {posts: values(this.props.posts)}
+    $(window).scroll(function() {
+   if($(window).scrollTop() + $(window).height() > $(document).height() - 100 && !this.updating) {
+       console.log("near bottom!");
+       this.updating = true;
+       setTimeout(()=>{this.updating = false}, 2000)
+   }
+});
   }
 
   componentWillMount() {
@@ -47,6 +54,10 @@ class Feed extends React.Component {
     imagesLoaded(feed, () => this.instance.pack());
   }
 
+  componentWillUnmount(){
+    $(window).off("scroll")
+    console.log("goodbye");
+  }
   render(){
     let currentFeed = this.state.posts.sort((a,b)=> b.id - a.id)
     return (
