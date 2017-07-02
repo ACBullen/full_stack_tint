@@ -2,9 +2,9 @@ class Api::PostsController < ApplicationController
 
   def index
     @posts = Post.all.includes(:user)
-                  .order(:created_at)
+                  .order(created_at: :desc)
                   .limit(10)
-                  .where("id > ?", fetch_post_params[:last_idx])
+                  .offset(fetch_post_params[:last_idx])
     render :index
   end
 

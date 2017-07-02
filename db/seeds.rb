@@ -37,7 +37,25 @@ while i < 10 do
   i += 1
 end
 
-
+j = 1
+while j < 30 do
+  Post.create({
+    post_type: "text",
+    title: "Lachs and bagels",
+    body: "IPhone seitan cold-pressed semiotics williamsburg DIY drinking
+    vinegar locavore. Readymade meh tattooed food truck, chicharrones pug
+    fashion axe next level godard quinoa narwhal man bun raclette banjo.
+    Roof party kale chips semiotics, DIY pinterest street art venmo neutra
+    man bun four dollar toast hot chicken. Vice marfa pinterest, pork
+    belly butcher humblebrag four dollar toast occupy bitters sustainable
+    flexitarian. Austin fingerstache pug cliche la croix asymmetrical
+    lumbersexual portland, microdosing blue bottle small batch. Keffiyeh
+    flannel pour-over, wayfarers cold-pressed photo booth forage.
+    Crucifix kombucha lumbersexual synth gastropub.",
+    user_id: udb.id
+    })
+    j += 1
+end
 
 p18 = Post.create ({
   post_type: "image",
