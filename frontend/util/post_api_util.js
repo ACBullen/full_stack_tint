@@ -7,10 +7,11 @@ export const newPost = (post) => {
   })
 }
 
-export const fetchPosts = () => {
+export const fetchPosts = (lastIdx) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/posts'
+    url: '/api/posts',
+    data: {last_idx: lastIdx}
   })
 }
 

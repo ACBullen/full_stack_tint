@@ -1,7 +1,10 @@
 class Api::PostsController < ApplicationController
 
   def index
-    @posts = Post.all.includes(:user).order(:created_at).limit(10)
+    @posts = Post.all.includes(:user)
+                  .order(:created_at)
+                  .limit(10)
+                  .where("id > ?", fetch_post_params[:last_idx])
     render :index
   end
 
@@ -46,6 +49,10 @@ class Api::PostsController < ApplicationController
   end
 
   private
+
+  def fetch_post_params
+    params.permit(:last_idx)
+  end
 
   def post_params
     params.require(:post).permit(:post_type,

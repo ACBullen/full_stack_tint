@@ -9,17 +9,18 @@ class Feed extends React.Component {
     super(props);
     this.updating = false;
     this.state = {posts: values(this.props.posts)}
-    $(window).scroll(function() {
-   if($(window).scrollTop() + $(window).height() > $(document).height() - 100 && !this.updating) {
-       console.log("near bottom!");
-       this.updating = true;
-       setTimeout(()=>{this.updating = false}, 2000)
-   }
-});
   }
 
   componentWillMount() {
-    this.props.getPosts()
+    const getMorePosts = this.props.getPosts.bind(this);
+    $(window).scroll(()=>{
+      if(($(window).scrollTop() + $(window).height() > $(document).height() - 100) && !this.updating) {
+        this.updating = true;
+        let fetchIdx = this.state.posts[this.state.posts.length - 1].id;
+        getMorePosts(fetchIdx).then(()=>{this.updating = false})
+      }
+    });
+    this.props.getPosts(0)
   }
 
   componentDidMount() {
@@ -56,7 +57,6 @@ class Feed extends React.Component {
 
   componentWillUnmount(){
     $(window).off("scroll")
-    console.log("goodbye");
   }
   render(){
     let currentFeed = this.state.posts.sort((a,b)=> b.id - a.id)

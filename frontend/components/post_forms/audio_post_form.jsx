@@ -74,7 +74,6 @@ class AudioPostForm extends React.Component {
   }
 
   render() {
-    console.log(this.state.media_link);
     return (
       <div id="PostForm" className="baseLozenge">
         {this.state.media_link === '' ? (

@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getPosts: ()=> dispatch(getPosts())
+  getPosts: (lastIdx)=> dispatch(getPosts(lastIdx))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);

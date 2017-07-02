@@ -50,8 +50,8 @@ export const createPost = post => dispatch => {
   )
 };
 
-export const getPosts = () => dispatch => {
-  return APIUtilP.fetchPosts().then(
+export const getPosts = (lastIdx) => dispatch => {
+  return APIUtilP.fetchPosts(lastIdx).then(
     (res) => {
       dispatch(receiveUsers(res.users))
       return dispatch(receivePosts(res.posts))
