@@ -16,8 +16,8 @@ class Feed extends React.Component {
     $(window).scroll(()=>{
       if(($(window).scrollTop() + $(window).height() > $(document).height() - 100) && !this.updating) {
         this.updating = true;
-        let fetchIdx = this.state.posts.length
-        getMorePosts(fetchIdx).then(()=>{this.updating = false})
+        let offset = this.state.posts.length
+        getMorePosts(offset).then(()=>{this.updating = false})
       }
     });
     this.props.getPosts(0)

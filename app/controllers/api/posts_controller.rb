@@ -4,7 +4,7 @@ class Api::PostsController < ApplicationController
     @posts = Post.all.includes(:user)
                   .order(created_at: :desc)
                   .limit(10)
-                  .offset(fetch_post_params[:last_idx])
+                  .offset(fetch_post_params[:offset])
     render :index
   end
 
@@ -51,7 +51,7 @@ class Api::PostsController < ApplicationController
   private
 
   def fetch_post_params
-    params.permit(:last_idx)
+    params.permit(:offset)
   end
 
   def post_params
