@@ -13,13 +13,18 @@ class Feed extends React.Component {
 
   componentWillMount() {
     const getMorePosts = this.props.getPosts.bind(this);
+    let timer;
+
     $(window).scroll(()=>{
-      if(($(window).scrollTop() + $(window).height() > $(document).height() - 100) && !this.updating) {
+      if(timer){
+        window.clearTimeout(timer);
+      }
+      timer = window.setTimeout(()=>{if(($(window).scrollTop() + $(window).height() > $(document).height() - 100) && !this.updating) {
         this.updating = true;
         let offset = this.state.posts.length
         getMorePosts(offset).then(()=>{this.updating = false})
       }
-    });
+    }, 100)});
     this.props.getPosts(0)
   }
 
