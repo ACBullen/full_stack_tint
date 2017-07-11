@@ -93,10 +93,10 @@
   height: 40px;
   width: 100%;
   text-align: center;
-}
-.fa-play-circle {
-  font-size: 30px;
-}
-.fa-play-circle:hover {
-  cursor: pointer;
+  .fa {
+    font-size: 30px;
+  }
+  .fa:hover{
+    cursor:pointer;
+  }
 }
